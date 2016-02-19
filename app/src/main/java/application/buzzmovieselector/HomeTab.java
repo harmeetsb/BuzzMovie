@@ -65,11 +65,7 @@ public class HomeTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView =  inflater.inflate(R.layout.fragment_home_tab, container, false);
-        Bundle args = getArguments();
-        ((TextView) rootView.findViewById(android.R.id.text1)).setText(
-                Integer.toString(args.getInt("hello")));
-        return rootView;
+        return inflater.inflate(R.layout.fragment_home_tab, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

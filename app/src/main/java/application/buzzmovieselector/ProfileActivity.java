@@ -1,70 +1,109 @@
 package application.buzzmovieselector;
 
-import android.content.Intent;
-import android.media.effect.Effect;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.app.ActionBar.Tab;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.app.ActionBar.TabListener;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Window;
+import android.support.v7.widget.Toolbar;
 
-import org.w3c.dom.Text;
+public class ProfileActivity extends AppCompatActivity implements ActionBar.TabListener {
+    MyAdapter adapter;
+    ViewPager mViewPager;
+    ActionBar actionBar;
 
-import Model.User;
-import Model.UserManager;
-
-/**
- * This class represents a ProfileActivity object
- * @author Harmeet S. Bindra
- * @version 1.0
- */
-public class ProfileActivity extends AppCompatActivity {
-    private User user;
-    private UserManager manager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        manager = new UserManager(this);
-        Intent intent = getIntent();
-       String userName =  intent.getStringExtra("userName");
-        user = manager.findUserById(userName);
-        displayUser();
+        setUpActionBar();
+
+        adapter = new MyAdapter(getSupportFragmentManager());
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(adapter);
+
+        mViewPager.setOnPageChangeListener(
+                new ViewPager.SimpleOnPageChangeListener() {
+                    @Override
+                    public void onPageSelected(int position) {
+                        // When swiping between pages, select the
+                        // corresponding tab.
+                        getActionBar().setSelectedNavigationItem(position);
+                    }
+                });
     }
 
-    private void displayUser() {
-        EditText e1 = (EditText) findViewById(R.id.editText);
-        String name = user.getName();
-        e1.setText(name);
-        EditText e2 = (EditText) findViewById(R.id.editText2);
-        e2.setText(user.getEmail());
-        TextView e3 = (TextView) findViewById(R.id.editText3);
-        e3.setText(user.getUserName());
+    private void setUpActionBar() {
+        actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        ActionBar.Tab tab1 = actionBar.newTab();
+        tab1.setText("Home");
+        tab1.setTabListener(this);
+
+        ActionBar.Tab tab2 = actionBar.newTab();
+        tab2.setText("Profile");
+        tab2.setTabListener(this);
+
+        ActionBar.Tab tab3 = actionBar.newTab();
+        tab3.setText("Movies");
+        tab3.setTabListener(this);
+
+        actionBar.addTab(tab1);
+        actionBar.addTab(tab2);
+        actionBar.addTab(tab3);
     }
-    /**
-     * Method to handle logout requests
-     * @param view View in which clear has been clicked
-     */
-    public void logout(View view) {
-        Intent intent = new Intent(this,WelcomeScreen.class);
-        startActivity(intent);
+
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction ft) {
+
     }
-    /**
-     * Method to handle edits that are made to user profile
-     * @param view View in which clear has been clicked
-     */
-    public void edit(View view) {
-        EditText e1 = (EditText) findViewById(R.id.editText);
-        String name = String.valueOf(e1.getText());
-        EditText e2 = (EditText) findViewById(R.id.editText2);
-        String email = String.valueOf(e2.getText());
-        TextView e3 = (TextView) findViewById(R.id.editText3);
-        user.setName(name);
-        user.setEmail(email);
-        CharSequence text = "Edit Sucessful";
-        Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-        toast.show();
-        manager.updateUser(user);
+
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction ft) {
+
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction ft) {
+
+    }
+}
+
+class MyAdapter extends FragmentPagerAdapter {
+
+    public MyAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        Fragment fragment = null;
+        if(position == 0) {
+            fragment = new HomeTab();
+        } else if(position == 1) {
+            fragment = new ProfileTab();
+        } else if(position == 2) {
+            fragment = new MovieTab();
+        }
+        return fragment;
+    }
+
+    @Override
+    public int getCount() {
+        return 3;
+    }
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return "OBJECT " + (position + 1);
     }
 }

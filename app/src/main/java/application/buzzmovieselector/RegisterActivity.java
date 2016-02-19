@@ -41,13 +41,11 @@ public class RegisterActivity extends AppCompatActivity {
         String email = em.getText().toString();
         String userName = un.getText().toString();
         String password = p.getText().toString();
-        boolean sucess;
-        boolean errorExist = false;
-
-        sucess = manager.addUser(name, password, email, userName,"",false, false);
+        String errorString = checkError(name, email, userName, password);
+        boolean sucess = manager.addUser(name, password, email, userName,"",false, false);
         CharSequence text = "";
 
-        if (sucess) {
+        if (sucess && error == null) {
             text = "Registration Sucessful";
             sucess = true;
         } else {
@@ -60,6 +58,17 @@ public class RegisterActivity extends AppCompatActivity {
             Intent intent = new Intent(this,LoginActivity.class);
             startActivity(intent);
         }
+    }
+
+    private String checkError(String name, String email, String userName, String password) {
+        // name check
+        for (int i = 0; i < name.length(); i++) {
+            if(!(name.charAt(i) >= 65 && name.charAt(i) <= 90)
+                    || !(name.charAt(i) >= 97 && name.charAt(i) <= 122)) {
+                return new String ("No special character allowed in name");
+            }
+        }
+        return null;
     }
 
     /**
