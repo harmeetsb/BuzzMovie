@@ -99,7 +99,7 @@
         android:text="Register"
         android:id="@+id/registerButton"
         android:onClick="onClickRegister"
-        android:layout_below="@id/passwordText" />
+        android:layout_below="@id/errorView" />
 
     <Button
         android:layout_width="fill_parent"
