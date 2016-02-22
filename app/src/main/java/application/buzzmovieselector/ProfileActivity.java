@@ -14,6 +14,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Window;
 import android.support.v7.widget.Toolbar;
 
@@ -26,21 +27,57 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        setUpActionBar();
 
         adapter = new MyAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(adapter);
 
+        actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        ActionBar.Tab tab1 = actionBar.newTab();
+        tab1.setText("Home");
+        tab1.setTabListener(this);
+
+        ActionBar.Tab tab2 = actionBar.newTab();
+        tab2.setText("Profile");
+        tab2.setTabListener(this);
+
+        ActionBar.Tab tab3 = actionBar.newTab();
+        tab3.setText("Movies");
+        tab3.setTabListener(this);
+
+        actionBar.addTab(tab1);
+        actionBar.addTab(tab2);
+        actionBar.addTab(tab3);
+        // reads page change from the tab
+        // basically syncing swiping with clicking tab
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                //actionBar.setSelectedNavigationItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                // when we swipe the screen, keeps track of the changes
+                // even tracks the number of pixels been scrolled
+            }
+        });
         mViewPager.setOnPageChangeListener(
                 new ViewPager.SimpleOnPageChangeListener() {
                     @Override
                     public void onPageSelected(int position) {
                         // When swiping between pages, select the
                         // corresponding tab.
-                        getActionBar().setSelectedNavigationItem(position);
+                        getSupportActionBar().setSelectedNavigationItem(position);
                     }
                 });
+
     }
 
     private void setUpActionBar() {
@@ -65,7 +102,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction ft) {
-
+        mViewPager.setCurrentItem(tab.getPosition());
     }
 
     @Override
@@ -90,9 +127,12 @@ class MyAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         if(position == 0) {
             fragment = new HomeTab();
+            Log.d("Home","");
         } else if(position == 1) {
+            Log.d("Profile","");
             fragment = new ProfileTab();
         } else if(position == 2) {
+            Log.d("Movie","");
             fragment = new MovieTab();
         }
         return fragment;

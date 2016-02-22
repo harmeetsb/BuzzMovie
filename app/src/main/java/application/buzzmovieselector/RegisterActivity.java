@@ -36,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         EditText un = (EditText) findViewById(R.id.usernameText);
         EditText p = (EditText) findViewById(R.id.passwordText);
         TextView error = (TextView) findViewById(R.id.errorView);
+        error.setText("");
         String name = n.getText().toString();
         String email = em.getText().toString();
         String userName = un.getText().toString();
@@ -48,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         CharSequence text = "";
 
-        if (registered && error == null) {
+        if (registered) {
             text = "Registration Sucessful";
         } else {
             text = "Failed Try again";
@@ -66,14 +67,20 @@ public class RegisterActivity extends AppCompatActivity {
 
     private String checkError(String name, String email, String userName, String password) {
         // name check
+        if(name.isEmpty() || email.isEmpty() || userName.isEmpty() || password.isEmpty()) {
+            return "No fields can be left blank";
+        }
         for (int i = 0; i < name.length(); i++) {
-            if(!(name.charAt(i) >= 65 && name.charAt(i) <= 90)
-                    || !(name.charAt(i) >= 97 && name.charAt(i) <= 122)) {
-                return new String ("No special character allowed in name");
+            if(name.charAt(i) < 65 || (name.charAt(i) > 90 && name.charAt(i) < 97)
+                    || (name.charAt(i) > 122)) {
+                return "No special character allowed in name";
             }
         }
         if(!email.contains("@gatech.edu")) {
-            return new String("only @gatech.edu allowed");
+            return "only @gatech.edu allowed";
+        }
+        if(manager.findUserById(userName) != null) {
+            return "This username has been taken";
         }
         return null;
     }
