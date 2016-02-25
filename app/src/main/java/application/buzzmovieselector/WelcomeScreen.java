@@ -1,5 +1,6 @@
 package application.buzzmovieselector;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,10 +15,11 @@ import android.view.View;
  * @version 1.0
  */
 public class WelcomeScreen extends AppCompatActivity {
-
+    private static WelcomeScreen instance = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = this;
         setContentView(R.layout.activity_welcome_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -46,5 +48,9 @@ public class WelcomeScreen extends AppCompatActivity {
     public void onClickRegister(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
+    }
+
+    public static Context getAppContext() {
+        return instance.getApplicationContext();
     }
 }

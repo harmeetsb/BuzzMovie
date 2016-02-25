@@ -1,13 +1,9 @@
 package Model;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import application.buzzmovieselector.DatabaseHelper;
 
 /**
  * This class represents a UserManager object

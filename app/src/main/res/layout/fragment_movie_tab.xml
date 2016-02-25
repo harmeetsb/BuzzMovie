@@ -48,5 +48,14 @@
         android:layout_marginEnd="68dp"
         android:onClick="onClickDvdSearch"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/searchText"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

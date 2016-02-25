@@ -1,5 +1,7 @@
 package application.buzzmovieselector;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -15,18 +17,43 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.support.v7.widget.Toolbar;
+import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import Model.Movie;
 
 public class ProfileActivity extends AppCompatActivity implements ActionBar.TabListener {
     MyAdapter adapter;
     ViewPager mViewPager;
     ActionBar actionBar;
+    private String movieName;
+    private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
+    private int MOVIE_PAGE_LIMIT = 5;
+    private String response;
+    private RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        queue = Volley.newRequestQueue(this);  // request queue for volley
 
         adapter = new MyAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -114,9 +141,79 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
     public void onTabReselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction ft) {
 
     }
+
+    // for movie tab
+    public void onClickDvdSearch(View view) {
+
+    }
+
+    // for movie tab
+    public void onClickMovieSearch(View view) {
+        String movieName = getMovieName();
+        String url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey="+API_KEY+"&q="+movieName+"&page_limit="+MOVIE_PAGE_LIMIT;
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject resp) {
+                        response = resp.toString();
+                        JSONObject obj1 = null;
+                        try {
+                            obj1 = new JSONObject(response);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        JSONArray array = obj1.optJSONArray("movies");
+                        ArrayList<Movie> movies = new ArrayList<>();
+                        for(int i = 0; i < array.length(); i++) {
+                            try {
+                                JSONObject jsonObject = array.getJSONObject(i);
+                                Movie movie = new Movie();
+                                movie.setName(jsonObject.optString("title"));
+                                movie.setYear(jsonObject.optInt("year"));
+                                movies.add(movie);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        changeView(movies);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        response = "JSon Request Failed!!";
+                        Toast.makeText(getContext(),"Error", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        //this actually queues up the async response with Volley
+        queue.add(jsObjRequest);
+    }
+    public Context getContext(){
+        return this;
+    }
+    /**
+     * This method changes to our new list view of the states, but we have to pass the
+     * state array into the intent so the new screen gets the data.
+     *
+     * @param movies the list of list of movie objects we created from the JSon response
+     */
+    private void changeView(ArrayList<Movie> movies) {
+        Intent intent = new Intent(this, ItemListActivity.class);
+        //this is where we save the info.  note the State object must be Serializable
+        intent.putExtra("movies", movies);
+        startActivity(intent);
+    }
+
+    private String getMovieName() {
+        SearchView searchBox = (SearchView) findViewById(R.id.searchView);
+        return String.valueOf(searchBox.getQuery());
+    }
+
+    private void requestMovie() {
+
+    }
 }
 
-class MyAdapter extends FragmentPagerAdapter {
+    class MyAdapter extends FragmentPagerAdapter {
 
     public MyAdapter(FragmentManager fm) {
         super(fm);
@@ -146,4 +243,4 @@ class MyAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return "OBJECT " + (position + 1);
     }
-}
+    }
