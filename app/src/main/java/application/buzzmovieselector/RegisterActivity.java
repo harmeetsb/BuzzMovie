@@ -31,35 +31,58 @@ public class RegisterActivity extends AppCompatActivity {
      * @param view View in which register has been clicked
      */
     public void onClickRegister(View view) {
-
         EditText n = (EditText) findViewById(R.id.nameText);
         EditText em = (EditText) findViewById(R.id.emailText);
         EditText un = (EditText) findViewById(R.id.usernameText);
         EditText p = (EditText) findViewById(R.id.passwordText);
         TextView error = (TextView) findViewById(R.id.errorView);
+        error.setText("");
         String name = n.getText().toString();
         String email = em.getText().toString();
         String userName = un.getText().toString();
         String password = p.getText().toString();
-        boolean sucess;
-        boolean errorExist = false;
-
-        sucess = manager.addUser(name, password, email, userName,"",false, false);
+        String errorString = checkError(name, email, userName, password);
+        boolean registered = false;
+        // if there is no error, then only register the user
+        if(errorString == null) {
+            registered = manager.addUser(name, password, email, userName, "", false, false);
+        }
         CharSequence text = "";
 
-        if (sucess) {
+        if (registered) {
             text = "Registration Sucessful";
-            sucess = true;
         } else {
             text = "Failed Try again";
+            error.setText(errorString);
         }
 
         Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
         toast.show();
-        if(sucess) {
+
+        if(registered) {
             Intent intent = new Intent(this,LoginActivity.class);
             startActivity(intent);
         }
+    }
+
+    private String checkError(String name, String email, String userName, String password) {
+        // name check
+        if(name.isEmpty() || email.isEmpty() || userName.isEmpty() || password.isEmpty()) {
+            return "No fields can be left blank";
+        }
+        for (int i = 0; i < name.length(); i++) {
+            if(name.charAt(i) < 65 || (name.charAt(i) > 90 && name.charAt(i) < 97)
+                    || (name.charAt(i) > 122)) {
+                return "No special character allowed in name";
+            }
+        }
+        if(!email.contains("@gatech.edu")) {
+            return "only @gatech.edu allowed";
+        }
+        if(manager.findUserById(userName) != null) {
+            return "This username has been taken";
+        }
+        return null;
     }
 
     /**
@@ -75,13 +98,18 @@ public class RegisterActivity extends AppCompatActivity {
      * @param view View in which clear has been clicked
      */
     public void onClickClear(View view) {
+        clearFields();
+    }
+    private void clearFields() {
         EditText n = (EditText) findViewById(R.id.nameText);
         EditText em = (EditText) findViewById(R.id.emailText);
         EditText un = (EditText) findViewById(R.id.usernameText);
         EditText p = (EditText) findViewById(R.id.passwordText);
+        TextView e = (TextView) findViewById(R.id.errorView);
         n.setText("");
         em.setText("");
         un.setText("");
         p.setText("");
+        e.setText("");
     }
 }
