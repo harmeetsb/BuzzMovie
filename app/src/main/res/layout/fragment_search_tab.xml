@@ -35,27 +35,6 @@
         android:id="@+id/movieButton"
         android:layout_below="@+id/searchView"
         android:onClick="onClickMovieSearch"
-        android:layout_toStartOf="@+id/dvdButton" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search DVD"
-        android:id="@+id/dvdButton"
-        android:paddingStart="5dp"
-        android:layout_below="@+id/searchView"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="68dp"
-        android:onClick="onClickDvdSearch"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/searchText"
         android:layout_centerHorizontal="true" />
-
 
 </RelativeLayout>

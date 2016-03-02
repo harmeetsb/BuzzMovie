@@ -1,9 +1,11 @@
-package Model;
+package application.buzzmovieselector.Model;
 
 import android.content.Context;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import data.DatabaseHelper;
 
 /**
  * This class represents a UserManager object

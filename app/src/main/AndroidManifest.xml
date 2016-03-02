@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -21,19 +21,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".WelcomeScreen"
+            android:name=".Activity.WelcomeScreen"
             android:label="@string/title_activity_welcome_screen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Activity.RegisterActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".Activity.ProfileActivity"
             android:label="Profile"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
-            android:name=".ItemListActivity"
+            android:name=".Activity.ItemListActivity"
             android:label="@string/title_activity_item_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

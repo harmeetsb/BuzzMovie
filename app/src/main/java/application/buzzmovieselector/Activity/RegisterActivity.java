@@ -1,4 +1,4 @@
-package application.buzzmovieselector;
+package application.buzzmovieselector.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Model.DatabaseHelper;
-import Model.UserManager;
+import application.buzzmovieselector.R;
+import data.DatabaseHelper;
+import application.buzzmovieselector.Model.UserManager;
 
 /**
  * This class represents a RegisterActivity object
@@ -59,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
         toast.show();
 
         if(registered) {
-            Intent intent = new Intent(this,LoginActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
     }

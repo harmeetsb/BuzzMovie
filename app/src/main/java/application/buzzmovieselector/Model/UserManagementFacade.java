@@ -1,4 +1,4 @@
-package Model;
+package application.buzzmovieselector.Model;
 
 /**
  * This class represents a generic UserManagementFacade

@@ -1,4 +1,4 @@
-package Model;
+package application.buzzmovieselector.Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;

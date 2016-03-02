@@ -1,4 +1,4 @@
-package application.buzzmovieselector;
+package application.buzzmovieselector.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,20 +8,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.app.ActionBar.Tab;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.app.ActionBar.TabListener;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.support.v7.widget.Toolbar;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -37,23 +26,28 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import Model.Movie;
+import application.buzzmovieselector.Fragments.ProfileTab;
+import application.buzzmovieselector.Fragments.RecentMovieTab;
+import application.buzzmovieselector.Fragments.SearchTab;
+import application.buzzmovieselector.Model.Movie;
+import application.buzzmovieselector.R;
+import application.buzzmovieselector.Service.VolleySingleton;
 
 public class ProfileActivity extends AppCompatActivity implements ActionBar.TabListener {
     MyAdapter adapter;
     ViewPager mViewPager;
     ActionBar actionBar;
-    private String movieName;
     private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
-    private int MOVIE_PAGE_LIMIT = 5;
+    private int MOVIE_PAGE_LIMIT = 10;
     private String response;
+    VolleySingleton volleyInstance;
     private RequestQueue queue;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        queue = Volley.newRequestQueue(this);  // request queue for volley
+        volleyInstance = VolleySingleton.getInstance();
+        queue = volleyInstance.getmRequestQueue();  // request queue for volley
 
         adapter = new MyAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -62,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar.Tab tab1 = actionBar.newTab();
-        tab1.setText("Home");
+        tab1.setText("Recent");
         tab1.setTabListener(this);
 
         ActionBar.Tab tab2 = actionBar.newTab();
@@ -70,7 +64,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
         tab2.setTabListener(this);
 
         ActionBar.Tab tab3 = actionBar.newTab();
-        tab3.setText("Movies");
+        tab3.setText("Search");
         tab3.setTabListener(this);
 
         actionBar.addTab(tab1);
@@ -111,7 +105,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar.Tab tab1 = actionBar.newTab();
-        tab1.setText("Home");
+        tab1.setText("Recent");
         tab1.setTabListener(this);
 
         ActionBar.Tab tab2 = actionBar.newTab();
@@ -144,13 +138,48 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
 
     // for movie tab
     public void onClickDvdSearch(View view) {
-
+        String movieName = getMovieName();
+        if(movieName.isEmpty() || movieName == null) {
+            Toast.makeText(this, "invalid movie name", Toast.LENGTH_SHORT).show();
+        } else {
+            String url = "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/current_releases.json?apikey="+API_KEY+"&page_limit="+MOVIE_PAGE_LIMIT;
+            requestMovie(url);
+        }
     }
 
     // for movie tab
     public void onClickMovieSearch(View view) {
         String movieName = getMovieName();
-        String url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey="+API_KEY+"&q="+movieName+"&page_limit="+MOVIE_PAGE_LIMIT;
+        if(movieName.isEmpty() || movieName == null) {
+            Toast.makeText(this, "invalid movie name", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            String url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" + API_KEY + "&q=" + movieName + "&page_limit=" + MOVIE_PAGE_LIMIT;
+            requestMovie(url);
+        }
+    }
+    public Context getContext(){
+        return this;
+    }
+    /**
+     * This method changes to our new list view of the states, but we have to pass the
+     * state array into the intent so the new screen gets the data.
+     *
+     * @param movies the list of list of movie objects we created from the JSon response
+     */
+    private void changeView(ArrayList<Movie> movies) {
+        Intent intent = new Intent(this, ItemListActivity.class);
+        //this is where we save the info.  note the State object must be Serializable
+        intent.putExtra("movies", movies);
+        startActivity(intent);
+    }
+
+    private String getMovieName() {
+        SearchView searchBox = (SearchView) findViewById(R.id.searchView);
+        return String.valueOf(searchBox.getQuery());
+    }
+
+    private void requestMovie(String url) {
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, new Response.Listener<JSONObject>() {
                     @Override
@@ -187,30 +216,6 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
         //this actually queues up the async response with Volley
         queue.add(jsObjRequest);
     }
-    public Context getContext(){
-        return this;
-    }
-    /**
-     * This method changes to our new list view of the states, but we have to pass the
-     * state array into the intent so the new screen gets the data.
-     *
-     * @param movies the list of list of movie objects we created from the JSon response
-     */
-    private void changeView(ArrayList<Movie> movies) {
-        Intent intent = new Intent(this, ItemListActivity.class);
-        //this is where we save the info.  note the State object must be Serializable
-        intent.putExtra("movies", movies);
-        startActivity(intent);
-    }
-
-    private String getMovieName() {
-        SearchView searchBox = (SearchView) findViewById(R.id.searchView);
-        return String.valueOf(searchBox.getQuery());
-    }
-
-    private void requestMovie() {
-
-    }
 }
 
     class MyAdapter extends FragmentPagerAdapter {
@@ -223,14 +228,11 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
     public Fragment getItem(int position) {
         Fragment fragment = null;
         if(position == 0) {
-            fragment = new HomeTab();
-            Log.d("Home","");
+            fragment = new RecentMovieTab();
         } else if(position == 1) {
-            Log.d("Profile","");
             fragment = new ProfileTab();
         } else if(position == 2) {
-            Log.d("Movie","");
-            fragment = new MovieTab();
+            fragment = new SearchTab();
         }
         return fragment;
     }

@@ -1,8 +1,6 @@
-package application.buzzmovieselector;
+package application.buzzmovieselector.Activity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,11 +12,11 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import Model.User;
-import Model.UserManager;
+import application.buzzmovieselector.Model.UserManager;
+import application.buzzmovieselector.R;
 
 /**
- * This class represents a Login Activity object
+ * This class represents a Login application.buzzmovieselector.Activity object
  * @author Harmeet S. Bindra
  * @version 1.0
  */
