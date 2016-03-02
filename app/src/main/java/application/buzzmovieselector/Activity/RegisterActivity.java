@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import application.buzzmovieselector.R;
-import data.DatabaseHelper;
+import application.buzzmovieselector.data.DatabaseHelper;
 import application.buzzmovieselector.Model.UserManager;
 
 /**

@@ -1,4 +1,4 @@
-package data;
+package application.buzzmovieselector.data;
 
 import android.content.ContentValues;
 import android.content.Context;

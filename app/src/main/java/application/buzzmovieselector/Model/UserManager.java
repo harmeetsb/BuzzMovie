@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.HashMap;
 import java.util.Map;
 
-import data.DatabaseHelper;
+import application.buzzmovieselector.data.DatabaseHelper;
 
 /**
  * This class represents a UserManager object

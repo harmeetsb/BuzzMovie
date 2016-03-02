@@ -18,23 +18,18 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import application.buzzmovieselector.Fragments.ProfileTab;
-import application.buzzmovieselector.Fragments.RecentMovieTab;
-import application.buzzmovieselector.Fragments.SearchTab;
 import application.buzzmovieselector.Model.Movie;
 import application.buzzmovieselector.R;
 import application.buzzmovieselector.Service.VolleySingleton;
+import application.buzzmovieselector.ui.TabListAdapter;
 
 public class ProfileActivity extends AppCompatActivity implements ActionBar.TabListener {
-    MyAdapter adapter;
+    TabListAdapter adapter;
     ViewPager mViewPager;
     ActionBar actionBar;
     private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
@@ -42,6 +37,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
     private String response;
     VolleySingleton volleyInstance;
     private RequestQueue queue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,27 +45,32 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
         volleyInstance = VolleySingleton.getInstance();
         queue = volleyInstance.getmRequestQueue();  // request queue for volley
 
-        adapter = new MyAdapter(getSupportFragmentManager());
+        adapter = new TabListAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(adapter);
 
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar.Tab tab1 = actionBar.newTab();
-        tab1.setText("Recent");
+        tab1.setText("Movies");
         tab1.setTabListener(this);
 
         ActionBar.Tab tab2 = actionBar.newTab();
-        tab2.setText("Profile");
+        tab2.setText("DVDs");
         tab2.setTabListener(this);
 
         ActionBar.Tab tab3 = actionBar.newTab();
-        tab3.setText("Search");
+        tab3.setText("Profile");
         tab3.setTabListener(this);
+
+        ActionBar.Tab tab4 = actionBar.newTab();
+        tab4.setText("Search");
+        tab4.setTabListener(this);
 
         actionBar.addTab(tab1);
         actionBar.addTab(tab2);
         actionBar.addTab(tab3);
+        actionBar.addTab(tab4);
         // reads page change from the tab
         // basically syncing swiping with clicking tab
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -99,26 +100,6 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
                     }
                 });
 
-    }
-
-    private void setUpActionBar() {
-        actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        ActionBar.Tab tab1 = actionBar.newTab();
-        tab1.setText("Recent");
-        tab1.setTabListener(this);
-
-        ActionBar.Tab tab2 = actionBar.newTab();
-        tab2.setText("Profile");
-        tab2.setTabListener(this);
-
-        ActionBar.Tab tab3 = actionBar.newTab();
-        tab3.setText("Movies");
-        tab3.setTabListener(this);
-
-        actionBar.addTab(tab1);
-        actionBar.addTab(tab2);
-        actionBar.addTab(tab3);
     }
 
     @Override
@@ -163,7 +144,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
     }
     /**
      * This method changes to our new list view of the states, but we have to pass the
-     * state array into the intent so the new screen gets the data.
+     * state array into the intent so the new screen gets the application.buzzmovieselector.data.
      *
      * @param movies the list of list of movie objects we created from the JSon response
      */
@@ -217,32 +198,3 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
         queue.add(jsObjRequest);
     }
 }
-
-    class MyAdapter extends FragmentPagerAdapter {
-
-    public MyAdapter(FragmentManager fm) {
-        super(fm);
-    }
-
-    @Override
-    public Fragment getItem(int position) {
-        Fragment fragment = null;
-        if(position == 0) {
-            fragment = new RecentMovieTab();
-        } else if(position == 1) {
-            fragment = new ProfileTab();
-        } else if(position == 2) {
-            fragment = new SearchTab();
-        }
-        return fragment;
-    }
-
-    @Override
-    public int getCount() {
-        return 3;
-    }
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return "OBJECT " + (position + 1);
-    }
-    }

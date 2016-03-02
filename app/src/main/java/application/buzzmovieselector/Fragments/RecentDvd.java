@@ -1,5 +1,8 @@
 package application.buzzmovieselector.Fragments;
 
+import android.app.ListFragment;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TabHost;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -26,8 +28,7 @@ import application.buzzmovieselector.Model.Movie;
 import application.buzzmovieselector.R;
 import application.buzzmovieselector.Service.VolleySingleton;
 
-
-public class RecentMovieTab extends Fragment {
+public class RecentDvd extends Fragment {
     ArrayList<String> movies = new ArrayList<>();
     private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
     private int MOVIE_PAGE_LIMIT = 5;
@@ -37,16 +38,17 @@ public class RecentMovieTab extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_recent_movie_tab, container, false);
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_recent_dvd, container, false);
         listView = (ListView)rootView.findViewById(R.id.list);
         queue = VolleySingleton.getInstance().getmRequestQueue();
         recentDvd();
+
         ArrayAdapter<String> resultListAdapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1,
                 movies);
@@ -54,7 +56,7 @@ public class RecentMovieTab extends Fragment {
         return rootView;
     }
     private void recentDvd() {
-        String url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey="+API_KEY+"&page_limit="+MOVIE_PAGE_LIMIT;
+        String url = "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/new_releases.json?apikey="+API_KEY+"&page_limit="+MOVIE_PAGE_LIMIT;
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, new Response.Listener<JSONObject>() {
                     @Override
