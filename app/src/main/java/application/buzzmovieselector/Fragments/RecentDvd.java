@@ -8,8 +8,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,13 +32,16 @@ import application.buzzmovieselector.Model.Movie;
 import application.buzzmovieselector.R;
 import application.buzzmovieselector.Service.VolleySingleton;
 
-public class RecentDvd extends Fragment {
+public class RecentDvd extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
     ArrayList<String> movies = new ArrayList<>();
     private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
     private int MOVIE_PAGE_LIMIT = 5;
     private String response;
     private RequestQueue queue;
     private ListView listView;
+    private View rootView;
+    private ArrayAdapter<String> resultListAdapter;
+    private Button updateButton;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,15 +51,17 @@ public class RecentDvd extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_recent_dvd, container, false);
+        rootView = inflater.inflate(R.layout.fragment_recent_dvd, container, false);
         listView = (ListView)rootView.findViewById(R.id.list);
+        updateButton = (Button) rootView.findViewById(R.id.updateButton);
+        updateButton.setOnClickListener(this);
         queue = VolleySingleton.getInstance().getmRequestQueue();
         recentDvd();
-
-        ArrayAdapter<String> resultListAdapter = new ArrayAdapter<String>(getActivity(),
+        resultListAdapter = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_list_item_1,
                 movies);
         listView.setAdapter(resultListAdapter);
+
         return rootView;
     }
     private void recentDvd() {
@@ -70,18 +79,20 @@ public class RecentDvd extends Fragment {
                         }
                         JSONArray array = obj1.optJSONArray("movies");
                         ArrayList<String> dvd = new ArrayList<>();
+                        Movie movie = null;
                         for(int i = 0; i < array.length(); i++) {
                             try {
                                 JSONObject jsonObject = array.getJSONObject(i);
-                                Movie movie = new Movie();
+                                movie = new Movie();
                                 movie.setName(jsonObject.optString("title"));
                                 movie.setYear(jsonObject.optInt("year"));
                                 dvd.add(movie.getName());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
+                            movies.add(movie.getName());
                         }
-                        populateArray(dvd);
+                        //populateArray(dvd);
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -97,4 +108,23 @@ public class RecentDvd extends Fragment {
     public void populateArray(ArrayList<String> m) {
         this.movies = m;
     }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String selected = String.valueOf(listView.getItemAtPosition(position));
+        Toast.makeText(getActivity(), "Item"+selected, Toast.LENGTH_SHORT).show();
+    }
+    public void onClick(View view) {
+        switch(view.getId())// on run time get id what button os click and get id
+        {
+            case R.id.updateButton:        // it mean if button1 click then this work
+                recentDvd();
+                resultListAdapter = new ArrayAdapter<String>(getActivity(),
+                        android.R.layout.simple_list_item_1,
+                        movies);
+                listView.setAdapter(resultListAdapter);
+                break;
+        }
+    }
+
 }

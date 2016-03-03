@@ -1,10 +1,12 @@
 package application.buzzmovieselector.Fragments;
 
+import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -21,6 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import application.buzzmovieselector.Model.Movie;
 import application.buzzmovieselector.R;
@@ -34,16 +37,15 @@ public class RecentMovieTab extends Fragment {
     private String response;
     private RequestQueue queue;
     private ListView listView;
+    private View rootView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_recent_movie_tab, container, false);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         listView = (ListView)rootView.findViewById(R.id.list);
         queue = VolleySingleton.getInstance().getmRequestQueue();
         recentDvd();
@@ -51,6 +53,13 @@ public class RecentMovieTab extends Fragment {
                 android.R.layout.simple_list_item_1,
                 movies);
         listView.setAdapter(resultListAdapter);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        rootView = inflater.inflate(R.layout.fragment_recent_movie_tab, container, false);
         return rootView;
     }
     private void recentDvd() {
@@ -67,19 +76,19 @@ public class RecentMovieTab extends Fragment {
                             e.printStackTrace();
                         }
                         JSONArray array = obj1.optJSONArray("movies");
-                        ArrayList<String> dvd = new ArrayList<>();
+                        ArrayList<String> m = new ArrayList<>();
                         for(int i = 0; i < array.length(); i++) {
                             try {
                                 JSONObject jsonObject = array.getJSONObject(i);
                                 Movie movie = new Movie();
                                 movie.setName(jsonObject.optString("title"));
                                 movie.setYear(jsonObject.optInt("year"));
-                                dvd.add(movie.getName());
+                                m.add(movie.getName());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-                        populateArray(dvd);
+                        populateArray(m);
                     }
                 }, new Response.ErrorListener() {
                     @Override

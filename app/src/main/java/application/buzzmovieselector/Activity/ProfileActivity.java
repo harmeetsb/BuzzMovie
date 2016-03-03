@@ -52,19 +52,19 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar.Tab tab1 = actionBar.newTab();
-        tab1.setText("Movies");
+        tab1.setText("Search");
         tab1.setTabListener(this);
 
         ActionBar.Tab tab2 = actionBar.newTab();
-        tab2.setText("DVDs");
+        tab2.setText("Profile");
         tab2.setTabListener(this);
 
         ActionBar.Tab tab3 = actionBar.newTab();
-        tab3.setText("Profile");
+        tab3.setText("Movies");
         tab3.setTabListener(this);
 
         ActionBar.Tab tab4 = actionBar.newTab();
-        tab4.setText("Search");
+        tab4.setText("DVDs");
         tab4.setTabListener(this);
 
         actionBar.addTab(tab1);
@@ -81,7 +81,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
 
             @Override
             public void onPageSelected(int position) {
-                //actionBar.setSelectedNavigationItem(position);
+                actionBar.setSelectedNavigationItem(position);
             }
 
             @Override
@@ -115,17 +115,6 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
     @Override
     public void onTabReselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction ft) {
 
-    }
-
-    // for movie tab
-    public void onClickDvdSearch(View view) {
-        String movieName = getMovieName();
-        if(movieName.isEmpty() || movieName == null) {
-            Toast.makeText(this, "invalid movie name", Toast.LENGTH_SHORT).show();
-        } else {
-            String url = "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/current_releases.json?apikey="+API_KEY+"&page_limit="+MOVIE_PAGE_LIMIT;
-            requestMovie(url);
-        }
     }
 
     // for movie tab
@@ -180,6 +169,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
                                 Movie movie = new Movie();
                                 movie.setName(jsonObject.optString("title"));
                                 movie.setYear(jsonObject.optInt("year"));
+                                movie.setId(jsonObject.optInt("id"));
                                 movies.add(movie);
                             } catch (JSONException e) {
                                 e.printStackTrace();

@@ -10,6 +10,17 @@ import java.io.Serializable;
 public class Movie implements Serializable {
     private String name;
     private int year;
+    private int id;
+    private int rating;
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
     /**
      * Method to return the movie release year
      * @return year
@@ -37,6 +48,13 @@ public class Movie implements Serializable {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
     }
     @Override
     public String toString() {
