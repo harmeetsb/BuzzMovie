@@ -37,10 +37,11 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
     private String response;
     VolleySingleton volleyInstance;
     private RequestQueue queue;
-
+    private ArrayList<String> searchMovies;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        searchMovies = new ArrayList<>();
         setContentView(R.layout.activity_profile);
         volleyInstance = VolleySingleton.getInstance();
         queue = volleyInstance.getmRequestQueue();  // request queue for volley
@@ -126,6 +127,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
         else {
             String url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" + API_KEY + "&q=" + movieName + "&page_limit=" + MOVIE_PAGE_LIMIT;
             requestMovie(url);
+           // changeView(searchMovies);
         }
     }
     public Context getContext(){
@@ -137,7 +139,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
      *
      * @param movies the list of list of movie objects we created from the JSon response
      */
-    private void changeView(ArrayList<Movie> movies) {
+    private void changeView(ArrayList<String> movies) {
         Intent intent = new Intent(this, ItemListActivity.class);
         //this is where we save the info.  note the State object must be Serializable
         intent.putExtra("movies", movies);
@@ -162,7 +164,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
                             e.printStackTrace();
                         }
                         JSONArray array = obj1.optJSONArray("movies");
-                        ArrayList<Movie> movies = new ArrayList<>();
+                        ArrayList<String> movies = new ArrayList<>();
                         for(int i = 0; i < array.length(); i++) {
                             try {
                                 JSONObject jsonObject = array.getJSONObject(i);
@@ -170,12 +172,13 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
                                 movie.setName(jsonObject.optString("title"));
                                 movie.setYear(jsonObject.optInt("year"));
                                 movie.setId(jsonObject.optInt("id"));
-                                movies.add(movie);
+                                movies.add(movie.getName());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-                        changeView(movies);
+                        populateArray(movies);
+                        //changeView(movies);
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -186,5 +189,10 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
                 });
         //this actually queues up the async response with Volley
         queue.add(jsObjRequest);
+    }
+
+    private void populateArray(ArrayList<String> movies) {
+        searchMovies = movies;
+        changeView(movies);
     }
 }

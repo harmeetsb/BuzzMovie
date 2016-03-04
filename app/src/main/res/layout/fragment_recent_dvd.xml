@@ -13,13 +13,12 @@
         android:layout_alignParentTop="true"
         android:focusable="false" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update"
-        android:id="@+id/updateButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickUpdate"/>
+        android:text=""
+        android:id="@+id/textView2"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

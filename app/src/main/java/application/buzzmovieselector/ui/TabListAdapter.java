@@ -1,0 +1,46 @@
+package application.buzzmovieselector.ui;
+
+import android.support.v4.app.ListFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+
+import application.buzzmovieselector.Fragments.ProfileTab;
+import application.buzzmovieselector.Fragments.RecentDvd;
+import application.buzzmovieselector.Fragments.RecentMovieTab;
+import application.buzzmovieselector.Fragments.SearchTab;
+
+/**
+ * Created by harmeetbindra on 3/1/16.
+ */
+public class TabListAdapter extends FragmentPagerAdapter {
+
+    public TabListAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        Fragment fragment = null;
+        if(position == 0) {
+            fragment = new SearchTab();
+        } else if(position == 1) {
+            fragment = new ProfileTab();
+        }
+        else if(position == 2) {
+            fragment = new RecentMovieTab();
+        } else if(position == 3) {
+            fragment = new RecentDvd();
+        }
+        return fragment;
+    }
+
+    @Override
+    public int getCount() {
+        return 4;
+    }
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return "OBJECT " + (position + 1);
+    }
+}

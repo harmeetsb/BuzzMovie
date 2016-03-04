@@ -38,6 +38,9 @@ public class RecentMovieTab extends Fragment {
     private RequestQueue queue;
     private ListView listView;
     private View rootView;
+    public RecentMovieTab() {
+
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +52,6 @@ public class RecentMovieTab extends Fragment {
         listView = (ListView)rootView.findViewById(R.id.list);
         queue = VolleySingleton.getInstance().getmRequestQueue();
         recentDvd();
-        ArrayAdapter<String> resultListAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1,
-                movies);
-        listView.setAdapter(resultListAdapter);
-
     }
 
     @Override
@@ -88,7 +86,10 @@ public class RecentMovieTab extends Fragment {
                                 e.printStackTrace();
                             }
                         }
-                        populateArray(m);
+                        ArrayAdapter<String> resultListAdapter = new ArrayAdapter<String>(getActivity(),
+                                android.R.layout.simple_list_item_1,
+                                m);
+                        listView.setAdapter(resultListAdapter);
                     }
                 }, new Response.ErrorListener() {
                     @Override

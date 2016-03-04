@@ -19,8 +19,8 @@ private ListView movieList;
         setContentView(R.layout.activity_item_list);
         movieList = (ListView) findViewById(R.id.movieList);
         Intent intent = getIntent();
-        ArrayList<Movie> resultList = (ArrayList<Movie>) intent.getSerializableExtra("movies");
-        ArrayAdapter<Movie> resultListAdapter = new ArrayAdapter<Movie>(this,
+        ArrayList<String> resultList = (ArrayList<String>) intent.getSerializableExtra("movies");
+        ArrayAdapter<String> resultListAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,
                 resultList);
         movieList.setAdapter(resultListAdapter);
