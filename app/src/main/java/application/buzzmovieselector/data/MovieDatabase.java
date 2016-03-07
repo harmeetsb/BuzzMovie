@@ -2,6 +2,7 @@ package application.buzzmovieselector.data;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -19,6 +20,10 @@ public class MovieDatabase extends SQLiteOpenHelper {
     private static final String movieName = "Movie_Name";
     private static final String comments = "Comments";
     private static final String ratings = "Ratings";
+    private static final String movieUrl = "URL";
+    private static final String date = "Date";
+    private static final String mppaRating = "Mpaa_Rating";
+    private static final String runtime = "Runtime";
     SQLiteDatabase db;
     MovieDatabase helper;
     private Context context;
@@ -33,7 +38,8 @@ public class MovieDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE "+DB_NAME+"("+movieId+ " INTEGER PRIMARY KEY, "+movieName+" TEXT, "+comments+" TEXT, "+ratings+" INTEGER);";
+        String query = "CREATE TABLE "+DB_NAME+"("+movieId+ " INTEGER PRIMARY KEY, "+movieName+" TEXT, "+comments+" TEXT, "+ratings+" FLOAT, "
+                +movieUrl+" TEXT, "+date+" TEXT, "+mppaRating+" TEXT,"+runtime+" INTEGER);";
         try {
             db.execSQL(query);
         } catch (SQLException e) {
@@ -58,8 +64,53 @@ public class MovieDatabase extends SQLiteOpenHelper {
         userValues.put(movieId, movie.getId());
         userValues.put(movieName, movie.getName());
         userValues.put(ratings, movie.getRating());
+        userValues.put(movieUrl, movie.getImageUrl());
+        userValues.put(date, movie.getReleaseDate().toString());
+        userValues.put(mppaRating,movie.getMpaaRating());
+        userValues.put(runtime, movie.getRunTime());
         long id = db.insert(DB_NAME, null, userValues);
         db.close();
         return id;
+    }
+
+    public Movie findUser(int id) {
+        db = this.getReadableDatabase();
+        //String query = "SELECT "+movieId+", "+movieName+", "+comments+", "+ratings+", "+
+        //        movieUrl+", "+date+", "+mppaRating+", "+runtime+" FROM "+DB_NAME;
+        String query = "SELECT * FROM MOVIES";
+        Cursor cursor = db.rawQuery(query, null);
+        String name = null;
+        String url = null;
+        String mDate = null;
+        String mpRating = null;
+        int runT = 0;
+        int rating = 0;
+        int mId = 0;
+        Movie movie = null;
+        if(cursor.moveToFirst()) {
+            do {
+                mId = cursor.getInt(0);
+                if(id == mId) {
+                    name = cursor.getString(1);
+                    url = cursor.getString(4);
+                    mDate = cursor.getString(5);
+                    mpRating = cursor.getString(6);
+                    runT = cursor.getInt(7);
+                    rating = cursor.getInt(3);
+                    movie = new Movie(name, id, rating, url, mDate, runT, mpRating);
+                }
+            } while(cursor.moveToNext());
+        }
+        db.close();
+        cursor.close();
+        return movie;
+    }
+    public boolean update(Movie movie) {
+        int id = movie.getId();
+        db = this.getWritableDatabase();
+        db.delete(DB_NAME, " "+movieId+" = '"+id+"'", null);
+        long sucess = insertMovie(movie);
+        if(sucess < 0) return false;
+        else return true;
     }
 }

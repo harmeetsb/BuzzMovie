@@ -3,6 +3,9 @@ package application.buzzmovieselector.Fragments;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +31,7 @@ import java.util.List;
 import application.buzzmovieselector.Model.Movie;
 import application.buzzmovieselector.R;
 import application.buzzmovieselector.Service.VolleySingleton;
+import application.buzzmovieselector.ui.RecentListAdapter;
 
 
 public class RecentMovieTab extends Fragment {
@@ -38,6 +42,11 @@ public class RecentMovieTab extends Fragment {
     private RequestQueue queue;
     private ListView listView;
     private View rootView;
+    private RecentListAdapter mAdapter;
+
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+    //the recyclerview containing showing all our movies
+    private RecyclerView mRecyclerMovies;
     public RecentMovieTab() {
 
     }
@@ -49,8 +58,17 @@ public class RecentMovieTab extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        listView = (ListView)rootView.findViewById(R.id.list);
+      //  listView = (ListView)rootView.findViewById(R.id.list);
         queue = VolleySingleton.getInstance().getmRequestQueue();
+       // mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeMovieHits);
+        //mSwipeRefreshLayout.setOnRefreshListener();
+        mRecyclerMovies = (RecyclerView) rootView.findViewById(R.id.listMovieHits);
+        //set the layout manager before trying to display data
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.canScrollVertically();
+        //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        // GridLayoutManager layoutManager =  new GridLayoutManager(getActivity());
+        mRecyclerMovies.setLayoutManager(layoutManager);
         recentDvd();
     }
 
@@ -73,23 +91,28 @@ public class RecentMovieTab extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        Movie movie;
+                        ArrayList<Movie> movies = new ArrayList<>();
                         JSONArray array = obj1.optJSONArray("movies");
                         ArrayList<String> m = new ArrayList<>();
                         for(int i = 0; i < array.length(); i++) {
                             try {
                                 JSONObject jsonObject = array.getJSONObject(i);
-                                Movie movie = new Movie();
+                                movie = new Movie();
                                 movie.setName(jsonObject.optString("title"));
                                 movie.setYear(jsonObject.optInt("year"));
-                                m.add(movie.getName());
+                                movie.setId(jsonObject.optInt("id"));
+                                movie.setReleaseDate(jsonObject.optJSONObject("release_dates").optString("dvd"));
+                                movie.setMpaaRating(jsonObject.optString("mpaa_rating"));
+                                movie.setRunTime(jsonObject.optInt("runtime"));
+                                movie.setImageUrl(jsonObject.optJSONObject("posters").optString("thumbnail"));
+                                movies.add(movie);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-                        ArrayAdapter<String> resultListAdapter = new ArrayAdapter<String>(getActivity(),
-                                android.R.layout.simple_list_item_1,
-                                m);
-                        listView.setAdapter(resultListAdapter);
+                        mAdapter = new RecentListAdapter(getActivity(), movies);
+                        mRecyclerMovies.setAdapter(mAdapter);
                     }
                 }, new Response.ErrorListener() {
                     @Override

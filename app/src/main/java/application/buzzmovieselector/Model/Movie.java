@@ -1,6 +1,7 @@
 package application.buzzmovieselector.Model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * This class represents Movie object
@@ -11,13 +12,61 @@ public class Movie implements Serializable {
     private String name;
     private int year;
     private int id;
-    private int rating;
+    private float rating;
+    private String imageUrl;
+    private String releaseDate;
+    private int runTime;
+    private String mpaaRating;
 
-    public int getRating() {
+    public Movie(String name, int id, int rating, String imageUrl, String releaseDate, int runTime, String mpaaRating) {
+        this.name = name;
+        this.id = id;
+        this.rating = rating;
+        this.imageUrl = imageUrl;
+        this.releaseDate = releaseDate;
+        this.runTime = runTime;
+        this.mpaaRating = mpaaRating;
+    }
+    public Movie() {
+
+    }
+    public int getRunTime() {
+        return runTime;
+    }
+
+    public void setRunTime(int runTime) {
+        this.runTime = runTime;
+    }
+
+    public void setMpaaRating(String mpaaRating) {
+        this.mpaaRating = mpaaRating;
+    }
+
+    public String getMpaaRating() {
+        return mpaaRating;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public float getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 

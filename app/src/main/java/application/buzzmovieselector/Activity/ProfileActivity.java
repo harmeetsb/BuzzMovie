@@ -37,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
     private String response;
     VolleySingleton volleyInstance;
     private RequestQueue queue;
-    private ArrayList<String> searchMovies;
+    private ArrayList<Movie> searchMovies;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,9 +139,9 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
      *
      * @param movies the list of list of movie objects we created from the JSon response
      */
-    private void changeView(ArrayList<String> movies) {
+    private void changeView(ArrayList<Movie> movies) {
         Intent intent = new Intent(this, ItemListActivity.class);
-        //this is where we save the info.  note the State object must be Serializable
+       // this is where we save the info.  note the State object must be Serializable
         intent.putExtra("movies", movies);
         startActivity(intent);
     }
@@ -164,21 +164,26 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
                             e.printStackTrace();
                         }
                         JSONArray array = obj1.optJSONArray("movies");
-                        ArrayList<String> movies = new ArrayList<>();
+                        Movie movie;
+                        ArrayList<Movie> movies = new ArrayList<>();
                         for(int i = 0; i < array.length(); i++) {
                             try {
                                 JSONObject jsonObject = array.getJSONObject(i);
-                                Movie movie = new Movie();
+                                movie = new Movie();
                                 movie.setName(jsonObject.optString("title"));
                                 movie.setYear(jsonObject.optInt("year"));
                                 movie.setId(jsonObject.optInt("id"));
-                                movies.add(movie.getName());
+                                movie.setReleaseDate(jsonObject.optJSONObject("release_dates").optString("dvd"));
+                                movie.setMpaaRating(jsonObject.optString("mpaa_rating"));
+                                movie.setRunTime(jsonObject.optInt("runtime"));
+                                movie.setImageUrl(jsonObject.optJSONObject("posters").optString("thumbnail"));
+                                movies.add(movie);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-                        populateArray(movies);
-                        //changeView(movies);
+                        //populateArray(movies);
+                        changeView(movies);
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -191,7 +196,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
         queue.add(jsObjRequest);
     }
 
-    private void populateArray(ArrayList<String> movies) {
+    private void populateArray(ArrayList<Movie> movies) {
         searchMovies = movies;
         changeView(movies);
     }
