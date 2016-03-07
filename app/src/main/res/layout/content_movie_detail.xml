@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="application.buzzmovieselector.Activity.MovieDetailActivity"
+    tools:showIn="@layout/activity_movie_detail"
+    android:background="#000000">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/movieTitleView"
+        android:text="Movie Title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Release Date:"
+        android:id="@+id/yearTitle"
+        android:textColor="#ffffff"
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/movieTitleView"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="2010"
+        android:id="@+id/yearView"
+        android:textColor="#ffffff"
+        android:layout_alignTop="@+id/yearTitle"
+        android:layout_alignParentEnd="true"/>
+
+    <RatingBar
+        style="@android:style/Widget.Holo.RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:background="#ffffff"
+        android:layout_below="@+id/mpaaRatingTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="143dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Runtime:"
+        android:id="@+id/runTimeTitle"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/yearTitle"
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="103 min"
+        android:id="@+id/runTimeView"
+        android:textColor="#ffffff"
+        android:layout_alignTop="@+id/runTimeTitle"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Mpaa rating:"
+        android:id="@+id/mpaaRatingTitle"
+        android:layout_marginTop="30dp"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/runTimeTitle"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="G"
+        android:id="@+id/mpaaRatingView"
+        android:textColor="#ffffff"
+        android:layout_alignTop="@+id/mpaaRatingTitle"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Rating Score:"
+        android:id="@+id/ratingScoreTitle"
+        android:layout_below="@+id/mpaaRatingTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="100"
+        android:id="@+id/ratingScoreView"
+        android:textColor="#ffffff"
+        android:layout_alignTop="@+id/ratingScoreTitle"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Comment:"
+        android:id="@+id/commentTitle"
+        android:layout_below="@+id/ratingScoreTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/commentText"
+        android:layout_alignTop="@+id/commentTitle"
+        android:layout_alignParentEnd="true"
+        android:textColor="#ffffff"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/submitButton"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/ratingBar"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickSubmit"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/backButton"
+        android:onClick="onClickBack"
+        android:layout_alignTop="@+id/submitButton"
+        android:layout_toEndOf="@+id/submitButton" />
+
+</RelativeLayout>

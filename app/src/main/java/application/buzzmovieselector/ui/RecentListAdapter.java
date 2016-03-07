@@ -28,6 +28,11 @@ import application.buzzmovieselector.R;
 
 import application.buzzmovieselector.Service.VolleySingleton;
 
+/**
+ * This class represents a RecentMistAdapter object
+ * @author Harmeet S. Bindra
+ * @version 1.0
+ */
 public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.ViewHolderBoxOffice> {
     MovieManager manager;
     private String title;
@@ -41,7 +46,11 @@ public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.Vi
     //keep track of the previous position for animations where scrolling down requires a different animation compared to scrolling up
     private int mPreviousPosition = 0;
     Context context;
-
+    /**
+     * makes a RecentListAdapter object
+     * @param context is the context of the app
+     * @param  movies is the movies to show
+     */
     public RecentListAdapter(Context context, ArrayList<Movie> movies) {
         manager = new MovieManager(context);
         mInflater = LayoutInflater.from(context);
@@ -51,7 +60,10 @@ public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.Vi
         this.context = context;
         addToDb(movies);
     }
-
+    /**
+     * adds movies to the DB
+     * @param movieList is the list of movies to be inserted
+     */
     public void addToDb(ArrayList<Movie> movieList) {
         for(Movie movie: movieList) {
             manager.insertMovie(movie);
@@ -113,7 +125,11 @@ public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.Vi
 
     }
 
-
+    /**
+     * loads the image poster as thumbnail
+     * @param urlThumbnail is the url of the image
+     * @oaram holder is the viewHolder of the content to be displayed
+     */
     private void loadImages(String urlThumbnail, final ViewHolderBoxOffice holder) {
         if (!urlThumbnail.equals(null)) {
             mImageLoader.get(urlThumbnail, new ImageLoader.ImageListener() {
@@ -134,14 +150,21 @@ public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.Vi
     public int getItemCount() {
         return mListMovies.size();
     }
-
+    /**
+     * This class represents a ViewHolderBoxOffice object
+     * @author Harmeet S. Bindra
+     * @version 1.0
+     */
     class ViewHolderBoxOffice extends RecyclerView.ViewHolder {
 
         ImageView movieThumbnail;
         TextView movieTitle;
         TextView movieReleaseDate;
         RatingBar movieAudienceScore;
-
+        /**
+         * Makes viewHolderBoxOffice object
+         * @param itemView is the number of items to display
+         */
         public ViewHolderBoxOffice(View itemView) {
             super(itemView);
             movieThumbnail = (ImageView) itemView.findViewById(R.id.movieThumbnail);

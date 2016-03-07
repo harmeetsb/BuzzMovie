@@ -28,7 +28,7 @@ public class MovieDatabase extends SQLiteOpenHelper {
     MovieDatabase helper;
     private Context context;
     /**
-     * Makes a DataBase Helper object
+     * Makes a Movie database object
      * @param context is the context of the activity
      */
     public MovieDatabase(Context context) {
@@ -57,7 +57,11 @@ public class MovieDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE "+DB_NAME+" IF EXISTS");
         onCreate(db);
     }
-
+    /**
+     * insertMovie to the db
+     * @param movie is the movie to be inserted
+     * @return -1 if movie is already in the db
+     */
     public long insertMovie(Movie movie) {
         db = this.getWritableDatabase();
         ContentValues userValues = new ContentValues();
@@ -73,7 +77,12 @@ public class MovieDatabase extends SQLiteOpenHelper {
         return id;
     }
 
-    public Movie findUser(int id) {
+    /**
+     * find movie in the database
+     * @param id is the movie id to be found
+     * @return the movie object
+     */
+    public Movie findMovie(int id) {
         db = this.getReadableDatabase();
         //String query = "SELECT "+movieId+", "+movieName+", "+comments+", "+ratings+", "+
         //        movieUrl+", "+date+", "+mppaRating+", "+runtime+" FROM "+DB_NAME;
@@ -105,6 +114,11 @@ public class MovieDatabase extends SQLiteOpenHelper {
         cursor.close();
         return movie;
     }
+    /**
+     * update movie in the database
+     * @param movie is the movie to be updated
+     * @return true if update was sucessful
+     */
     public boolean update(Movie movie) {
         int id = movie.getId();
         db = this.getWritableDatabase();

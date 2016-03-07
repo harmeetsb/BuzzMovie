@@ -36,7 +36,11 @@ import application.buzzmovieselector.Model.Movie;
 import application.buzzmovieselector.R;
 import application.buzzmovieselector.Service.VolleySingleton;
 import application.buzzmovieselector.ui.RecentListAdapter;
-
+/**
+ * This class represents a recent DVD fragment
+ * @author Harmeet S. Bindra
+ * @version 1.0
+ */
 public class RecentDvd extends Fragment implements AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
     ArrayList<Movie> movies = new ArrayList<>();
     private String API_KEY = "yedukp76ffytfuy24zsqk7f5";

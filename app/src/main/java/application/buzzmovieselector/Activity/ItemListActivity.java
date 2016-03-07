@@ -14,8 +14,11 @@ import application.buzzmovieselector.ui.RecentListAdapter;
 import java.util.ArrayList;
 
 import application.buzzmovieselector.R;
-
-
+/**
+ * This class represents an Item List activity object
+ * @author Harmeet S. Bindra
+ * @version 1.0
+ */
 public class ItemListActivity extends AppCompatActivity {
 
     private RecentListAdapter mAdapter;

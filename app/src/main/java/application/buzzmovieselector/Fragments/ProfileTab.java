@@ -8,7 +8,11 @@ import android.view.ViewGroup;
 
 import application.buzzmovieselector.R;
 
-
+/**
+ * This class represents a profile tab fragment
+ * @author Harmeet S. Bindra
+ * @version 1.0
+ */
 public class ProfileTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

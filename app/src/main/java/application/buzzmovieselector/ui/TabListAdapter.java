@@ -11,7 +11,9 @@ import application.buzzmovieselector.Fragments.RecentMovieTab;
 import application.buzzmovieselector.Fragments.SearchTab;
 
 /**
- * Created by harmeetbindra on 3/1/16.
+ * This class represents a TabListAdapter
+ * @author Harmeet S. Bindra
+ * @version 1.0
  */
 public class TabListAdapter extends FragmentPagerAdapter {
 

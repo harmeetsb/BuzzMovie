@@ -33,7 +33,11 @@ import application.buzzmovieselector.R;
 import application.buzzmovieselector.Service.VolleySingleton;
 import application.buzzmovieselector.ui.RecentListAdapter;
 
-
+/**
+ * This class represents a movieTab fragment
+ * @author Harmeet S. Bindra
+ * @version 1.0
+ */
 public class RecentMovieTab extends Fragment {
     ArrayList<String> movies = new ArrayList<>();
     private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
@@ -123,9 +127,5 @@ public class RecentMovieTab extends Fragment {
                 });
         //this actually queues up the async response with Volley
         queue.add(jsObjRequest);
-    }
-
-    public void populateArray(ArrayList<String> m) {
-        this.movies = m;
     }
 }

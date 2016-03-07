@@ -27,7 +27,11 @@ import application.buzzmovieselector.Model.Movie;
 import application.buzzmovieselector.R;
 import application.buzzmovieselector.Service.VolleySingleton;
 import application.buzzmovieselector.ui.TabListAdapter;
-
+/**
+ * This class represents a ProfileActivity object
+ * @author Harmeet S. Bindra
+ * @version 1.0
+ */
 public class ProfileActivity extends AppCompatActivity implements ActionBar.TabListener {
     TabListAdapter adapter;
     ViewPager mViewPager;
@@ -38,6 +42,8 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
     VolleySingleton volleyInstance;
     private RequestQueue queue;
     private ArrayList<Movie> searchMovies;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,7 +124,10 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
 
     }
 
-    // for movie tab
+    /**
+     * Method to handle Movie search
+     * @param view View in which search has been clicked
+     */
     public void onClickMovieSearch(View view) {
         String movieName = getMovieName();
         if(movieName.isEmpty() || movieName == null) {
@@ -130,6 +139,10 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
            // changeView(searchMovies);
         }
     }
+    /**
+     * Method to return the context of this activity
+     * @return the context of this activity
+     */
     public Context getContext(){
         return this;
     }
