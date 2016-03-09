@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import application.buzzmovieselector.Fragments.Home;
 import application.buzzmovieselector.Fragments.ProfileTab;
 import application.buzzmovieselector.Fragments.RecentDvd;
 import application.buzzmovieselector.Fragments.RecentMovieTab;
@@ -25,13 +26,15 @@ public class TabListAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Fragment fragment = null;
         if(position == 0) {
-            fragment = new SearchTab();
+            fragment = new Home();
         } else if(position == 1) {
-            fragment = new ProfileTab();
+            fragment = new SearchTab();
         }
         else if(position == 2) {
-            fragment = new RecentMovieTab();
+            fragment = new ProfileTab();
         } else if(position == 3) {
+            fragment = new RecentMovieTab();
+        } else if(position == 4) {
             fragment = new RecentDvd();
         }
         return fragment;
@@ -39,7 +42,7 @@ public class TabListAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 5;
     }
     @Override
     public CharSequence getPageTitle(int position) {

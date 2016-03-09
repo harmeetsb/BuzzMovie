@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,6 @@ import application.buzzmovieselector.Activity.MovieDetailActivity;
 import application.buzzmovieselector.Model.Movie;
 import application.buzzmovieselector.Model.MovieManager;
 import application.buzzmovieselector.R;
-
 import application.buzzmovieselector.Service.VolleySingleton;
 
 /**
@@ -49,16 +49,15 @@ public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.Vi
     /**
      * makes a RecentListAdapter object
      * @param context is the context of the app
-     * @param  movies is the movies to show
      */
-    public RecentListAdapter(Context context, ArrayList<Movie> movies) {
+    public RecentListAdapter(Context context) {
         manager = new MovieManager(context);
         mInflater = LayoutInflater.from(context);
         mVolleySingleton = VolleySingleton.getInstance();
         mImageLoader = mVolleySingleton.getImageLoader();
-        this.mListMovies = movies;
+        //this.mListMovies = movies;
         this.context = context;
-        addToDb(movies);
+
     }
     /**
      * adds movies to the DB
@@ -68,6 +67,12 @@ public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.Vi
         for(Movie movie: movieList) {
             manager.insertMovie(movie);
         }
+    }
+    public void setMovies(ArrayList<Movie> listMovies) {
+        this.mListMovies = listMovies;
+        //update the adapter to reflect the new set of movies
+        addToDb(listMovies);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -80,40 +85,42 @@ public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolderBoxOffice holder, final int position) {
         final Movie currentMovie = mListMovies.get(position);
+        final Movie curr = manager.findMovieById(currentMovie.getId());
+
         //one or more fields of the Movie object may be null since they are fetched from the web
-        holder.movieTitle.setText(currentMovie.getName());
+        holder.movieTitle.setText(curr.getName());
 
         holder.movieTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, MovieDetailActivity.class);
-                intent.putExtra("id", currentMovie.getId());
+                intent.putExtra("id", curr.getId());
                 context.startActivity(intent);
                 //Toast.makeText(context, mListMovies.get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         });
         //retrieved date may be null
-        String movieReleaseDate = currentMovie.getReleaseDate();
+        String movieReleaseDate = curr.getReleaseDate();
 
             holder.movieReleaseDate.setText(movieReleaseDate);
-
-
-        float audienceScore = currentMovie.getRating();
-        if (audienceScore == -1) {
-            holder.movieAudienceScore.setRating(0.0F);
-            holder.movieAudienceScore.setAlpha(0.5F);
-        } else {
-            holder.movieAudienceScore.setRating(audienceScore / 20.0F);
-            holder.movieAudienceScore.setAlpha(1.0F);
-        }
+            holder.movieTitle.setText(curr.getName());
+            holder.movieAudienceScore.setRating(curr.getRating());
+      //  int audienceScore = (int)currentMovie.getRating();
+      ///  if (audienceScore == -1) {
+      //      holder.movieAudienceScore.setRating(0.0F);
+      //      holder.movieAudienceScore.setAlpha(0.5F);
+       // } else {
+       //     holder.movieAudienceScore.setRating(audienceScore / 20.0F);
+       //     holder.movieAudienceScore.setAlpha(1.0F);
+       // }
 
         if (position > mPreviousPosition) {
-            // AnimationUtils.animateSunblind(holder, true);
+             application.buzzmovieselector.anim.AnimationUtils.animateSunblind(holder, true);
 //            AnimationUtils.animateSunblind(holder, true);
 //            AnimationUtils.animate1(holder, true);
 //            AnimationUtils.animate(holder,true);
         } else {
-            // AnimationUtils.animateSunblind(holder, false);
+            application.buzzmovieselector.anim.AnimationUtils.animateSunblind(holder, false);
 //            AnimationUtils.animateSunblind(holder, false);
 //            AnimationUtils.animate1(holder, false);
 //            AnimationUtils.animate(holder, false);

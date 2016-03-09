@@ -42,8 +42,9 @@ public class ItemListActivity extends AppCompatActivity {
         //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         // GridLayoutManager layoutManager =  new GridLayoutManager(getActivity());
         mRecyclerMovies.setLayoutManager(layoutManager);
-        mAdapter = new RecentListAdapter(this, resultList);
+        mAdapter = new RecentListAdapter(this);
         mRecyclerMovies.setAdapter(mAdapter);
+        mAdapter.setMovies(resultList);
     }
 
 }

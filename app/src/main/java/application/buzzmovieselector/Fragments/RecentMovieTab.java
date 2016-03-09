@@ -41,7 +41,7 @@ import application.buzzmovieselector.ui.RecentListAdapter;
 public class RecentMovieTab extends Fragment {
     ArrayList<String> movies = new ArrayList<>();
     private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
-    private int MOVIE_PAGE_LIMIT = 5;
+    private int MOVIE_PAGE_LIMIT = 10;
     private String response;
     private RequestQueue queue;
     private ListView listView;
@@ -51,6 +51,7 @@ public class RecentMovieTab extends Fragment {
     private SwipeRefreshLayout mSwipeRefreshLayout;
     //the recyclerview containing showing all our movies
     private RecyclerView mRecyclerMovies;
+
     public RecentMovieTab() {
 
     }
@@ -73,6 +74,8 @@ public class RecentMovieTab extends Fragment {
         //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         // GridLayoutManager layoutManager =  new GridLayoutManager(getActivity());
         mRecyclerMovies.setLayoutManager(layoutManager);
+        mAdapter = new RecentListAdapter(getActivity());
+        mRecyclerMovies.setAdapter(mAdapter);
         recentDvd();
     }
 
@@ -115,8 +118,7 @@ public class RecentMovieTab extends Fragment {
                                 e.printStackTrace();
                             }
                         }
-                        mAdapter = new RecentListAdapter(getActivity(), movies);
-                        mRecyclerMovies.setAdapter(mAdapter);
+                        mAdapter.setMovies(movies);
                     }
                 }, new Response.ErrorListener() {
                     @Override

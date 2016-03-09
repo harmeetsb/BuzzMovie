@@ -76,7 +76,8 @@ public class MovieDetailActivity extends AppCompatActivity {
      * @param view View in which back has been clicked
      */
     public void onClickBack(View view) {
-
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
     }
     /**
      * Method to handle submit clicks

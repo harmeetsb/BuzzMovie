@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom_movie_box_office"
     android:paddingBottom="@dimen/size_byte"
     android:paddingLeft="@dimen/size_word"
     android:paddingRight="@dimen/size_word"
@@ -11,9 +12,7 @@
         android:id="@+id/movieThumbnail"
         android:layout_width="@dimen/movie_thumbnail_width"
         android:layout_height="@dimen/movie_thumbnail_height"
-        android:src="@mipmap/ic_launcher"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerVertical="true" />
 
     <TextView
         android:id="@+id/movieTitle"
@@ -26,8 +25,7 @@
         android:alpha="0.87"
         android:gravity="right"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_primary"
-        android:text="Movie Title"/>
+        android:textSize="@dimen/size_text_primary" />
 
     <TextView
         android:id="@+id/movieReleaseDate"
@@ -37,8 +35,7 @@
         android:layout_below="@id/movieTitle"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary"
-        android:text="2010"/>
+        android:textSize="@dimen/size_text_secondary" />
 
     <RatingBar
         android:id="@+id/movieAudienceScore"

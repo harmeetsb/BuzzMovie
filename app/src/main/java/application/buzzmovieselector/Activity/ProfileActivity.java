@@ -58,6 +58,9 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
 
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        ActionBar.Tab tab0 = actionBar.newTab();
+        tab0.setText("Home");
+        tab0.setTabListener(this);
         ActionBar.Tab tab1 = actionBar.newTab();
         tab1.setText("Search");
         tab1.setTabListener(this);
@@ -74,6 +77,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
         tab4.setText("DVDs");
         tab4.setTabListener(this);
 
+        actionBar.addTab(tab0);
         actionBar.addTab(tab1);
         actionBar.addTab(tab2);
         actionBar.addTab(tab3);
@@ -207,10 +211,5 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
                 });
         //this actually queues up the async response with Volley
         queue.add(jsObjRequest);
-    }
-
-    private void populateArray(ArrayList<Movie> movies) {
-        searchMovies = movies;
-        changeView(movies);
     }
 }

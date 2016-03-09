@@ -11,7 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activity.RegisterActivity"
-    tools:showIn="@layout/activity_register">
+    tools:showIn="@layout/activity_register"
+    android:background="#ff884d">
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,7 +20,8 @@
         android:text="Name"
         android:id="@+id/nameView"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#802b00"/>
 
     <EditText
         android:layout_width="fill_parent"
@@ -28,7 +30,8 @@
         android:ems="10"
         android:id="@+id/nameText"
         android:layout_below="@id/nameView"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#802b00"/>
 
 
     <TextView
@@ -37,7 +40,8 @@
         android:text="Email Address"
         android:id="@+id/emailView"
         android:layout_alignParentStart="true"
-        android:layout_below="@id/nameText"/>
+        android:layout_below="@id/nameText"
+        android:textColor="#802b00"/>
 
     <EditText
         android:layout_width="fill_parent"
@@ -47,7 +51,8 @@
         android:text="example@gatech.edu"
         android:id="@+id/emailText"
         android:layout_below="@id/emailView"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#802b00"/>
 
 
     <TextView
@@ -56,7 +61,8 @@
         android:text="Username"
         android:id="@+id/userView"
         android:layout_alignParentStart="true"
-        android:layout_below="@id/emailText"/>
+        android:layout_below="@id/emailText"
+        android:textColor="#802b00"/>
 
     <EditText
         android:layout_width="fill_parent"
@@ -64,7 +70,8 @@
         android:id="@+id/usernameText"
         android:ems="10"
         android:layout_below="@id/userView"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#802b00"/>
 
 
     <TextView
@@ -73,7 +80,8 @@
         android:text="Password"
         android:id="@+id/passwordView"
         android:layout_alignParentStart="true"
-        android:layout_below="@id/usernameText"/>
+        android:layout_below="@id/usernameText"
+        android:textColor="#802b00"/>
 
     <EditText
         android:layout_width="fill_parent"
@@ -82,7 +90,14 @@
         android:ems="10"
         android:id="@+id/passwordText"
         android:layout_below="@id/passwordView"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#802b00"/>
+
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/majorSpinner"
+        android:layout_below="@+id/passwordText" />
 
     <TextView
         style="@style/error"
@@ -91,15 +106,17 @@
         android:id="@+id/errorView"
         android:textColor="#e60000"
         android:layout_alignParentStart="true"
-        android:layout_below="@id/passwordText"/>
+        android:layout_below="@id/majorSpinner"/>
+
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="Submit"
         android:id="@+id/registerButton"
         android:onClick="onClickRegister"
-        android:layout_below="@id/errorView" />
+        android:layout_below="@id/errorView"
+        android:textColor="#802b00"/>
 
     <Button
         android:layout_width="fill_parent"
@@ -107,7 +124,8 @@
         android:text="Clear"
         android:id="@+id/clearButton"
         android:onClick="onClickClear"
-        android:layout_below="@id/registerButton" />
+        android:layout_below="@id/registerButton"
+        android:textColor="#802b00"/>
 
     <Button
         android:layout_width="fill_parent"
@@ -115,7 +133,9 @@
         android:text="Back"
         android:id="@+id/backButton"
         android:onClick="onClickBack"
-        android:layout_below="@id/clearButton" />
+        android:textColor="#802b00"
+        android:layout_below="@+id/clearButton"
+        android:layout_alignParentStart="true" />
 
 
 

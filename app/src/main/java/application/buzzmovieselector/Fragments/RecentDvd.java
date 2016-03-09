@@ -44,7 +44,7 @@ import application.buzzmovieselector.ui.RecentListAdapter;
 public class RecentDvd extends Fragment implements AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
     ArrayList<Movie> movies = new ArrayList<>();
     private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
-    private int MOVIE_PAGE_LIMIT = 5;
+    private int MOVIE_PAGE_LIMIT = 10;
     private String response;
     private RequestQueue queue;
     private ListView listView;
@@ -98,10 +98,9 @@ public class RecentDvd extends Fragment implements AdapterView.OnItemClickListen
         mRecyclerMovies = (RecyclerView) rootView.findViewById(R.id.listMovieHits);
         //set the layout manager before trying to display data
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        layoutManager.canScrollVertically();
-        //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-       // GridLayoutManager layoutManager =  new GridLayoutManager(getActivity());
         mRecyclerMovies.setLayoutManager(layoutManager);
+        mAdapter = new RecentListAdapter(getActivity());
+        mRecyclerMovies.setAdapter(mAdapter);
         recentDvd();
         return rootView;
     }
@@ -141,8 +140,8 @@ public class RecentDvd extends Fragment implements AdapterView.OnItemClickListen
                         //resultListAdapter = new ArrayAdapter<>(getActivity(),
                          //       android.R.layout.simple_list_item_1,
                          //       dvd);
-                        mAdapter = new RecentListAdapter(getActivity(), dvd);
-                        mRecyclerMovies.setAdapter(mAdapter);
+                        //mAdapter = new RecentListAdapter(getActivity());
+                        mAdapter.setMovies(dvd);
                         // TODO: 3/6/16 implement our own adapter
                         //resultListAdapter = new RecentListAdapter(getActivity(), dvd, movies);
                        // listView.setAdapter(resultListAdapter);

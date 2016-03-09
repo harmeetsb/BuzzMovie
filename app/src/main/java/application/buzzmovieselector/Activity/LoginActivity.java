@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         CharSequence text;
 
         if(login) {
-            text = "Loging Sucessful";
+            text = "Welcome "+userName;
             Intent intent = new Intent(this, ProfileActivity.class);
             intent.putExtra("userName", userName);
             startActivity(intent);
