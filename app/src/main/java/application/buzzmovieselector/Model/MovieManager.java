@@ -2,6 +2,8 @@ package application.buzzmovieselector.Model;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+
 import application.buzzmovieselector.data.MovieDatabase;
 
 /**
@@ -42,4 +44,8 @@ public class MovieManager {
         return db.update(movie);
     }
 
+    //TODO sort the list by ratings
+    public ArrayList<Movie> highestRatedMovie(ArrayList<Movie> movieList ) {
+        return new ArrayList<>();
+    }
 }

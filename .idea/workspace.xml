@@ -29,34 +29,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1d9cb49-e106-4046-9e94-9e9ce64a2060" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_item_list.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/anim/AnimationUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/anim/AnimationUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/ItemListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/ItemListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/MovieDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/MovieDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/ProfileActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/ProfileActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Fragments/RecentDvd.java" afterPath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Fragments/RecentDvd.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/ui/RecentListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/ui/RecentListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Fragments/RecentMovieTab.java" afterPath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Fragments/RecentMovieTab.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/RegisterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/RegisterActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/ui/TabListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/ui/TabListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_register.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_register.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_recent_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_recent_list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Model/MovieManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Model/MovieManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/recent_list_fragment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recent_list_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CS2340_BuzzMovie.iws" />
@@ -90,7 +64,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#4174#4175#0" expanded="false" />
+                <element signature="e#4203#4204#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,7 +78,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#5238#5239#0" expanded="false" />
+                <element signature="e#5265#5266#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,23 +93,37 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
               <folding>
-                <element signature="e#737#738#0" expanded="true" />
-                <element signature="e#787#788#0" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragment_home.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fragment_home.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
               <folding />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="MovieManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Model/MovieManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6959459">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding>
+                <element signature="e#464#465#0" expanded="true" />
+                <element signature="e#511#512#0" expanded="true" />
+                <element signature="e#996#997#0" expanded="true" />
+                <element signature="e#1035#1036#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -136,7 +132,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#720#721#0" expanded="false" />
+                <element signature="e#745#746#0" expanded="false" />
+                <element signature="e#1299#1300#0" expanded="false" />
+                <element signature="e#1323#1324#0" expanded="false" />
+                <element signature="e#1390#1391#0" expanded="false" />
+                <element signature="e#1439#1440#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1763,7 +1767,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_recent_movie_tab.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search_movie_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Model/Movie.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Model/MovieManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/data/MovieDatabase.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/WelcomeScreen.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Fragments/SearchTab.java" />
@@ -1788,6 +1791,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/MovieDetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Fragments/Home.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Model/MovieManager.java" />
       </list>
     </option>
   </component>
@@ -1804,7 +1808,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="735" />
+    <option name="height" value="736" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1829,6 +1833,28 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CS2340_BuzzMovie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CS2340_BuzzMovie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CS2340_BuzzMovie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
@@ -1984,28 +2010,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CS2340_BuzzMovie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CS2340_BuzzMovie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CS2340_BuzzMovie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2293,12 +2297,18 @@
       <option name="project" value="LOCAL" />
       <updated>1457339760700</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Recommend page fragment">
+      <created>1457500900843</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1457500900843</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="735" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1280" height="736" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3452188" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -2308,8 +2318,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31502423" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31451613" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3260135" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -2317,7 +2326,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21163167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21163167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2492276" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -2329,6 +2338,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2343,7 +2353,8 @@
     <MESSAGE value="MADE PACKAGES" />
     <MESSAGE value="All old features are working" />
     <MESSAGE value="Updated The rating bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated The rating bar" />
+    <MESSAGE value="Recommend page fragment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Recommend page fragment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2405,14 +2416,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_recent_dvd.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4225352">
           <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png">
@@ -2421,14 +2432,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_movie_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-22/android/app/Activity.java">
@@ -2446,14 +2457,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_movie_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.172414">
           <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/data/DatabaseHelper.java">
@@ -2464,25 +2475,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_movie_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_recent_movie_tab.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_recent_movie_tab.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48214287">
           <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Model/Movie.java">
@@ -2503,13 +2514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6434635">
           <caret line="117" column="35" selection-start-line="117" selection-start-column="35" selection-end-line="117" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Model/MovieManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6366723">
-          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -2563,6 +2567,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/recent_list_fragment.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
@@ -2570,9 +2577,6 @@
             <element signature="e#968#986#0" expanded="false" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/ItemListActivity.java">
@@ -2583,6 +2587,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_recent_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36363637">
           <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
@@ -2600,19 +2607,16 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile_tab.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile_tab.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51861703">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/Register2Activity.java">
@@ -2623,25 +2627,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_search_tab.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.51724136">
           <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_register2.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/ui/RecentListAdapter.java">
@@ -2653,74 +2657,72 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_register.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.029411765">
           <caret line="87" column="37" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Model/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_item_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Activity/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="88" column="21" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login_activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20547946">
           <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
@@ -2735,7 +2737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19035533">
           <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2743,7 +2744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="85" selection-start-line="76" selection-start-column="85" selection-end-line="76" selection-end-column="85" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2759,7 +2759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22727273">
           <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2767,7 +2766,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5238#5239#0" expanded="false" />
+            <element signature="e#5265#5266#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2775,7 +2778,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#720#721#0" expanded="false" />
+            <element signature="e#745#746#0" expanded="false" />
+            <element signature="e#1299#1300#0" expanded="false" />
+            <element signature="e#1323#1324#0" expanded="false" />
+            <element signature="e#1390#1391#0" expanded="false" />
+            <element signature="e#1439#1440#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2783,7 +2794,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4174#4175#0" expanded="false" />
+            <element signature="e#4203#4204#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2792,21 +2807,33 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
           <folding>
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/application/buzzmovieselector/Model/MovieManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6959459">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="e#464#465#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#996#997#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
