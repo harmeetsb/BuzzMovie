@@ -17,6 +17,7 @@ public class Movie implements Serializable {
     private String releaseDate;
     private int runTime;
     private String mpaaRating;
+    private String comment;
     /**
      * Makes a Movie object
      * @param name is the name of the movie
@@ -150,5 +151,13 @@ public class Movie implements Serializable {
     @Override
     public String toString() {
         return "Name: "+name + " Year: "+year;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

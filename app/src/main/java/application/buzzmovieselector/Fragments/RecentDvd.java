@@ -44,7 +44,7 @@ import application.buzzmovieselector.ui.RecentListAdapter;
 public class RecentDvd extends Fragment implements AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
     ArrayList<Movie> movies = new ArrayList<>();
     private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
-    private int MOVIE_PAGE_LIMIT = 10;
+    private int MOVIE_PAGE_LIMIT = 1;
     private String response;
     private RequestQueue queue;
     private ListView listView;

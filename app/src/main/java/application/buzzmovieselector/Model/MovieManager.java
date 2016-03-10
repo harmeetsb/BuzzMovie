@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.ArrayList;
 
 import application.buzzmovieselector.data.MovieDatabase;
+import application.buzzmovieselector.data.MovieUserDB;
 
 /**
  * This class represents a Movie manager object
@@ -14,12 +15,14 @@ import application.buzzmovieselector.data.MovieDatabase;
 public class MovieManager {
 
     MovieDatabase db;
+    MovieUserDB movieUserDB;
     /**
      * Makes a Movie manager object
      * @param context is the context of the activity
      */
     public MovieManager(Context context) {
         db = new MovieDatabase(context);
+        movieUserDB = new MovieUserDB(context);
     }
     /**
      * insert movie in database
@@ -47,5 +50,15 @@ public class MovieManager {
     //TODO sort the list by ratings
     public ArrayList<Movie> highestRatedMovie(ArrayList<Movie> movieList ) {
         return new ArrayList<>();
+    }
+
+    public boolean insertRatingComment(User user, Movie movie) {
+        long id = movieUserDB.insertRatingComment(movie, user);
+        if(id < 0) return false;
+        else return true;
+    }
+
+    public float getRating(Movie movie) {
+       return movieUserDB.getRating(movie);
     }
 }

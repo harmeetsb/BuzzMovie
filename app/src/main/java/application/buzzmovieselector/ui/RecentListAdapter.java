@@ -86,7 +86,7 @@ public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.Vi
     public void onBindViewHolder(ViewHolderBoxOffice holder, final int position) {
         final Movie currentMovie = mListMovies.get(position);
         final Movie curr = manager.findMovieById(currentMovie.getId());
-
+        curr.setRating(manager.getRating(curr));
         //one or more fields of the Movie object may be null since they are fetched from the web
         holder.movieTitle.setText(curr.getName());
 

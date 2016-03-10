@@ -109,7 +109,7 @@ public class RecentMovieTab extends Fragment {
                                 movie.setName(jsonObject.optString("title"));
                                 movie.setYear(jsonObject.optInt("year"));
                                 movie.setId(jsonObject.optInt("id"));
-                                movie.setReleaseDate(jsonObject.optJSONObject("release_dates").optString("dvd"));
+                                movie.setReleaseDate(jsonObject.optJSONObject("release_dates").optString("theater"));
                                 movie.setMpaaRating(jsonObject.optString("mpaa_rating"));
                                 movie.setRunTime(jsonObject.optInt("runtime"));
                                 movie.setImageUrl(jsonObject.optJSONObject("posters").optString("thumbnail"));
