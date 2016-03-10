@@ -25,7 +25,7 @@ import application.buzzmovieselector.Model.UserManager;
  */
 public class RegisterActivity extends AppCompatActivity {
     private static UserManager manager;
-    Spinner spinner;
+    private Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,8 +105,7 @@ public class RegisterActivity extends AppCompatActivity {
      * @param view View in which back has been clicked
      */
     public void onClickBack(View view) {
-        Intent intent = new Intent(this, WelcomeScreen.class);
-        startActivity(intent);
+        super.onBackPressed();
     }
     /**
      * Method to handle clear clicks

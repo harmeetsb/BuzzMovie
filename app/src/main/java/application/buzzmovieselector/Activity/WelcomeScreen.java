@@ -52,6 +52,11 @@ public class WelcomeScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickRegisterAdmin(View view) {
+        Intent intent = new Intent(this, RegisterAdminActivity.class);
+        startActivity(intent);
+    }
+
     public static Context getAppContext() {
         return instance.getApplicationContext();
     }

@@ -1,0 +1,622 @@
+ACTIVITY MANAGER PENDING INTENTS (dumpsys activity intents)
+  * PendingIntentRecord{920abe6 com.android.deskclock startActivity}
+  * PendingIntentRecord{12d7527 android broadcastIntent}
+  * PendingIntentRecord{d36f3d4 android broadcastIntent}
+  * PendingIntentRecord{8a8997d android broadcastIntent}
+  * PendingIntentRecord{23ba072 android broadcastIntent}
+  * PendingIntentRecord{8723cc3 android broadcastIntent}
+  * PendingIntentRecord{8f97940 android broadcastIntent}
+  * PendingIntentRecord{caa5079 com.android.systemui broadcastIntent}
+  * PendingIntentRecord{f9f51be android broadcastIntent}
+  * PendingIntentRecord{8b1e21f com.android.calendar broadcastIntent}
+  * PendingIntentRecord{99ce96c com.android.deskclock broadcastIntent}
+  * PendingIntentRecord{c767b35 android broadcastIntent}
+  * PendingIntentRecord{7facbca com.android.systemui broadcastIntent}
+  * PendingIntentRecord{81c813b android broadcastIntent}
+  * PendingIntentRecord{2253058 android broadcastIntent}
+  * PendingIntentRecord{aa095b1 android broadcastIntent}
+  * PendingIntentRecord{be1da96 com.android.quicksearchbox startActivity}
+  * PendingIntentRecord{5c7f617 com.android.music broadcastIntent}
+  * PendingIntentRecord{fe8fa04 com.android.systemui broadcastIntent}
+  * PendingIntentRecord{577dbed android startActivity}
+  * PendingIntentRecord{f590a22 android broadcastIntent}
+  * PendingIntentRecord{24bdcb3 android broadcastIntent}
+  * PendingIntentRecord{cfdb270 android broadcastIntent}
+  * PendingIntentRecord{70349e9 android broadcastIntent}
+  * PendingIntentRecord{21a66e android broadcastIntent}
+  * PendingIntentRecord{61d910f android broadcastIntent}
+  * PendingIntentRecord{d63859c android broadcastIntent}
+  * PendingIntentRecord{8bd9ba5 android broadcastIntent}
+  * PendingIntentRecord{4c5bb7a android broadcastIntent}
+  * PendingIntentRecord{1ac2f2b android startActivity}
+  * PendingIntentRecord{2f15f88 android broadcastIntent}
+  * PendingIntentRecord{7114d21 android broadcastIntent}
+
+ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
+  Historical broadcasts [foreground]:
+  #0: BroadcastRecord{641546 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #1: BroadcastRecord{33c9307 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #2: BroadcastRecord{400ec34 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #3: BroadcastRecord{949a5d u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #4: BroadcastRecord{73c3fd2 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #5: BroadcastRecord{e8558a3 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #6: BroadcastRecord{da97a0 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #7: BroadcastRecord{d057f59 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #8: BroadcastRecord{ffa871e u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #9: BroadcastRecord{20adbff u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #10: BroadcastRecord{3e18dcc u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #11: BroadcastRecord{805b815 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #12: BroadcastRecord{dc3f72a u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #13: BroadcastRecord{63b391b u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #14: BroadcastRecord{87fbab8 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #15: BroadcastRecord{b96c091 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #16: BroadcastRecord{f025bf6 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #17: BroadcastRecord{24a4bf7 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #18: BroadcastRecord{4d1ca64 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #19: BroadcastRecord{655d4cd u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #20: BroadcastRecord{cf04182 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #21: BroadcastRecord{2cdb093 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #22: BroadcastRecord{21328d0 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #23: BroadcastRecord{977f0c9 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #24: BroadcastRecord{7e4f3ce u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #25: BroadcastRecord{e18c2ef u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #26: BroadcastRecord{fca01fc u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #27: BroadcastRecord{a85d085 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #28: BroadcastRecord{c607eda u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #29: BroadcastRecord{2589f0b u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #30: BroadcastRecord{db341e8 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #31: BroadcastRecord{4d7f001 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #32: BroadcastRecord{cd7aea6 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #33: BroadcastRecord{97020e7 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #34: BroadcastRecord{86e9494 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #35: BroadcastRecord{6d28b3d u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #36: BroadcastRecord{c400f32 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #37: BroadcastRecord{e93e483 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #38: BroadcastRecord{4ea6600 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #39: BroadcastRecord{6e19e39 u-1 android.intent.action.TIME_TICK}
+    act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #40: BroadcastRecord{55bec7e u-1 android.intent.action.CONFIGURATION_CHANGED}
+    act=android.intent.action.CONFIGURATION_CHANGED flg=0x70000010
+  #41: BroadcastRecord{1a645df u-1 android.media.AUDIO_BECOMING_NOISY}
+    act=android.media.AUDIO_BECOMING_NOISY flg=0x14000010
+  #42: BroadcastRecord{68fe22c u-1 android.media.INTERNAL_RINGER_MODE_CHANGED_ACTION}
+    act=android.media.INTERNAL_RINGER_MODE_CHANGED_ACTION flg=0x34000010 (has extras)
+    extras: Bundle[{android.media.EXTRA_RINGER_MODE=2}]
+  #43: BroadcastRecord{c34e4f5 u-1 android.media.RINGER_MODE_CHANGED}
+    act=android.media.RINGER_MODE_CHANGED flg=0x34000010 (has extras)
+    extras: Bundle[{android.media.EXTRA_RINGER_MODE=2}]
+  #44: BroadcastRecord{ac6528a u-1 android.intent.action.USER_SWITCHED}
+    act=android.intent.action.USER_SWITCHED flg=0x50000010 (has extras)
+    extras: Bundle[{android.intent.extra.user_handle=0}]
+  #45: BroadcastRecord{45360fb u0 android.intent.action.USER_FOREGROUND}
+    act=android.intent.action.USER_FOREGROUND flg=0x50000010 (has extras)
+    extras: Bundle[{android.intent.extra.user_handle=0}]
+  #46: BroadcastRecord{c2ef518 u0 android.intent.action.USER_STARTED}
+    act=android.intent.action.USER_STARTED flg=0x50000010 (has extras)
+    extras: Bundle[{android.intent.extra.user_handle=0}]
+  #47: BroadcastRecord{73bdb71 u-1 android.media.STREAM_DEVICES_CHANGED_ACTION}
+    act=android.media.STREAM_DEVICES_CHANGED_ACTION flg=0x14000010 (has extras)
+    extras: Bundle[{android.media.EXTRA_VOLUME_STREAM_TYPE=4, android.media.EXTRA_VOLUME_STREAM_DEVICES=2, android.media.EXTRA_PREV_VOLUME_STREAM_DEVICES=0}]
+  #48: BroadcastRecord{bbf0d56 u-1 android.media.STREAM_DEVICES_CHANGED_ACTION}
+    act=android.media.STREAM_DEVICES_CHANGED_ACTION flg=0x14000010 (has extras)
+    extras: Bundle[{android.media.EXTRA_VOLUME_STREAM_TYPE=9, android.media.EXTRA_VOLUME_STREAM_DEVICES=2, android.media.EXTRA_PREV_VOLUME_STREAM_DEVICES=0}]
+  #49: BroadcastRecord{ced11d7 u-1 android.media.STREAM_DEVICES_CHANGED_ACTION}
+    act=android.media.STREAM_DEVICES_CHANGED_ACTION flg=0x14000010 (has extras)
+    extras: Bundle[{android.media.EXTRA_VOLUME_STREAM_TYPE=8, android.media.EXTRA_VOLUME_STREAM_DEVICES=2, android.media.EXTRA_PREV_VOLUME_STREAM_DEVICES=0}]
+  #50: act=android.intent.action.TIME_TICK flg=0x50000014 (has extras)
+    enq=2016-03-10 00:08:00 disp=2016-03-10 00:08:00 fin=2016-03-10 00:08:00
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  ...
+
+  Historical broadcasts [background]:
+  #0: BroadcastRecord{faa4ac4 u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #1: BroadcastRecord{5e1bdad u-1 android.net.wifi.SCAN_RESULTS}
+    act=android.net.wifi.SCAN_RESULTS flg=0x4000010 (has extras)
+    extras: Bundle[{resultsUpdated=true}]
+  #2: BroadcastRecord{9b6a8e2 u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=13, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #3: BroadcastRecord{b06f473 u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #4: BroadcastRecord{4634f30 u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=14, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #5: BroadcastRecord{f8987a9 u-1 android.intent.action.BATTERY_LOW}
+    act=android.intent.action.BATTERY_LOW flg=0x4000010
+  #6: BroadcastRecord{a9a712e u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=15, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #7: BroadcastRecord{9d264cf u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #8: BroadcastRecord{662e5c u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #9: BroadcastRecord{4c9f565 u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #10: BroadcastRecord{3e0723a u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #11: BroadcastRecord{c3a7eeb u-1 android.net.wifi.SCAN_RESULTS}
+    act=android.net.wifi.SCAN_RESULTS flg=0x4000010 (has extras)
+    extras: Bundle[{resultsUpdated=true}]
+  #12: BroadcastRecord{c55d448 u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #13: BroadcastRecord{ee982e1 u0 com.android.server.action.NETWORK_STATS_POLL}
+    act=com.android.server.action.NETWORK_STATS_POLL flg=0x14 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #14: BroadcastRecord{a537806 u-1 com.android.server.action.NETWORK_STATS_UPDATED}
+    act=com.android.server.action.NETWORK_STATS_UPDATED flg=0x40000010
+  #15: BroadcastRecord{ec01ec7 u0 com.android.deskclock.ON_QUARTER_HOUR}
+    act=com.android.deskclock.ON_QUARTER_HOUR flg=0x14 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #16: BroadcastRecord{617ecf4 u0 com.android.calendar.APPWIDGET_UPDATE}
+    act=com.android.calendar.APPWIDGET_UPDATE flg=0x10
+  #17: BroadcastRecord{b1a6c1d u0 com.android.calendar.APPWIDGET_SCHEDULED_UPDATE}
+    act=com.android.calendar.APPWIDGET_SCHEDULED_UPDATE dat=content://com.android.calendar typ=vnd.android.data/update flg=0x14 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #18: BroadcastRecord{29f0e92 u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=16, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #19: BroadcastRecord{b15e063 u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=17, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #20: BroadcastRecord{240e460 u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #21: BroadcastRecord{d76ad19 u-1 android.net.wifi.SCAN_RESULTS}
+    act=android.net.wifi.SCAN_RESULTS flg=0x4000010 (has extras)
+    extras: Bundle[{resultsUpdated=true}]
+  #22: BroadcastRecord{e9b81de u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #23: BroadcastRecord{97c1fbf u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=18, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #24: BroadcastRecord{83fe68c u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #25: BroadcastRecord{7bc01d5 u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=19, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #26: BroadcastRecord{359ddea u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=20, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #27: BroadcastRecord{bdcf8db u-1 android.net.wifi.SCAN_RESULTS}
+    act=android.net.wifi.SCAN_RESULTS flg=0x4000010 (has extras)
+    extras: Bundle[{resultsUpdated=true}]
+  #28: BroadcastRecord{54adf78 u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=21, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #29: BroadcastRecord{fc7e651 u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #30: BroadcastRecord{3efeeb6 u0 com.android.deskclock.ON_QUARTER_HOUR}
+    act=com.android.deskclock.ON_QUARTER_HOUR flg=0x14 (has extras)
+    extras: Bundle[{android.intent.extra.ALARM_COUNT=1}]
+  #31: BroadcastRecord{ea847b7 u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=22, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #32: BroadcastRecord{20a7b24 u-1 android.net.wifi.SCAN_RESULTS}
+    act=android.net.wifi.SCAN_RESULTS flg=0x4000010 (has extras)
+    extras: Bundle[{resultsUpdated=true}]
+  #33: BroadcastRecord{1d3968d u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=23, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #34: BroadcastRecord{d044042 u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #35: BroadcastRecord{b6fa853 u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #36: BroadcastRecord{7062590 u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #37: BroadcastRecord{a700e89 u-1 android.intent.action.BATTERY_CHANGED}
+    act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras)
+    extras: Bundle[{technology=Unknown, icon-small=17303107, health=1, status=3, plugged=0, present=true, level=24, scale=100, temperature=0, voltage=10000, invalid_charger=0}]
+  #38: BroadcastRecord{d1a1e8e u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #39: BroadcastRecord{94276af u0 android.appwidget.action.APPWIDGET_UPDATE_OPTIONS}
+    act=android.appwidget.action.APPWIDGET_UPDATE_OPTIONS flg=0x10 (has extras)
+    targetComp: {com.android.quicksearchbox/com.android.quicksearchbox.SearchWidgetProvider}
+    extras: Bundle[{appWidgetId=4, appWidgetOptions=Bundle[{appWidgetCategory=4}]}]
+  #40: BroadcastRecord{bd00abc u0 android.appwidget.action.APPWIDGET_UPDATE_OPTIONS}
+    act=android.appwidget.action.APPWIDGET_UPDATE_OPTIONS flg=0x10 (has extras)
+    targetComp: {com.android.quicksearchbox/com.android.quicksearchbox.SearchWidgetProvider}
+    extras: Bundle[{appWidgetId=4, appWidgetOptions=Bundle[{appWidgetCategory=4}]}]
+  #41: BroadcastRecord{4420a45 u0 android.intent.action.PACKAGE_REPLACED}
+    act=android.intent.action.PACKAGE_REPLACED dat=package:application.buzzmovieselector flg=0x4000010 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
+  #42: BroadcastRecord{59d959a u0 android.intent.action.PACKAGE_ADDED}
+    act=android.intent.action.PACKAGE_ADDED dat=package:application.buzzmovieselector flg=0x4000010 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
+  #43: BroadcastRecord{6c9cecb u0 android.intent.action.PACKAGE_REMOVED}
+    act=android.intent.action.PACKAGE_REMOVED dat=package:application.buzzmovieselector flg=0x4000010 (has extras)
+    extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10060, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
+  #44: BroadcastRecord{cf116a8 u0 android.search.action.SEARCHABLES_CHANGED}
+    act=android.search.action.SEARCHABLES_CHANGED flg=0x24000010
+  #45: BroadcastRecord{57e05c1 u0 android.search.action.SEARCHABLES_CHANGED}
+    act=android.search.action.SEARCHABLES_CHANGED flg=0x24000010
+  #46: BroadcastRecord{af7166 u0 android.intent.action.PACKAGE_REPLACED}
+    act=android.intent.action.PACKAGE_REPLACED dat=package:application.buzzmovieselector flg=0x4000010 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
+  #47: BroadcastRecord{a248ca7 u0 android.intent.action.PACKAGE_ADDED}
+    act=android.intent.action.PACKAGE_ADDED dat=package:application.buzzmovieselector flg=0x4000010 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
+  #48: BroadcastRecord{494f554 u0 android.intent.action.PACKAGE_REMOVED}
+    act=android.intent.action.PACKAGE_REMOVED dat=package:application.buzzmovieselector flg=0x4000010 (has extras)
+    extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10060, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
+  #49: BroadcastRecord{9243cfd u0 android.intent.action.PACKAGE_RESTARTED}
+    act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  #50: act=android.intent.action.PACKAGE_RESTARTED dat=package:application.buzzmovieselector flg=0x10 (has extras)
+    enq=2016-03-10 00:07:28 disp=2016-03-10 00:07:28 fin=2016-03-10 00:07:28
+    extras: Bundle[{android.intent.extra.UID=10060, android.intent.extra.user_handle=0}]
+  ...
+
+  Sticky broadcasts for user -1:
+  * Sticky action android.intent.action.SERVICE_STATE
+  * Sticky action android.intent.action.ACTION_DEFAULT_SMS_SUBSCRIPTION_CHANGED
+  * Sticky action android.net.wifi.WIFI_STATE_CHANGED
+  * Sticky action android.media.ACTION_SCO_AUDIO_STATE_UPDATED
+  * Sticky action android.intent.action.BATTERY_CHANGED
+  * Sticky action android.intent.action.ACTION_DEFAULT_SUBSCRIPTION_CHANGED
+  * Sticky action android.intent.action.ACTION_DEFAULT_VOICE_SUBSCRIPTION_CHANGED
+  * Sticky action android.net.conn.CONNECTIVITY_CHANGE
+  * Sticky action android.telephony.action.CARRIER_CONFIG_CHANGED
+  * Sticky action android.intent.action.ANY_DATA_STATE
+  * Sticky action android.provider.Telephony.SPN_STRINGS_UPDATED
+  * Sticky action android.net.nsd.STATE_CHANGED
+  * Sticky action android.net.wifi.RSSI_CHANGED
+  * Sticky action android.net.wifi.STATE_CHANGE
+  * Sticky action android.intent.action.SIM_STATE_CHANGED
+  * Sticky action android.intent.action.SIG_STR
+  * Sticky action android.intent.action.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGED
+  * Sticky action android.media.INTERNAL_RINGER_MODE_CHANGED_ACTION
+  * Sticky action android.net.wifi.supplicant.STATE_CHANGE
+  * Sticky action android.net.conn.INET_CONDITION_ACTION
+  * Sticky action android.media.SCO_AUDIO_STATE_CHANGED
+  * Sticky action android.os.UpdateLock.UPDATE_LOCK_CHANGED
+  * Sticky action android.intent.action.internal_sim_state_changed
+  * Sticky action android.media.MASTER_MUTE_CHANGED_ACTION
+  * Sticky action wifi_scan_available
+  * Sticky action android.intent.action.HDMI_PLUGGED
+  * Sticky action android.media.RINGER_MODE_CHANGED
+
+  Sticky broadcasts for user 0:
+  * Sticky action com.android.music.queuechanged
+  * Sticky action com.android.music.metachanged
+  * Sticky action com.android.launcher3.SYSTEM_READY
+
+ACTIVITY MANAGER CONTENT PROVIDERS (dumpsys activity providers)
+  Published single-user content providers (by class):
+  * ContentProviderRecord{7b13df2 u0 com.android.providers.telephony/.TelephonyProvider}
+    proc=ProcessRecord{b462df0 1137:com.android.phone/1001}
+    singleton=true
+    authority=telephony
+  * ContentProviderRecord{2834c43 u0 com.android.providers.telephony/.HbpcdLookupProvider}
+    proc=ProcessRecord{b462df0 1137:com.android.phone/1001}
+    singleton=true
+    authority=hbpcd_lookup
+  * ContentProviderRecord{1f612c0 u0 com.android.providers.settings/.SettingsProvider}
+    proc=ProcessRecord{c742dd5 636:system/1000}
+    singleton=true
+    authority=settings
+    6 connections, 0 external handles
+      -> 840:com.android.systemui/u0a16 s1/1 u0/0 +38m1s647ms
+      -> 868:android.process.acore/u0a2 s1/1 u0/0 +38m1s513ms
+      -> 1117:com.android.inputmethod.latin/u0a41 s1/1 u0/0 +38m0s732ms
+      -> 1137:com.android.phone/1001 s1/1 u0/0 +38m0s362ms
+      -> 1614:com.android.launcher3/u0a8 s1/1 u0/0 +37m40s714ms
+      -> 1746:com.android.defcontainer/u0a4 s1/1 u0/0 +37m23s742ms
+  * ContentProviderRecord{ffcabf9 u0 com.android.providers.telephony/.MmsProvider}
+    proc=ProcessRecord{b462df0 1137:com.android.phone/1001}
+    singleton=true
+    authority=mms
+  * ContentProviderRecord{691473e u0 com.android.providers.telephony/.MmsSmsProvider}
+    proc=ProcessRecord{b462df0 1137:com.android.phone/1001}
+    singleton=true
+    authority=mms-sms
+  * ContentProviderRecord{784699f u0 com.android.providers.telephony/.SmsProvider}
+    proc=ProcessRecord{b462df0 1137:com.android.phone/1001}
+    singleton=true
+    authority=sms
+  * ContentProviderRecord{b899aec u0 android/com.android.server.am.DumpHeapProvider}
+    proc=ProcessRecord{c742dd5 636:system/1000}
+    singleton=true
+    authority=com.android.server.heapdump
+
+  Published user 0 content providers (by class):
+  * ContentProviderRecord{5530eb5 u0 com.android.inputmethod.latin/com.android.inputmethod.dictionarypack.DictionaryProvider}
+    proc=ProcessRecord{7d6994a 1117:com.android.inputmethod.latin/u0a41}
+    authority=com.android.inputmethod.dictionarypack.aosp
+  * ContentProviderRecord{25000bb u0 com.android.phone/.IccProvider}
+    proc=ProcessRecord{b462df0 1137:com.android.phone/1001}
+    authority=icc
+  * ContentProviderRecord{7eb79d8 u0 com.android.providers.contacts/.VoicemailContentProvider}
+    proc=ProcessRecord{372e131 868:android.process.acore/u0a2}
+    authority=com.android.voicemail
+  * ContentProviderRecord{56d0016 u0 com.svox.pico/.providers.SettingsProvider}
+    proc=ProcessRecord{c73ed97 1793:com.svox.pico/u0a50}
+    authority=com.svox.pico.providers.SettingsProvider
+  * ContentProviderRecord{98a5b84 u0 com.android.gallery3d/.filtershow.provider.SharedImageProvider}
+    proc=ProcessRecord{3e35f6d 1546:com.android.gallery3d/u0a37}
+    authority=com.android.gallery3d.filtershow.provider.SharedImageProvider
+  * ContentProviderRecord{a3107a2 u0 com.android.gallery3d/com.android.photos.data.PhotoProvider}
+    proc=ProcessRecord{3e35f6d 1546:com.android.gallery3d/u0a37}
+    authority=com.android.gallery3d.photoprovider
+  * ContentProviderRecord{7fcc33 u0 com.android.providers.contacts/.CallLogProvider}
+    proc=ProcessRecord{372e131 868:android.process.acore/u0a2}
+    launchingApp=ProcessRecord{372e131 868:android.process.acore/u0a2}
+    authority=call_log
+  * ContentProviderRecord{913abf0 u0 com.android.providers.contacts/.debug.DumpFileProvider}
+    proc=ProcessRecord{372e131 868:android.process.acore/u0a2}
+    authority=com.android.contacts.dumpfile
+  * ContentProviderRecord{7638569 u0 com.android.gallery3d/.provider.GalleryProvider}
+    proc=ProcessRecord{3e35f6d 1546:com.android.gallery3d/u0a37}
+    authority=com.android.gallery3d.provider
+  * ContentProviderRecord{3bfbee u0 com.android.deskclock/.provider.ClockProvider}
+    proc=ProcessRecord{860f88f 1396:com.android.deskclock/u0a30}
+    authority=com.android.deskclock
+  * ContentProviderRecord{a9f971c u0 com.android.providers.userdictionary/.UserDictionaryProvider}
+    proc=ProcessRecord{372e131 868:android.process.acore/u0a2}
+    authority=user_dictionary
+  * ContentProviderRecord{1a60f25 u0 com.android.calendar/.CalendarRecentSuggestionsProvider}
+    proc=ProcessRecord{7efe8fa 1362:com.android.calendar/u0a24}
+    authority=com.android.calendar.CalendarRecentSuggestionsProvider
+  * ContentProviderRecord{57e8eab u0 com.android.phone/.PhoneSearchIndexablesProvider}
+    proc=ProcessRecord{b462df0 1137:com.android.phone/1001}
+    authority=com.android.phone
+  * ContentProviderRecord{99d0908 u0 com.android.providers.contacts/.ContactsProvider2}
+    proc=ProcessRecord{372e131 868:android.process.acore/u0a2}
+    authority=contacts;com.android.contacts
+  * ContentProviderRecord{4cd78a1 u0 com.android.quicksearchbox/.google.GoogleSuggestionProvider}
+    proc=ProcessRecord{3c39ac6 1716:com.android.quicksearchbox/u0a53}
+    authority=com.android.quicksearchbox.google
+  * ContentProviderRecord{e956a87 u0 com.android.launcher3/.LauncherProvider}
+    proc=ProcessRecord{77dadb4 1614:com.android.launcher3/u0a8}
+    authority=com.android.launcher3.settings
+
+ACTIVITY MANAGER URI PERMISSIONS (dumpsys activity permissions)
+  (nothing)
+
+ACTIVITY MANAGER SERVICES (dumpsys activity services)
+  User 0 active services:
+  * ServiceRecord{137c1a3 u0 com.android.systemui/.keyguard.KeyguardService}
+    app=ProcessRecord{8a7fddd 840:com.android.systemui/u0a16}
+    created=-37m50s834ms started=false connections=1
+    Connections:
+       -> 636:system/1000
+  * ServiceRecord{bfd3af0 u0 com.android.systemui/.ImageWallpaper}
+    app=ProcessRecord{8a7fddd 840:com.android.systemui/u0a16}
+    created=-38m1s52ms started=false connections=1
+    Connections:
+      act=android.service.wallpaper.WallpaperService -> 636:system/1000
+  * ServiceRecord{ab06e10 u0 com.android.inputmethod.latin/.LatinIME}
+    app=ProcessRecord{7d6994a 1117:com.android.inputmethod.latin/u0a41}
+    created=-38m1s34ms started=false connections=1
+    Connections:
+      act=android.view.InputMethod -> 636:system/1000
+  * ServiceRecord{87995f u0 com.android.systemui/.SystemUIService}
+    app=ProcessRecord{8a7fddd 840:com.android.systemui/u0a16}
+    created=-38m1s727ms started=true connections=0
+  * ServiceRecord{4bbfbe5 u0 android/.hardware.location.GeofenceHardwareService}
+    app=ProcessRecord{c742dd5 636:system/1000}
+    created=-38m0s990ms started=false connections=1
+    Connections:
+       -> 636:system/1000
+  * ServiceRecord{1d564a1 u0 com.android.server.telecom/.components.TelecomService}
+    app=ProcessRecord{c742dd5 636:system/1000}
+    created=-38m1s741ms started=false connections=1
+    Connections:
+      act=com.android.ITelecomService -> 636:system/1000
+  * ServiceRecord{e3f0925 u0 com.android.smspush/.WapPushManager}
+    app=ProcessRecord{4ce9d52 1298:com.android.smspush/u0a55}
+    created=-38m0s269ms started=false connections=2
+    Connections:
+      act=com.android.internal.telephony.IWapPushManager -> 1137:com.android.phone/1001
+      act=com.android.internal.telephony.IWapPushManager -> 1137:com.android.phone/1001
+  * ServiceRecord{7d1fb78 u0 android/com.android.internal.backup.LocalTransportService}
+    app=ProcessRecord{c742dd5 636:system/1000}
+    created=-38m2s474ms started=false connections=1
+    Connections:
+      act=android.backup.TRANSPORT_HOST -> 636:system/1000
+  * ServiceRecord{cdbf70a u0 com.android.location.fused/.FusedLocationService}
+    app=ProcessRecord{c742dd5 636:system/1000}
+    created=-38m0s999ms started=false connections=1
+    Connections:
+      act=com.android.location.service.FusedLocationProvider pkg=com.android.location.fused -> 636:system/1000
+  * ServiceRecord{507751a u0 com.android.mms.service/.MmsService}
+    app=ProcessRecord{b462df0 1137:com.android.phone/1001}
+    created=-37m59s293ms started=false connections=1
+    Connections:
+       -> 636:system/1000
+  * ServiceRecord{1d45b4e u0 com.android.phone/.TelephonyDebugService}
+    app=ProcessRecord{b462df0 1137:com.android.phone/1001}
+    created=-38m0s144ms started=true connections=0
+
+ACTIVITY MANAGER RECENT TASKS (dumpsys activity recents)
+  Recent tasks:
+  * Recent #0: TaskRecord{f542823 #25 A=application.buzzmovieselector U=0 sz=3}
+  * Recent #1: TaskRecord{921f120 #3 I=com.android.launcher3/.Launcher U=0 sz=1}
+
+ACTIVITY MANAGER ACTIVITIES (dumpsys activity activities)
+Display #0 (activities from top to bottom):
+  Stack #22:
+    Task id #25
+      TaskRecord{f542823 #25 A=application.buzzmovieselector U=0 sz=3}
+      Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=application.buzzmovieselector/.Activity.LoginActivity bnds=[1092,416][1332,656] (has extras) }
+        Hist #2: ActivityRecord{c5e5503 u0 application.buzzmovieselector/.Activity.LoginActivity t25}
+          Intent { cmp=application.buzzmovieselector/.Activity.LoginActivity }
+          ProcessRecord{9ab9ad9 348:application.buzzmovieselector/u0a60}
+        Hist #1: ActivityRecord{b1c9d05 u0 application.buzzmovieselector/.Activity.WelcomeScreen t25}
+          Intent { cmp=application.buzzmovieselector/.Activity.WelcomeScreen }
+        Hist #0: ActivityRecord{c42d19e u0 application.buzzmovieselector/.Activity.LoginActivity t25}
+          Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=application.buzzmovieselector/.Activity.LoginActivity bnds=[1092,416][1332,656] (has extras) }
+
+    Running activities (most recent first):
+      TaskRecord{f542823 #25 A=application.buzzmovieselector U=0 sz=3}
+        Run #0: ActivityRecord{c5e5503 u0 application.buzzmovieselector/.Activity.LoginActivity t25}
+
+    mResumedActivity: ActivityRecord{c5e5503 u0 application.buzzmovieselector/.Activity.LoginActivity t25}
+
+  Stack #0:
+    Task id #3
+      TaskRecord{921f120 #3 I=com.android.launcher3/.Launcher U=0 sz=1}
+      Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000000 cmp=com.android.launcher3/.Launcher }
+        Hist #0: ActivityRecord{8ccf8ee u0 com.android.launcher3/.Launcher t3}
+          Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000000 cmp=com.android.launcher3/.Launcher }
+          ProcessRecord{77dadb4 1614:com.android.launcher3/u0a8}
+
+    Running activities (most recent first):
+      TaskRecord{921f120 #3 I=com.android.launcher3/.Launcher U=0 sz=1}
+        Run #0: ActivityRecord{8ccf8ee u0 com.android.launcher3/.Launcher t3}
+
+  mFocusedStack=ActivityStack{4153c9e stackId=22, 1 tasks} mLastFocusedStack=ActivityStack{4153c9e stackId=22, 1 tasks}
+  mSleepTimeout=false
+  mCurTaskId=25
+  mUserStackInFront={}
+  mActivityContainers={0=ActivtyContainer{0}A, 22=ActivtyContainer{22}A}
+  mLockTaskModeState=NONE mLockTaskPackages (userId:packages)=
+    0:[]
+ mLockTaskModeTasks[]
+
+ACTIVITY MANAGER RUNNING PROCESSES (dumpsys activity processes)
+  Isolated process list (sorted by uid):
+    Isolated # 0: ProcessRecord{5b7237f 830:WebViewLoader-x86/1037}
+
+  UID states:
+    UID 1000: UidRecord{f04ff4c 1000 P  / 2 procs}
+    UID 1001: UidRecord{bb20b95 1001 P  / 1 procs}
+    UID 1037: UidRecord{49484aa 1037 CE / 1 procs}
+    UID u0a2: UidRecord{924789b u0a2 CE / 1 procs}
+    UID u0a4: UidRecord{428c438 u0a4 CE / 1 procs}
+    UID u0a8: UidRecord{c74cc11 u0a8 HO / 1 procs}
+    UID u0a10: UidRecord{a0e4176 u0a10 CE / 1 procs}
+    UID u0a16: UidRecord{7480377 u0a16 P  / 1 procs}
+    UID u0a24: UidRecord{fc1ebe4 u0a24 CE / 1 procs}
+    UID u0a30: UidRecord{1c9184d u0a30 CE / 1 procs}
+    UID u0a37: UidRecord{94ff02 u0a37 CE / 1 procs}
+    UID u0a41: UidRecord{2af6013 u0a41 IB / 1 procs}
+    UID u0a50: UidRecord{5a3e250 u0a50 CE / 1 procs}
+    UID u0a53: UidRecord{f9bec49 u0a53 CE / 1 procs}
+    UID u0a55: UidRecord{d8094e u0a55 IF / 1 procs}
+    UID u0a60: UidRecord{f25ea6f u0a60 T  / 1 procs}
+
+  Process LRU list (sorted by oom_adj, 16 total, non-act at 3, non-svc at 3):
+    PERS #15: sys   F/ /P  trm: 0 636:system/1000 (fixed)
+    PERS #14: pers  F/ /P  trm: 0 840:com.android.systemui/u0a16 (fixed)
+    PERS #13: pers  F/ /P  trm: 0 1137:com.android.phone/1001 (fixed)
+    Proc # 0: fore  F/A/T  trm: 0 348:application.buzzmovieselector/u0a60 (top-activity)
+    Proc #12: vis   F/ /IF trm: 0 1298:com.android.smspush/u0a55 (service)
+        com.android.smspush/.WapPushManager<=Proc{1137:com.android.phone/1001}
+    Proc # 2: prcp  B/ /IB trm: 0 1117:com.android.inputmethod.latin/u0a41 (service)
+        com.android.inputmethod.latin/.LatinIME<=Proc{636:system/1000}
+    Proc # 1: home  B/ /HO trm: 0 1614:com.android.launcher3/u0a8 (home)
+    Proc # 5: cch   B/ /CE trm: 0 1746:com.android.defcontainer/u0a4 (cch-empty)
+    Proc # 4: cch   B/ /CE trm: 0 1362:com.android.calendar/u0a24 (cch-empty)
+    Proc # 3: cch   B/ /CE trm: 0 1396:com.android.deskclock/u0a30 (cch-empty)
+    Proc # 8: cch+2 B/ /CE trm: 0 868:android.process.acore/u0a2 (cch-empty)
+    Proc # 7: cch+2 B/ /CE trm: 0 1767:com.android.musicfx/u0a10 (cch-empty)
+    Proc # 6: cch+2 B/ /CE trm: 0 1716:com.android.quicksearchbox/u0a53 (cch-empty)
+    Proc #11: cch+4 B/ /CE trm: 0 10011:com.android.keychain/1000 (cch-empty)
+    Proc #10: cch+4 B/ /CE trm: 0 1546:com.android.gallery3d/u0a37 (cch-empty)
+    Proc # 9: cch+4 B/ /CE trm: 0 1793:com.svox.pico/u0a50 (cch-empty)
+
+  mStartedUsers:
+    User #0: mState=RUNNING
+  mStartedUserArray: [0]
+  mUserLru: [0]
+  mHomeProcess: ProcessRecord{77dadb4 1614:com.android.launcher3/u0a8}
+  mConfiguration: {1.0 310mcc260mnc en_US ldltr sw360dp w360dp h616dp 640dpi nrml long port finger qwerty/v/v dpad/v s.6}
+  mWakefulness=Awake
+  mSleepTokens=[]
+  mSleeping=false mLockScreenShown=LOCK_SCREEN_HIDDEN
+  mShuttingDown=false mTestPssMode=false
+  mDebugApp=null/orig=null mDebugTransient=true mOrigWaitForDebugger=false

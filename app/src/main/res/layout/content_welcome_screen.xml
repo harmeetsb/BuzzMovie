@@ -36,7 +36,7 @@
     <Button
         android:layout_width="@dimen/abc_action_bar_stacked_tab_max_width"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="Register User"
         android:id="@+id/registerButton"
         android:layout_below="@+id/loginButton"
         android:layout_alignStart="@+id/loginButton"
@@ -52,4 +52,14 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true">
     </TextView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register Admin"
+        android:id="@+id/registerAdmin"
+        android:layout_below="@+id/registerButton"
+        android:layout_alignEnd="@+id/registerButton"
+        android:layout_alignStart="@+id/registerButton"
+        android:onClick="onClickRegisterAdmin" />
 </RelativeLayout>
