@@ -11,8 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activity.RegisterActivity"
-    tools:showIn="@layout/activity_register"
-    android:background="#ff884d">
+    tools:showIn="@layout/activity_register">
 
     <TextView
         android:layout_width="wrap_content"
@@ -93,11 +92,6 @@
         android:layout_alignParentStart="true"
         android:textColor="#802b00"/>
 
-    <Spinner
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/majorSpinner"
-        android:layout_below="@+id/passwordText" />
 
     <TextView
         style="@style/error"
@@ -106,7 +100,7 @@
         android:id="@+id/errorView"
         android:textColor="#e60000"
         android:layout_alignParentStart="true"
-        android:layout_below="@id/majorSpinner"/>
+        android:layout_below="@id/passwordText"/>
 
 
     <Button

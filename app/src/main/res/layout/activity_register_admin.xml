@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".Activity.WelcomeScreen">
+    tools:context="application.buzzmovieselector.Activity.RegisterAdminActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_welcome_screen" />
+    <include layout="@layout/content_register_admin" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

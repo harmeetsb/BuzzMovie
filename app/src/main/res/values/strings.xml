@@ -11,8 +11,20 @@
         <item>Physics</item>
         <item>Business</item>
     </string-array>
+    <string-array name="recommend">
+        <item>Recommend movie by:</item>
+        <item>Major</item>
+        <item>Top Rated</item>
+    </string-array>
+
     <string name="title_activity_user_profile">UserProfileActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_item_list">ItemListActivity</string>
+    <string name="title_activity_movie_detail">MovieDetailActivity</string>
+    <string name="title_activity_register2">Register2Activity</string>
+    <string name="title_activity_register_admin">RegisterAdminActivity</string>
+    <string name="title_activity_admin_profile">AdminProfileActivity</string>
+    <string name="title_activity_test">test</string>
 </resources>
