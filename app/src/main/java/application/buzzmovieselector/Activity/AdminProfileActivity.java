@@ -1,5 +1,7 @@
 package application.buzzmovieselector.Activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,10 +25,15 @@ public class AdminProfileActivity extends AppCompatActivity {
     Button logoutButton;
     ArrayList<User> users;
     UserManager userManager;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_profile);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Admin Panel");
+        context = this;
         users = new ArrayList<>();
         userManager = new UserManager(this);
         userList = (ListView) findViewById(R.id.userListView);
@@ -37,7 +44,9 @@ public class AdminProfileActivity extends AppCompatActivity {
         userList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(context, UserInformationActivity.class);
+                intent.putExtra("username", users.get(position).getUserName());
+                startActivity(intent);
             }
         });
         ArrayAdapter<User> adapter = new ArrayAdapter<User>(this, android.R.layout.simple_list_item_1, users);
