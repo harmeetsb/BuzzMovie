@@ -51,6 +51,10 @@
         <activity
             android:name=".Activity.test"
             android:label="@string/title_activity_test"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.UserInformationActivity"
+            android:label="@string/title_activity_user_information"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
