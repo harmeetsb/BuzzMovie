@@ -79,6 +79,8 @@ public class RegisterAdminActivity extends AppCompatActivity {
         alertDialog.setView(input);
         final String passwordEntered = String.valueOf(input.getText());
         alertDialog.setIcon(R.mipmap.ic_action_https);
+      //  alertDialog.setPositiveButton("Hello");
+
         alertDialog.setPositiveButton(
                 "Submit",
                 new DialogInterface.OnClickListener() {
@@ -86,7 +88,8 @@ public class RegisterAdminActivity extends AppCompatActivity {
                         if (passwordEntered.equals(ADMIN_PASSWORD)) {
                             dialog.cancel();
                         } else {
-                            Toast.makeText(context,"Wrong Password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,id, Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
                         }
                     }
                 });
