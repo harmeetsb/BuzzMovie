@@ -39,31 +39,6 @@ public class RegisterAdminActivity extends AppCompatActivity {
         errorView = (TextView) findViewById(R.id.errorView);
         errorView.setText("");
 
-        String name = nameEditText.getText().toString();
-        String email = emailEditText.getText().toString();
-        String userName = usernameEditText.getText().toString();
-        String password = passwordEditText.getText().toString();
-        String errorString = checkError(name, email, userName, password);
-        boolean registered = false;
-        if(errorString == null) {
-            registered = userManager.addUser(name, password, email, userName, "", true, false);
-        }
-        CharSequence text = "";
-
-        if (registered) {
-            text = "Registration Sucessful";
-        } else {
-            text = "Failed Try ajgain";
-            errorView.setText(errorString);
-        }
-
-        Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-        toast.show();
-
-        if(registered) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        }
     }
 
     private void passwordAlert() {
@@ -85,11 +60,11 @@ public class RegisterAdminActivity extends AppCompatActivity {
                 "Submit",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        if (passwordEntered.equals(ADMIN_PASSWORD)) {
+                        String pass = String.valueOf(input.getText());
+                        if (pass.equals(ADMIN_PASSWORD)) {
                             dialog.cancel();
                         } else {
-                            Toast.makeText(context,id, Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
+                            passwordAlert();
                         }
                     }
                 });
@@ -126,6 +101,56 @@ public class RegisterAdminActivity extends AppCompatActivity {
             return "This username has been taken";
         }
         return null;
+    }
+    /**
+     * Method to handle register clicks
+     * @param view View in which register has been clicked
+     */
+    public void onClickRegister(View view) {
+        String name = nameEditText.getText().toString();
+        String email = emailEditText.getText().toString();
+        String userName = usernameEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+        String errorString = checkError(name, email, userName, password);
+        boolean registered = false;
+        if(errorString == null) {
+            registered = userManager.addUser(name, password, email, userName, "", true, false);
+        }
+        CharSequence text = "";
+
+        if (registered) {
+            text = "Registration Sucessful";
+        } else {
+            text = "Failed Try again";
+            errorView.setText(errorString);
+        }
+
+        Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+        toast.show();
+
+        if(registered) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+    }
+    public void onClickBack(View view) {
+        super.onBackPressed();
+    }
+
+    public void onClickClear(View view) {
+        clearFields();
+    }
+    private void clearFields() {
+        EditText n = (EditText) findViewById(R.id.nameText);
+        EditText em = (EditText) findViewById(R.id.emailText);
+        EditText un = (EditText) findViewById(R.id.usernameText);
+        EditText p = (EditText) findViewById(R.id.passwordText);
+        TextView e = (TextView) findViewById(R.id.errorView);
+        n.setText("");
+        em.setText("");
+        un.setText("");
+        p.setText("");
+        e.setText("");
     }
 
 }

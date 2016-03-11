@@ -1,5 +1,7 @@
 package application.buzzmovieselector.Model;
 
+import java.util.ArrayList;
+
 /**
  * This class represents a User object
  * @author Harmeet S. Bindra
@@ -105,5 +107,9 @@ public class User {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }
 

@@ -7,6 +7,10 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.TreeMap;
+
 import application.buzzmovieselector.Model.User;
 
 /**
@@ -111,5 +115,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         db.delete("USERS", " Username = '"+user.getUserName()+"'", null);
         insertUser(user);
+    }
+    public ArrayList<User> getAllUser() {
+        ArrayList<User> users = new ArrayList<>();
+        db = this.getReadableDatabase();
+        String query = "SELECT * FROM "+DB_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        String name = null, email = null, username = null, password = null, Major = null;
+        boolean isAdmin = false, isBanned = false;
+        String un = "";
+        cursor.moveToFirst();
+        do{
+            name = cursor.getString(0);
+            email = cursor.getString(1);
+            username = cursor.getString(2);
+            password = cursor.getString(3);
+            Major = cursor.getString(4);
+            isAdmin = cursor.getInt(5) > 0;
+            isBanned = cursor.getInt(6) > 0;
+            User user = new User(name, password, email, username, Major, isAdmin, isBanned);
+            users.add(user);
+        }while(cursor.moveToNext());
+        db.close();
+        cursor.close();
+        return users;
     }
 }

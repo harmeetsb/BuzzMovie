@@ -2,6 +2,7 @@ package application.buzzmovieselector.Model;
 
 import android.content.Context;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +22,7 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
     }
     @Override
     public boolean addUser(String name, String password, String email, String userName, String major, boolean isAdmin, boolean isBanned) {
-        User user = new User(name, password, email, userName,major,false, false);
+        User user = new User(name, password, email, userName,major,isAdmin, false);
         long id = db.insertUser(user);
         if(id < 0) return false;
         else return true;
@@ -45,6 +46,10 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
      */
     public void updateUser(User user) {
         db.update(user);
+    }
+
+    public ArrayList<User> getUsers() {
+        return db.getAllUser();
     }
 }
 

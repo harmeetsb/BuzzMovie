@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import application.buzzmovieselector.Model.User;
 import application.buzzmovieselector.Model.UserManager;
 import application.buzzmovieselector.R;
 
@@ -23,6 +24,7 @@ import application.buzzmovieselector.R;
 public class LoginActivity extends AppCompatActivity {
 
     private static UserManager manager;
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,12 +76,27 @@ public class LoginActivity extends AppCompatActivity {
         EditText pass = (EditText) findViewById(R.id.passwordText);
         String userName = String.valueOf(name.getText());
         String passwordEntered = String.valueOf(pass.getText());
-        boolean login = manager.handleLoginRequest(userName, passwordEntered);
+        //boolean login = manager.handleLoginRequest(userName, passwordEntered);
+        boolean login;
+        user = manager.findUserById(userName);
+        if(user == null){
+            login = false;
+        } else {
+            if(user.getPassword().equals(passwordEntered)) {
+                login = true;
+            } else {
+                login = false;
+            }
+        }
         CharSequence text;
-
+        Intent intent;
         if(login) {
             text = "Welcome "+userName;
-            Intent intent = new Intent(this, ProfileActivity.class);
+            if(!user.getIsAdmin()) {
+                intent = new Intent(this, ProfileActivity.class);
+            } else {
+                intent = new Intent(this, AdminProfileActivity.class);
+            }
             intent.putExtra("userName", userName);
             startActivity(intent);
         } else {
