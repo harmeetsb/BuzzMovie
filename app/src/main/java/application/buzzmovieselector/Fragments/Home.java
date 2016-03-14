@@ -78,7 +78,11 @@ public class Home extends Fragment implements View.OnClickListener{
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.recommend, R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+<<<<<<< HEAD
         //layoutManager.canScrollVertically();
+=======
+        layoutManager.canScrollVertically();
+>>>>>>> origin/master
         mRecyclerMovies.setLayoutManager(layoutManager);
         mRecyclerMovies.setAdapter(mAdapter);
         setFilter();
@@ -155,9 +159,15 @@ public class Home extends Fragment implements View.OnClickListener{
                                 e.printStackTrace();
                             }
                         }
+<<<<<<< HEAD
                         if(spinner.getSelectedItemPosition() == 2){
                             movies = movieManager.highestRatedMovie(movies);
                         }
+=======
+                         if(spinner.getSelectedItemPosition() == 2){
+                             movies = movieManager.highestRatedMovie(movies);
+                         }
+>>>>>>> origin/master
 
                         mAdapter.setMovies(movies);
 
@@ -172,5 +182,10 @@ public class Home extends Fragment implements View.OnClickListener{
         //this actually queues up the async response with Volley
         queue.add(jsObjRequest);
     }
+<<<<<<< HEAD
+=======
+
+}
+>>>>>>> origin/master
 
 }
