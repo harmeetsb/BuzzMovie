@@ -45,6 +45,11 @@ public class User {
      * Method to returns getMajor
      * @return major
      */
+
+    public void setIsBanned(boolean isBanned) {
+        this.isBanned = isBanned;
+    }
+
     public String getMajor() {
         return major;
     }

@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
         if(user == null){
             login = false;
         } else {
-            if(user.getPassword().equals(passwordEntered)) {
+            if(user.getPassword().equals(passwordEntered) && !user.getIsBanned()) {
                 login = true;
             } else {
                 login = false;
@@ -99,7 +99,10 @@ public class LoginActivity extends AppCompatActivity {
             }
             intent.putExtra("userName", userName);
             startActivity(intent);
-        } else {
+        } else if(user.getIsBanned()) {
+            text = "Your account has been Locked.";
+        }
+        else {
             text = "Username and Password did not match";
         }
         Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);

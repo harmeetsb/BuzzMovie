@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -56,7 +57,7 @@ public class UserInformationActivity extends AppCompatActivity {
         userNameView.setText(user.getName());
 
         statusView = (TextView) findViewById(R.id.statusView);
-        if(user.getIsBanned()) statusView.setText("Yes"); else statusView.setText("No");
+        if(user.getIsBanned()) statusView.setText("Banned"); else statusView.setText("Not Banned");
 
         searchView = (TextView) findViewById(R.id.searchView);
         ratedView = (TextView) findViewById(R.id.ratedView);
@@ -71,8 +72,20 @@ public class UserInformationActivity extends AppCompatActivity {
     }
 
     public void onClickBan(View view) {
+        CharSequence text = "";
         if(user.getIsBanned()) {
+            user.setIsBanned(false);
+            text = "User Unbanned";
+            statusView.setText("Not Banned");
+            banButton.setText("ban User");
+        } else {
+            user.setIsBanned(true);
+            text = "User Banned";
+            statusView.setText("Banned");
+            banButton.setText("UNBan User");
         }
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+        userManager.updateUser(user);
     }
 
 }
