@@ -55,6 +55,10 @@
         <activity
             android:name=".Activity.UserInformationActivity"
             android:label="@string/title_activity_user_information"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.EditUserActivity"
+            android:label="@string/title_activity_edit_user"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

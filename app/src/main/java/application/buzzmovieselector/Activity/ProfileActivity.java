@@ -47,10 +47,11 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile);
+
         searchMovies = new ArrayList<>();
         Intent intent = getIntent();
         userName = intent.getStringExtra("userName");
-        setContentView(R.layout.activity_profile);
         volleyInstance = VolleySingleton.getInstance();
         queue = volleyInstance.getmRequestQueue();  // request queue for volley
 
@@ -170,7 +171,9 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
 
     private String getMovieName() {
         SearchView searchBox = (SearchView) findViewById(R.id.searchView);
-        return String.valueOf(searchBox.getQuery());
+        String movieName = String.valueOf(searchBox.getQuery());
+        movieName = movieName.replaceAll("\\s", "+");
+        return movieName;
     }
 
     private void requestMovie(String url) {
