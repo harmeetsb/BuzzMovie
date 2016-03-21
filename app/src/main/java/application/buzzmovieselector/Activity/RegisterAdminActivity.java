@@ -114,7 +114,8 @@ public class RegisterAdminActivity extends AppCompatActivity {
         String errorString = checkError(name, email, userName, password);
         boolean registered = false;
         if(errorString == null) {
-            registered = userManager.addUser(name, password, email, userName, "", true, false);
+            registered = userManager.addUser(name, password, email, userName, "", true, false,
+                    false, false);
         }
         CharSequence text = "";
 

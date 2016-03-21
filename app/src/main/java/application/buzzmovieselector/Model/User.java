@@ -15,6 +15,9 @@ public class User {
     private boolean isAdmin;
     private boolean isBanned;
     private String major;
+    private boolean isLocked;
+    private boolean isActive;
+
     /**
      * Makes a User object
      * @param name is the name of the user
@@ -25,7 +28,8 @@ public class User {
      * @param isAdmin to see if user is admin
      * @param isBanned to see if user is banned
      */
-    public User(String name, String password, String email, String userName, String major, boolean isAdmin, boolean isBanned) {
+    public User(String name, String password, String email, String userName, String major,
+                boolean isAdmin, boolean isBanned, boolean isLocked, boolean isActive) {
         this.name = name;
         this.password = password;
         this.email = email;
@@ -33,6 +37,8 @@ public class User {
         this.isAdmin = isAdmin;
         this.isBanned = isBanned;
         this.major = major;
+        this.isLocked = isLocked;
+        this.isActive = isActive;
     }
     /**
      * Method to returns isBanned
@@ -45,6 +51,11 @@ public class User {
      * Method to returns getMajor
      * @return major
      */
+
+    public void setIsBanned(boolean isBanned) {
+        this.isBanned = isBanned;
+    }
+
     public String getMajor() {
         return major;
     }
@@ -110,6 +121,22 @@ public class User {
     @Override
     public String toString() {
         return name;
+    }
+
+    public boolean getIsLocked() {
+        return isLocked;
+    }
+
+    public void setIsLocked(boolean isLocked) {
+        this.isLocked = isLocked;
+    }
+
+    public boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
 }
 

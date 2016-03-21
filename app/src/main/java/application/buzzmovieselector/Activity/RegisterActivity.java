@@ -56,7 +56,8 @@ public class RegisterActivity extends AppCompatActivity {
         boolean registered = false;
         // if there is no error, then only register the user
         if(errorString == null) {
-            registered = manager.addUser(name, password, email, userName, major, false, false);
+            registered = manager.addUser(name, password, email, userName, major, false, false,
+                    false, false);
         }
         CharSequence text = "";
 
