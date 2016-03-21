@@ -36,7 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE USERS(Name TEXT, Email TEXT, Username TEXT PRIMARY KEY, " +
-                "Password TEXT, Major TEXT, isAdmin NUMERIC, isBanned NUMERIC);";
+                "Password TEXT, Major TEXT, isAdmin NUMERIC, isBanned NUMERIC, isLocked, isActive);";
         try {
             db.execSQL(query);
         } catch (SQLException e) {
@@ -69,6 +69,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         userValues.put("Major", user.getMajor());
         userValues.put("isAdmin", user.getIsAdmin());
         userValues.put("isBanned", user.getIsBanned());
+        userValues.put("isLocked", user.getIsLocked());
+        userValues.put("isActive", user.getIsActive());
         long id = db.insert("USERS", null, userValues);
         db.close();
         return id;
@@ -81,11 +83,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public User findUser(String userName) {
         db = this.getReadableDatabase();
         String query = "SELECT Name, Email, Username, Password, " +
-                "Major, isAdmin, isBanned FROM "+DB_NAME;
+                "Major, isAdmin, isBanned, isLocked, isActive FROM "+DB_NAME;
 
         Cursor cursor = db.rawQuery(query, null);
         String name = null, email = null, username = null, password = null, Major = null;
-        boolean isAdmin = false, isBanned = false;
+        boolean isAdmin = false, isBanned = false, isLocked = false, isActive = false;
         String un = "";
         if (cursor.moveToFirst()) {
             do {
@@ -98,9 +100,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     Major = cursor.getString(4);
                     isAdmin = cursor.getInt(5) > 0;
                     isBanned = cursor.getInt(6) > 0;
+                    isLocked = cursor.getInt(7) > 0;
+                    isActive = cursor.getInt(8) > 0;
                     db.close();
                     cursor.close();
-                    return new User(name, password, email, username, Major, isAdmin, isBanned);
+                    return new User(name, password, email, username, Major, isAdmin,
+                            isBanned, isLocked, isActive);
                 }
             } while (cursor.moveToNext());
         }
@@ -122,7 +127,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT * FROM "+DB_NAME;
         Cursor cursor = db.rawQuery(query, null);
         String name = null, email = null, username = null, password = null, Major = null;
-        boolean isAdmin = false, isBanned = false;
+        boolean isAdmin = false, isBanned = false, isLocked = false, isActive = false;
         String un = "";
         cursor.moveToFirst();
         do{
@@ -133,7 +138,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Major = cursor.getString(4);
             isAdmin = cursor.getInt(5) > 0;
             isBanned = cursor.getInt(6) > 0;
-            User user = new User(name, password, email, username, Major, isAdmin, isBanned);
+            User user = new User(name, password, email, username, Major, isAdmin,
+                    isBanned, isLocked, isActive);
             users.add(user);
         }while(cursor.moveToNext());
         db.close();

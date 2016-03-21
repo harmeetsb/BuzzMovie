@@ -21,8 +21,11 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
         return db.findUser(userName);
     }
     @Override
-    public boolean addUser(String name, String password, String email, String userName, String major, boolean isAdmin, boolean isBanned) {
-        User user = new User(name, password, email, userName,major,isAdmin, false);
+    public boolean addUser(String name, String password, String email, String userName,
+                           String major, boolean isAdmin, boolean isBanned, boolean isLocked,
+                           boolean isActive) {
+        User user = new User(name, password, email, userName,major,isAdmin,
+                isBanned, isLocked, isActive);
         long id = db.insertUser(user);
         if(id < 0) return false;
         else return true;

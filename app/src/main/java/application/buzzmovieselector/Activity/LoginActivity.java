@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static UserManager manager;
     private User user;
+    private int invalidLoginCount = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,15 +80,29 @@ public class LoginActivity extends AppCompatActivity {
         //boolean login = manager.handleLoginRequest(userName, passwordEntered);
         boolean login;
         user = manager.findUserById(userName);
+
         if(user == null){
-            login = false;
-        } else {
-            if(user.getPassword().equals(passwordEntered)) {
-                login = true;
-            } else {
-                login = false;
-            }
+            Toast.makeText(this, "Invalid Username", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        if(user.getIsLocked()) {
+            Toast.makeText(this, "Account Locked. Please contact admin", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(invalidLoginCount >= 3) {
+            user.setIsLocked(true);
+            manager.updateUser(user);
+            return;
+        }
+
+        if(user.getPassword().equals(passwordEntered)) {
+            login = true;
+        } else {
+            login = false;
+            invalidLoginCount++;
+        }
+
         CharSequence text;
         Intent intent;
         if(login) {

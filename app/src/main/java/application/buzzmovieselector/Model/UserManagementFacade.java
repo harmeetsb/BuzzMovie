@@ -16,7 +16,8 @@ public interface UserManagementFacade {
      * @param isBanned to see if user is banned
      * @return user object
      */
-    boolean addUser(String name, String password, String email, String userName, String major, boolean isAdmin, boolean isBanned);
+    boolean addUser(String name, String password, String email, String userName, String major,
+                    boolean isAdmin, boolean isBanned, boolean isLocked, boolean isActive);
     /**
      * Method to find user from database
      * @param id is the username
