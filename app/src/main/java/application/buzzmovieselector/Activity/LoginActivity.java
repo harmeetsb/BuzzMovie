@@ -125,6 +125,8 @@ public class LoginActivity extends AppCompatActivity {
      * @param view View in which back has been clicked
      */
    public void onClickBack(View view) {
-       super.onBackPressed();
+       Intent intent = new Intent(this, WelcomeScreen.class);
+       startActivity(intent);
+       this.finish();
    }
 }
