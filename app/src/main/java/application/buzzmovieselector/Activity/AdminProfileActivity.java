@@ -53,4 +53,10 @@ public class AdminProfileActivity extends AppCompatActivity {
         userList.setAdapter(adapter);
     }
 
+    public void onClickLogout(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
 }

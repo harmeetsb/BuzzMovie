@@ -85,13 +85,14 @@ public class UserInformationActivity extends AppCompatActivity {
         if(user.getIsBanned()) {
             user.setIsBanned(false);
             text = "User Unbanned";
-            banButton.setText("Unban User");
+            banButton.setText("ban User");
         } else {
             user.setIsBanned(true);
             text = "User Banned";
-            banButton.setText("Ban User");
+            banButton.setText("Unban User");
         }
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+        userManager.updateUser(user);
     }
 
     public void onClickUnlockUser(View view) {
@@ -99,6 +100,10 @@ public class UserInformationActivity extends AppCompatActivity {
             user.setIsLocked(false);
             Toast.makeText(this, "User unlocked", Toast.LENGTH_SHORT).show();
             userManager.updateUser(user);
+            if(user.getIsBanned()) statusView.setText("Banned");
+            else if(user.getIsLocked()) statusView.setText("Locked");
+            else if(user.getIsActive()) statusView.setText("Active");
+            else statusView.setText("InActive");
         } else {
             Toast.makeText(this, "User is Already Unlocked", Toast.LENGTH_SHORT).show();
         }
