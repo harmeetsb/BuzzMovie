@@ -95,6 +95,11 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        if(user.getIsBanned()) {
+            Toast.makeText(this, "User is banned. Please contact admin", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if(user.getPassword().equals(passwordEntered)) {
             login = true;
         } else {

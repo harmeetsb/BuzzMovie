@@ -156,7 +156,7 @@ public class Home extends Fragment implements View.OnClickListener{
                                 e.printStackTrace();
                             }
                         }
-                        if(spinner.getSelectedItemPosition() == 2){
+                        if(spinner.getSelectedItemPosition() == 1){
                             movies = movieManager.highestRatedMovie(movies);
                         }
                          if(spinner.getSelectedItemPosition() == 2){
