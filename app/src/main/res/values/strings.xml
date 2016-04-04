@@ -19,6 +19,49 @@
 
     <string name="title_activity_user_profile">UserProfileActivity</string>
 
+    <string name="name">Name</string>
+    <string name="username">Username: </string>
+    <string name="userlist">User List</string>
+    <string name="moviesearch">Movie Search</string>
+    <string name="user">User</string>
+    <string name="logout">Logout</string>
+    <string name="login">Login</string>
+    <string name="movietitle">Movie Title</string>
+    <string name="buzzmovieselector">Buzz Movie Selector</string>
+    <string name="releasedate">Release Date:</string>
+    <string name="pass">pass</string>
+    <string name="harmeet">Harmeet</string>
+    <string name="searchmovie">Search Movie</string>
+    <string name="emailaddress">Email Address</string>
+    <string name="registeruser">Register User</string>
+    <string name="movieyear">2010</string>
+    <string name="nummoviessearched">Number of Movies Searched:</string>
+    <string name="accountstatus">Account Status:</string>
+    <string name="exampleemail">example@gatech.edu</string>
+    <string name="teamname">2b || !2b</string>
+    <string name="xyz">XYZ</string>
+    <string name="back">Back</string>
+    <string name="banned">Banned</string>
+    <string name="nummoviesrated">Number of Movies Rated:</string>
+    <string name="registeradmin">Register Admin</string>
+    <string name="runtime">Runtime:</string>
+    <string name="tbd">TBD</string>
+    <string name="exampleruntime">103 min</string>
+    <string name="lastlogin">Last Login:</string>
+    <string name="password">Password</string>
+    <string name="mpaarating">Mpaa rating:</string>
+    <string name="editprofile">Edit Profile</string>
+    <string name="G">G</string>
+    <string name="ratingscore">Rating Score:</string>
+    <string name="date">DATE</string>
+    <string name="submit">Submit</string>
+    <string name="hundred">100</string>
+    <string name="banuser">Ban User</string>
+    <string name="clear">Clear</string>
+    <string name="unlockuser">Unlock User</string>
+    <!--<string name="comment">Comment:</string>-->
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_item_list">ItemListActivity</string>
