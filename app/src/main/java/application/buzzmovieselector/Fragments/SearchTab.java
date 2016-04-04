@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import application.buzzmovieselector.R;
+
 /**
  * This class represents a SearchTab fragment
+ *
  * @author Harmeet S. Bindra
  * @version 1.0
  */

@@ -13,11 +13,17 @@ import application.buzzmovieselector.R;
 
 /**
  * This class represents a Welcome Screen object
+ *
  * @author Harmeet S. Bindra
  * @version 1.0
  */
 public class WelcomeScreen extends AppCompatActivity {
     private static WelcomeScreen instance = null;
+
+    public static Context getAppContext() {
+        return instance.getApplicationContext();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,16 +41,20 @@ public class WelcomeScreen extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Method to handle login clicks
+     *
      * @param view View in which login has been clicked
      */
     public void onClickLogin(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
+
     /**
      * Method to handle register clicks
+     *
      * @param view View in which register has been clicked
      */
     public void onClickRegister(View view) {
@@ -55,9 +65,5 @@ public class WelcomeScreen extends AppCompatActivity {
     public void onClickRegisterAdmin(View view) {
         Intent intent = new Intent(this, RegisterAdminActivity.class);
         startActivity(intent);
-    }
-
-    public static Context getAppContext() {
-        return instance.getApplicationContext();
     }
 }

@@ -1,6 +1,5 @@
 package application.buzzmovieselector.Fragments;
 
-import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,10 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TabHost;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -26,7 +22,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import application.buzzmovieselector.Model.Movie;
 import application.buzzmovieselector.R;
@@ -35,6 +30,7 @@ import application.buzzmovieselector.ui.RecentListAdapter;
 
 /**
  * This class represents a movieTab fragment
+ *
  * @author Harmeet S. Bindra
  * @version 1.0
  */
@@ -55,6 +51,7 @@ public class RecentMovieTab extends Fragment {
     public RecentMovieTab() {
 
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,9 +60,9 @@ public class RecentMovieTab extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-      //  listView = (ListView)rootView.findViewById(R.id.list);
+        //  listView = (ListView)rootView.findViewById(R.id.list);
         queue = VolleySingleton.getInstance().getmRequestQueue();
-       // mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeMovieHits);
+        // mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeMovieHits);
         //mSwipeRefreshLayout.setOnRefreshListener();
         mRecyclerMovies = (RecyclerView) rootView.findViewById(R.id.listMovieHits);
         //set the layout manager before trying to display data
@@ -85,8 +82,9 @@ public class RecentMovieTab extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_recent_movie_tab, container, false);
         return rootView;
     }
+
     private void recentDvd() {
-        String url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey="+API_KEY+"&page_limit="+MOVIE_PAGE_LIMIT;
+        String url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=" + API_KEY + "&page_limit=" + MOVIE_PAGE_LIMIT;
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, new Response.Listener<JSONObject>() {
                     @Override
@@ -102,7 +100,7 @@ public class RecentMovieTab extends Fragment {
                         ArrayList<Movie> movies = new ArrayList<>();
                         JSONArray array = obj1.optJSONArray("movies");
                         ArrayList<String> m = new ArrayList<>();
-                        for(int i = 0; i < array.length(); i++) {
+                        for (int i = 0; i < array.length(); i++) {
                             try {
                                 JSONObject jsonObject = array.getJSONObject(i);
                                 movie = new Movie();

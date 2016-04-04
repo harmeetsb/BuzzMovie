@@ -25,22 +25,22 @@ public class RottenTomatoService {
     private static final int MOVIE_PAGE_LIMIT = 5;
     private static String response;
     private static RequestQueue queue;
-    private ArrayList<Movie> searchList = new ArrayList<>();
     private static RottenTomatoService ourInstance;
-
-    public static RottenTomatoService getInstance() {
-        if(ourInstance == null) {
-            ourInstance = new RottenTomatoService();
-        }
-        return ourInstance;
-    }
+    private ArrayList<Movie> searchList = new ArrayList<>();
 
     private RottenTomatoService() {
         queue = VolleySingleton.getInstance().getmRequestQueue();
     }
 
+    public static RottenTomatoService getInstance() {
+        if (ourInstance == null) {
+            ourInstance = new RottenTomatoService();
+        }
+        return ourInstance;
+    }
+
     public ArrayList<Movie> getMovies(String url, final Context context) {
- //       searchList.clear();
+        //       searchList.clear();
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, new Response.Listener<JSONObject>() {
                     @Override
@@ -55,7 +55,7 @@ public class RottenTomatoService {
                         JSONArray array = obj1.optJSONArray("movies");
                         //ArrayList<Movie> movies = new ArrayList<>();
                         Movie movie = null;
-                        for(int i = 0; i < array.length(); i++) {
+                        for (int i = 0; i < array.length(); i++) {
                             try {
                                 JSONObject jsonObject = array.getJSONObject(i);
                                 movie = new Movie();

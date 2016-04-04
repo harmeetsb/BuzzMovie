@@ -1,8 +1,6 @@
 package application.buzzmovieselector.Fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -40,18 +37,18 @@ import application.buzzmovieselector.Service.VolleySingleton;
 import application.buzzmovieselector.ui.RecentListAdapter;
 
 
-public class Home extends Fragment implements View.OnClickListener{
-    private View rootView;
+public class Home extends Fragment implements View.OnClickListener {
     UserManager userManager;
-    private RecentListAdapter mAdapter;
     User user;
     Spinner spinner;
     Button logoutButton;
     MovieManager movieManager;
+    VolleySingleton volleyInstance;
+    private View rootView;
+    private RecentListAdapter mAdapter;
     private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
     private int MOVIE_PAGE_LIMIT = 10;
     private String response;
-    VolleySingleton volleyInstance;
     private RequestQueue queue;
     private RecyclerView mRecyclerMovies;
 
@@ -72,7 +69,7 @@ public class Home extends Fragment implements View.OnClickListener{
         mAdapter = new RecentListAdapter(getActivity());
         movieManager = new MovieManager(getActivity());
         user = userManager.findUserById(ProfileActivity.getUserName());
-        logoutButton = (Button)rootView.findViewById(R.id.logoutButton);
+        logoutButton = (Button) rootView.findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(this);
         spinner = (Spinner) rootView.findViewById(R.id.spinnerRecommend);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.recommend, R.layout.support_simple_spinner_dropdown_item);
@@ -85,8 +82,10 @@ public class Home extends Fragment implements View.OnClickListener{
         setFilter();
         return rootView;
     }
+
     /**
      * see if user wants to logout of the app
+     *
      * @param view the logout button clicked
      */
     public void onClick(View view) {
@@ -100,6 +99,7 @@ public class Home extends Fragment implements View.OnClickListener{
                 break;
         }
     }
+
     /**
      * gives users movies based on major
      */
@@ -107,7 +107,7 @@ public class Home extends Fragment implements View.OnClickListener{
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if(position > 0) {
+                if (position > 0) {
                     String major = user.getMajor();
                     String[] splitMajor = major.split("\\s+");
                     major = splitMajor[0];
@@ -125,6 +125,7 @@ public class Home extends Fragment implements View.OnClickListener{
 
 
     }
+
     private void requestMovie(String url) {
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, new Response.Listener<JSONObject>() {
@@ -140,7 +141,7 @@ public class Home extends Fragment implements View.OnClickListener{
                         JSONArray array = obj1.optJSONArray("movies");
                         Movie movie;
                         ArrayList<Movie> movies = new ArrayList<>();
-                        for(int i = 0; i < array.length(); i++) {
+                        for (int i = 0; i < array.length(); i++) {
                             try {
                                 JSONObject jsonObject = array.getJSONObject(i);
                                 movie = new Movie();
@@ -156,12 +157,12 @@ public class Home extends Fragment implements View.OnClickListener{
                                 e.printStackTrace();
                             }
                         }
-                        if(spinner.getSelectedItemPosition() == 1){
+                        if (spinner.getSelectedItemPosition() == 1) {
                             movies = movieManager.highestRatedMovie(movies);
                         }
-                         if(spinner.getSelectedItemPosition() == 2){
-                             movies = movieManager.highestRatedMovie(movies);
-                         }
+                        if (spinner.getSelectedItemPosition() == 2) {
+                            movies = movieManager.highestRatedMovie(movies);
+                        }
 
                         mAdapter.setMovies(movies);
 

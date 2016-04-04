@@ -2,8 +2,6 @@ package application.buzzmovieselector.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -27,6 +25,7 @@ public class EditUserActivity extends AppCompatActivity {
     User user;
     UserManager userManager;
     String major;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,15 +50,15 @@ public class EditUserActivity extends AppCompatActivity {
         error = (TextView) findViewById(R.id.errorView);
         major = user.getMajor();
         error.setText("");
-        if(major.equals("Computer Science")) {
+        if (major.equals("Computer Science")) {
             spinner.setSelection(1);
-        } else if(major.equals("Computer Engineering")) {
+        } else if (major.equals("Computer Engineering")) {
             spinner.setSelection(2);
-        } else if(major.equals("Math")) {
+        } else if (major.equals("Math")) {
             spinner.setSelection(3);
-        } else if(major.equals("Physics")) {
+        } else if (major.equals("Physics")) {
             spinner.setSelection(4);
-        } else if(major.equals("Business")) {
+        } else if (major.equals("Business")) {
             spinner.setSelection(5);
         }
 
@@ -69,15 +68,15 @@ public class EditUserActivity extends AppCompatActivity {
         String name = n.getText().toString();
         String email = em.getText().toString();
         String password = p.getText().toString();
-        if(!spinner.getSelectedItem().equals("Select Major")) {
+        if (!spinner.getSelectedItem().equals("Select Major")) {
             major = String.valueOf(spinner.getSelectedItem());
         }
         String errorString = checkError(name, email, password, major);
-        if(errorString == null) {
+        if (errorString == null) {
             User newUser = new User(name, password, email, user.getUserName(), major, false,
                     false, false, false);
             userManager.updateUser(newUser);
-            Toast.makeText(this, "Updated",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ProfileActivity.class);
             intent.putExtra("userName", user.getUserName());
             startActivity(intent);
@@ -89,38 +88,43 @@ public class EditUserActivity extends AppCompatActivity {
 
     private String checkError(String name, String email, String password, String major) {
         // name check
-        if(name.isEmpty() || email.isEmpty() ||password.isEmpty()) {
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
             return "No fields can be left blank";
         }
-        if(major.equalsIgnoreCase("Select Major")) {
+        if (major.equalsIgnoreCase("Select Major")) {
             return "Select a major";
         }
         for (int i = 0; i < name.length(); i++) {
-            if(name.charAt(i) < 65 || (name.charAt(i) > 90 && name.charAt(i) < 94)
-                    ||(name.charAt(i) > 94 && name.charAt(i)<97)
+            if (name.charAt(i) < 65 || (name.charAt(i) > 90 && name.charAt(i) < 94)
+                    || (name.charAt(i) > 94 && name.charAt(i) < 97)
                     || (name.charAt(i) > 122)) {
                 return "No special character allowed in name";
             }
         }
-        if(!email.contains("@gatech.edu")) {
+        if (!email.contains("@gatech.edu")) {
             return "only @gatech.edu allowed";
         }
         return null;
     }
+
     /**
      * Method to handle back clicks
+     *
      * @param view View in which back has been clicked
      */
     public void onClickBack(View view) {
         super.onBackPressed();
     }
+
     /**
      * Method to handle clear clicks
+     *
      * @param view View in which clear has been clicked
      */
     public void onClickClear(View view) {
         clearFields();
     }
+
     private void clearFields() {
         EditText n = (EditText) findViewById(R.id.nameText);
         EditText em = (EditText) findViewById(R.id.emailText);

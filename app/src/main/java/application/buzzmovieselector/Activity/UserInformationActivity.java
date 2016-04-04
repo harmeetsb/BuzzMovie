@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import application.buzzmovieselector.Model.User;
 import application.buzzmovieselector.Model.UserManager;
 import application.buzzmovieselector.R;
@@ -30,6 +28,7 @@ public class UserInformationActivity extends AppCompatActivity {
     Context context;
     User user;
     UserManager userManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,16 +56,17 @@ public class UserInformationActivity extends AppCompatActivity {
         userNameView.setText(user.getName());
 
         statusView = (TextView) findViewById(R.id.statusView);
-        if(user.getIsBanned()) statusView.setText("Banned");
-        else if(user.getIsLocked()) statusView.setText("Locked");
-        else if(user.getIsActive()) statusView.setText("Active");
+        if (user.getIsBanned()) statusView.setText("Banned");
+        else if (user.getIsLocked()) statusView.setText("Locked");
+        else if (user.getIsActive()) statusView.setText("Active");
         else statusView.setText("InActive");
 
         searchView = (TextView) findViewById(R.id.searchView);
         ratedView = (TextView) findViewById(R.id.ratedView);
         dateView = (TextView) findViewById(R.id.dateView);
         banButton = (Button) findViewById(R.id.BanButton);
-        if(user.getIsBanned()) banButton.setText("Unban User"); else banButton.setText("Ban User");
+        if (user.getIsBanned()) banButton.setText("Unban User");
+        else banButton.setText("Ban User");
         backButton = (Button) findViewById(R.id.backButton);
     }
 
@@ -82,7 +82,7 @@ public class UserInformationActivity extends AppCompatActivity {
 
     public void onClickBan(View view) {
         CharSequence text = "";
-        if(user.getIsBanned()) {
+        if (user.getIsBanned()) {
             user.setIsBanned(false);
             text = "User Unbanned";
             banButton.setText("ban User");
@@ -96,13 +96,13 @@ public class UserInformationActivity extends AppCompatActivity {
     }
 
     public void onClickUnlockUser(View view) {
-        if(user.getIsLocked()) {
+        if (user.getIsLocked()) {
             user.setIsLocked(false);
             Toast.makeText(this, "User unlocked", Toast.LENGTH_SHORT).show();
             userManager.updateUser(user);
-            if(user.getIsBanned()) statusView.setText("Banned");
-            else if(user.getIsLocked()) statusView.setText("Locked");
-            else if(user.getIsActive()) statusView.setText("Active");
+            if (user.getIsBanned()) statusView.setText("Banned");
+            else if (user.getIsLocked()) statusView.setText("Locked");
+            else if (user.getIsActive()) statusView.setText("Active");
             else statusView.setText("InActive");
         } else {
             Toast.makeText(this, "User is Already Unlocked", Toast.LENGTH_SHORT).show();

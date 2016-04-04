@@ -6,9 +6,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,6 +18,7 @@ import application.buzzmovieselector.R;
 
 /**
  * This class represents a Login application.buzzmovieselector.Activity object
+ *
  * @author Harmeet S. Bindra
  * @version 1.0
  */
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private static UserManager manager;
     private User user;
     private int invalidLoginCount = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * Method to handle login clicks
+     *
      * @param view View in which login has been clicked
      */
     public void onClickLogin(View view) {
@@ -80,27 +83,27 @@ public class LoginActivity extends AppCompatActivity {
         boolean login;
         user = manager.findUserById(userName);
 
-        if(user == null){
+        if (user == null) {
             Toast.makeText(this, "Invalid Username", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(user.getIsLocked()) {
+        if (user.getIsLocked()) {
             Toast.makeText(this, "Account Locked. Please contact admin", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(invalidLoginCount >= 3) {
+        if (invalidLoginCount >= 3) {
             user.setIsLocked(true);
             manager.updateUser(user);
             return;
         }
 
-        if(user.getIsBanned()) {
+        if (user.getIsBanned()) {
             Toast.makeText(this, "User is banned. Please contact admin", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(user.getPassword().equals(passwordEntered)) {
+        if (user.getPassword().equals(passwordEntered)) {
             login = true;
         } else {
             login = false;
@@ -109,9 +112,9 @@ public class LoginActivity extends AppCompatActivity {
 
         CharSequence text;
         Intent intent;
-        if(login) {
-            text = "Welcome "+userName;
-            if(!user.getIsAdmin()) {
+        if (login) {
+            text = "Welcome " + userName;
+            if (!user.getIsAdmin()) {
                 intent = new Intent(this, ProfileActivity.class);
             } else {
                 intent = new Intent(this, AdminProfileActivity.class);
@@ -124,13 +127,15 @@ public class LoginActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
         toast.show();
     }
+
     /**
      * Method to handle back clicks
+     *
      * @param view View in which back has been clicked
      */
-   public void onClickBack(View view) {
-       Intent intent = new Intent(this, WelcomeScreen.class);
-       startActivity(intent);
-       this.finish();
-   }
+    public void onClickBack(View view) {
+        Intent intent = new Intent(this, WelcomeScreen.class);
+        startActivity(intent);
+        this.finish();
+    }
 }

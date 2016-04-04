@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 import application.buzzmovieselector.Model.Movie;
-import application.buzzmovieselector.Model.User;
 
 /**
  * Created by harmeetbindra on 3/2/16.
@@ -29,8 +28,10 @@ public class MovieDatabase extends SQLiteOpenHelper {
     SQLiteDatabase db;
     MovieDatabase helper;
     private Context context;
+
     /**
      * Makes a Movie database object
+     *
      * @param context is the context of the activity
      */
     public MovieDatabase(Context context) {
@@ -40,8 +41,8 @@ public class MovieDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE "+DB_NAME+"("+movieId+ " INTEGER PRIMARY KEY, "+movieName+" TEXT, "
-                +movieUrl+" TEXT, "+date+" TEXT, "+mppaRating+" TEXT,"+runtime+" INTEGER);";
+        String query = "CREATE TABLE " + DB_NAME + "(" + movieId + " INTEGER PRIMARY KEY, " + movieName + " TEXT, "
+                + movieUrl + " TEXT, " + date + " TEXT, " + mppaRating + " TEXT," + runtime + " INTEGER);";
         try {
             db.execSQL(query);
         } catch (SQLException e) {
@@ -50,7 +51,7 @@ public class MovieDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE "+DB_NAME+" IF EXISTS");
+        db.execSQL("DROP TABLE " + DB_NAME + " IF EXISTS");
         onCreate(db);
     }
 
@@ -59,8 +60,10 @@ public class MovieDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE " + DB_NAME + " IF EXISTS");
         onCreate(db);
     }
+
     /**
      * insertMovie to the db
+     *
      * @param movie is the movie to be inserted
      * @return -1 if movie is already in the db
      */
@@ -71,7 +74,7 @@ public class MovieDatabase extends SQLiteOpenHelper {
         userValues.put(movieName, movie.getName());
         userValues.put(movieUrl, movie.getImageUrl());
         userValues.put(date, movie.getReleaseDate().toString());
-        userValues.put(mppaRating,movie.getMpaaRating());
+        userValues.put(mppaRating, movie.getMpaaRating());
         userValues.put(runtime, movie.getRunTime());
         long id = db.insert(DB_NAME, null, userValues);
         db.close();
@@ -80,6 +83,7 @@ public class MovieDatabase extends SQLiteOpenHelper {
 
     /**
      * find movie in the database
+     *
      * @param id is the movie id to be found
      * @return the movie object
      */
@@ -97,10 +101,10 @@ public class MovieDatabase extends SQLiteOpenHelper {
         int rating = 0;
         int mId = 0;
         Movie movie = null;
-        if(cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             do {
                 mId = cursor.getInt(0);
-                if(id == mId) {
+                if (id == mId) {
                     name = cursor.getString(1);
                     url = cursor.getString(2);
                     mDate = cursor.getString(3);
@@ -108,23 +112,25 @@ public class MovieDatabase extends SQLiteOpenHelper {
                     runT = cursor.getInt(5);
                     movie = new Movie(name, id, rating, url, mDate, runT, mpRating);
                 }
-            } while(cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         db.close();
         cursor.close();
         return movie;
     }
+
     /**
      * update movie in the database
+     *
      * @param movie is the movie to be updated
      * @return true if update was sucessful
      */
     public boolean update(Movie movie) {
         int id = movie.getId();
         db = this.getWritableDatabase();
-        db.delete(DB_NAME, " "+movieId+" = '"+id+"'", null);
+        db.delete(DB_NAME, " " + movieId + " = '" + id + "'", null);
         long sucess = insertMovie(movie);
-        if(sucess < 0) return false;
+        if (sucess < 0) return false;
         else return true;
     }
 
@@ -132,17 +138,5 @@ public class MovieDatabase extends SQLiteOpenHelper {
         return new ArrayList<>();
     }
 
-    private ArrayList<Movie> getMovieFromDb() {
-        ArrayList<Movie> movieList = new ArrayList<>();
-        String query = "SELECT * FROM "+DB_NAME;
-        Cursor cursor = db.rawQuery(query, null);
-        int id; Movie movie;
-        while(cursor.moveToNext()) {
-            id = cursor.getInt(0);
-            movie = findMovie(id);
-            movieList.add(movie);
-        }
-        return movieList;
-    }
 
 }

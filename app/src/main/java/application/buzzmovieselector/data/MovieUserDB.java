@@ -34,8 +34,8 @@ public class MovieUserDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE "+DB_NAME+"("+username+ " TEXT, "+movieId+" INTEGER, "+comments+" TEXT, "+rating+" TEXT"+
-                ", PRIMARY KEY ("+username+", "+movieId+"));";
+        String query = "CREATE TABLE " + DB_NAME + "(" + username + " TEXT, " + movieId + " INTEGER, " + comments + " TEXT, " + rating + " TEXT" +
+                ", PRIMARY KEY (" + username + ", " + movieId + "));";
         try {
             db.execSQL(query);
         } catch (SQLException e) {
@@ -44,7 +44,7 @@ public class MovieUserDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE "+DB_NAME+" IF EXISTS");
+        db.execSQL("DROP TABLE " + DB_NAME + " IF EXISTS");
         onCreate(db);
     }
 
@@ -68,25 +68,25 @@ public class MovieUserDB extends SQLiteOpenHelper {
 
     public float getRating(Movie movie) {
         db = this.getReadableDatabase();
-        String query = "SELECT * FROM "+DB_NAME;
+        String query = "SELECT * FROM " + DB_NAME;
         Cursor cursor = db.rawQuery(query, null);
         int movieId;
         float rating;
         ArrayList<Float> ratings = new ArrayList<>();
-        if(cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             do {
                 movieId = cursor.getInt(1);
-                if(movie.getId() == movieId) {
+                if (movie.getId() == movieId) {
                     rating = cursor.getInt(3);
                     ratings.add(rating);
                 }
-            } while(cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         db.close();
         float sum = 0;
-        for(Float a:ratings) {
-            sum+=a;
+        for (Float a : ratings) {
+            sum += a;
         }
-        return (sum/(ratings.size()*5))*5;
+        return (sum / (ratings.size() * 5)) * 5;
     }
 }

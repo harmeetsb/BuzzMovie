@@ -2,13 +2,10 @@ package application.buzzmovieselector.Activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -18,31 +15,39 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
 import application.buzzmovieselector.Model.Movie;
 import application.buzzmovieselector.R;
 import application.buzzmovieselector.Service.VolleySingleton;
 import application.buzzmovieselector.ui.TabListAdapter;
+
 /**
  * This class represents a ProfileActivity object
+ *
  * @author Harmeet S. Bindra
  * @version 1.0
  */
 public class ProfileActivity extends AppCompatActivity implements ActionBar.TabListener {
+    public static String userName;
     TabListAdapter adapter;
     ViewPager mViewPager;
     ActionBar actionBar;
+    VolleySingleton volleyInstance;
     private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
     private int MOVIE_PAGE_LIMIT = 10;
     private String response;
-    VolleySingleton volleyInstance;
     private RequestQueue queue;
     private ArrayList<Movie> searchMovies;
-    public static String userName;
+
+    public static String getUserName() {
+        return userName;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,31 +136,31 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
 
     }
 
-    public static String getUserName() {
-        return userName;
-    }
     /**
      * Method to handle Movie search
+     *
      * @param view View in which search has been clicked
      */
     public void onClickMovieSearch(View view) {
         String movieName = getMovieName();
-        if(movieName.isEmpty() || movieName == null) {
+        if (movieName.isEmpty() || movieName == null) {
             Toast.makeText(this, "invalid movie name", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             String url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" + API_KEY + "&q=" + movieName + "&page_limit=" + MOVIE_PAGE_LIMIT;
             requestMovie(url);
-           // changeView(searchMovies);
+            // changeView(searchMovies);
         }
     }
+
     /**
      * Method to return the context of this activity
+     *
      * @return the context of this activity
      */
-    public Context getContext(){
+    public Context getContext() {
         return this;
     }
+
     /**
      * This method changes to our new list view of the states, but we have to pass the
      * state array into the intent so the new screen gets the application.buzzmovieselector.data.
@@ -164,7 +169,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
      */
     private void changeView(ArrayList<Movie> movies) {
         Intent intent = new Intent(this, ItemListActivity.class);
-       // this is where we save the info.  note the State object must be Serializable
+        // this is where we save the info.  note the State object must be Serializable
         intent.putExtra("movies", movies);
         startActivity(intent);
     }
@@ -191,7 +196,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
                         JSONArray array = obj1.optJSONArray("movies");
                         Movie movie;
                         ArrayList<Movie> movies = new ArrayList<>();
-                        for(int i = 0; i < array.length(); i++) {
+                        for (int i = 0; i < array.length(); i++) {
                             try {
                                 JSONObject jsonObject = array.getJSONObject(i);
                                 movie = new Movie();
@@ -214,7 +219,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         response = "JSon Request Failed!!";
-                        Toast.makeText(getContext(),"Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
                     }
                 });
         //this actually queues up the async response with Volley

@@ -3,10 +3,7 @@ package application.buzzmovieselector.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,26 +21,28 @@ import application.buzzmovieselector.R;
 
 /**
  * This class represents a MovieDetail activity object
+ *
  * @author Harmeet S. Bindra
  * @version 1.0
  */
 public class MovieDetailActivity extends AppCompatActivity {
+    private static int submitCount;
+    RatingBar ratingBar;
+    User user;
+    ArrayList<Movie> moviesRated = new ArrayList<>();
     private TextView movieName;
     private TextView mpaaRating;
     private TextView runTime;
     private TextView ratingScore;
     private TextView year;
     private EditText comment;
-    RatingBar ratingBar;
     private Button submitButton;
     private Button backButton;
     private Movie movie;
-    private static int submitCount;
     private MovieManager manager;
     private float updatedRating;
     private UserManager userManager;
-    User user;
-    ArrayList<Movie> moviesRated = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,24 +75,27 @@ public class MovieDetailActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Method to handle back clicks
+     *
      * @param view View in which back has been clicked
      */
     public void onClickBack(View view) {
- //       Intent intent = new Intent(this, ProfileActivity.class);
-  //      intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-    //    intent.putExtra("userName", user.getUserName());
-    //    startActivity(intent);
-        if ( getFragmentManager().getBackStackEntryCount() > 0)
-        {
+        //       Intent intent = new Intent(this, ProfileActivity.class);
+        //      intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //    intent.putExtra("userName", user.getUserName());
+        //    startActivity(intent);
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
             getFragmentManager().popBackStack();
             return;
         }
         super.onBackPressed();
     }
+
     /**
      * Method to handle submit clicks
+     *
      * @param view View in which submit has been clicked
      */
     public void onClickSubmit(View view) {
@@ -101,20 +103,22 @@ public class MovieDetailActivity extends AppCompatActivity {
         String comm = String.valueOf(comment.getText());
         movie.setComment(comm);
         boolean rated = !(manager.insertRatingComment(user, movie));
-            if(!rated) {
-                float rating = manager.getRating(movie);
-                ratingScore.setText(String.valueOf(rating));
-                movie.setRating(rating);
-                Toast.makeText(getContext(), String.valueOf(rating), Toast.LENGTH_SHORT).show();
-                moviesRated.add(movie);
+        if (!rated) {
+            float rating = manager.getRating(movie);
+            ratingScore.setText(String.valueOf(rating));
+            movie.setRating(rating);
+            Toast.makeText(getContext(), String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            moviesRated.add(movie);
         } else {
-                //manager.getRating(movie);
+            //manager.getRating(movie);
             Toast.makeText(this, "Already Rated", Toast.LENGTH_SHORT).show();
         }
-      //  manager.updateDb(movie);
+        //  manager.updateDb(movie);
     }
+
     /**
      * Method to get the context of the app
+     *
      * @return the context of this activity
      */
     public Context getContext() {

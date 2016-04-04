@@ -18,6 +18,7 @@ import application.buzzmovieselector.R;
 
 /**
  * This class represents a profile tab fragment
+ *
  * @author Harmeet S. Bindra
  * @version 1.0
  */
@@ -33,12 +34,13 @@ public class ProfileTab extends Fragment implements View.OnClickListener {
     TextView dateView;
     Context context;
     User user;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        rootView =  inflater.inflate(R.layout.fragment_profile_tab, container, false);
+        rootView = inflater.inflate(R.layout.fragment_profile_tab, container, false);
         editButton = (Button) rootView.findViewById(R.id.editProfileButton);
         userManager = new UserManager(getActivity());
         userName = ProfileActivity.getUserName();

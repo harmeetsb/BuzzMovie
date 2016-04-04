@@ -8,13 +8,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.TreeMap;
 
 import application.buzzmovieselector.Model.User;
 
 /**
  * This class represents a DatabaseHelper object
+ *
  * @author Harmeet S. Bindra
  * @version 1.0
  */
@@ -24,8 +23,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     SQLiteDatabase db;
     DatabaseHelper helper;
     private Context context;
+
     /**
      * Makes a DataBase Helper object
+     *
      * @param context is the context of the activity
      */
     public DatabaseHelper(Context context) {
@@ -54,8 +55,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE USERS IF EXISTS");
         onCreate(db);
     }
+
     /**
      * Method to insert user to the database
+     *
      * @param user is the user object that is to be stored in the database
      * @return id that is negative if the user was not inserted
      */
@@ -75,15 +78,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return id;
     }
+
     /**
      * Method to find user from the database
+     *
      * @param userName is the primary key
      * @return user object
      */
     public User findUser(String userName) {
         db = this.getReadableDatabase();
         String query = "SELECT Name, Email, Username, Password, " +
-                "Major, isAdmin, isBanned, isLocked, isActive FROM "+DB_NAME;
+                "Major, isAdmin, isBanned, isLocked, isActive FROM " + DB_NAME;
 
         Cursor cursor = db.rawQuery(query, null);
         String name = null, email = null, username = null, password = null, Major = null;
@@ -111,26 +116,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return null;
     }
+
     /**
      * method to update user
+     *
      * @param user is the user that has to be updated
      */
     public void update(User user) {
         String name = user.getUserName();
         db = this.getWritableDatabase();
-        db.delete("USERS", " Username = '"+user.getUserName()+"'", null);
+        db.delete("USERS", " Username = '" + user.getUserName() + "'", null);
         insertUser(user);
     }
+
     public ArrayList<User> getAllUser() {
         ArrayList<User> users = new ArrayList<>();
         db = this.getReadableDatabase();
-        String query = "SELECT * FROM "+DB_NAME;
+        String query = "SELECT * FROM " + DB_NAME;
         Cursor cursor = db.rawQuery(query, null);
         String name = null, email = null, username = null, password = null, Major = null;
         boolean isAdmin = false, isBanned = false, isLocked = false, isActive = false;
         String un = "";
         cursor.moveToFirst();
-        do{
+        do {
             name = cursor.getString(0);
             email = cursor.getString(1);
             username = cursor.getString(2);
@@ -141,7 +149,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             User user = new User(name, password, email, username, Major, isAdmin,
                     isBanned, isLocked, isActive);
             users.add(user);
-        }while(cursor.moveToNext());
+        } while (cursor.moveToNext());
         db.close();
         cursor.close();
         return users;
