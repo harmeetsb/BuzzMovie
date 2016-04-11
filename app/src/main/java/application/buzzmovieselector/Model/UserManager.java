@@ -46,6 +46,7 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
        return !(id < 0);
     }
 
+
     @Override
     public boolean handleLoginRequest(String name, String pass) {
         User u = findUserById(name);

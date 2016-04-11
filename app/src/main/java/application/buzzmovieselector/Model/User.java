@@ -41,6 +41,10 @@ public class User {
         this.isActive = isActive;
     }
 
+    public User() {
+
+    }
+
     /**
      * Method to returns isBanned
      *
