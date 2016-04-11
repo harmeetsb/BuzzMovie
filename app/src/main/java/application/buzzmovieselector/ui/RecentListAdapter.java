@@ -30,8 +30,8 @@ import application.buzzmovieselector.Service.VolleySingleton;
  * @version 1.0
  */
 public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.ViewHolderBoxOffice> {
-    MovieManager manager;
-    Context context;
+    private MovieManager manager;
+    private Context context;
     private String title;
     //contains the list of movies
     private ArrayList<Movie> mListMovies = new ArrayList<>();
@@ -42,6 +42,14 @@ public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.Vi
     private DateFormat mFormatter = new SimpleDateFormat("yyyy-MM-dd");
     //keep track of the previous position for animations where scrolling down requires a different animation compared to scrolling up
     private int mPreviousPosition = 0;
+
+    public MovieManager getManager() {
+        return manager;
+    }
+
+    public Context getContext() {
+        return context;
+    }
 
     /**
      * makes a RecentListAdapter object
@@ -168,10 +176,26 @@ public class RecentListAdapter extends RecyclerView.Adapter<RecentListAdapter.Vi
      */
     class ViewHolderBoxOffice extends RecyclerView.ViewHolder {
 
-        ImageView movieThumbnail;
-        TextView movieTitle;
-        TextView movieReleaseDate;
-        RatingBar movieAudienceScore;
+        private ImageView movieThumbnail;
+        private TextView movieTitle;
+        private TextView movieReleaseDate;
+        private RatingBar movieAudienceScore;
+
+        public ImageView getMovieThumbnail() {
+            return movieThumbnail;
+        }
+
+        public TextView getMovieTitle() {
+            return movieTitle;
+        }
+
+        public TextView getMovieReleaseDate() {
+            return movieReleaseDate;
+        }
+
+        public RatingBar getMovieAudienceScore() {
+            return movieAudienceScore;
+        }
 
         /**
          * Makes viewHolderBoxOffice object

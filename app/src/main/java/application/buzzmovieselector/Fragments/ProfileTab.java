@@ -23,17 +23,74 @@ import application.buzzmovieselector.R;
  * @version 1.0
  */
 public class ProfileTab extends Fragment implements View.OnClickListener {
-    View rootView;
-    Button editButton;
-    String userName;
-    UserManager userManager;
+    private View rootView;
+    private Button editButton;
+    private String userName;
+    private UserManager userManager;
 
-    TextView nameView;
-    TextView userNameView;
-    TextView ratedView;
-    TextView dateView;
-    Context context;
-    User user;
+    private TextView nameView;
+    private TextView userNameView;
+    private TextView ratedView;
+    private TextView dateView;
+    private Context context;
+    private User user;
+
+    public View getRootView() {
+        return rootView;
+    }
+
+    public Button getEditButton() {
+        return editButton;
+    }
+
+
+    public String getUserName() {
+        return userName;
+    }
+
+
+
+    public UserManager getUserManager() {
+        return userManager;
+    }
+
+
+
+    public TextView getNameView() {
+        return nameView;
+    }
+
+
+
+    public TextView getUserNameView() {
+        return userNameView;
+    }
+
+
+
+    public TextView getRatedView() {
+        return ratedView;
+    }
+
+
+
+    public TextView getDateView() {
+        return dateView;
+    }
+
+
+
+    public Context getContext() {
+        return context;
+    }
+
+
+
+    public User getUser() {
+        return user;
+    }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

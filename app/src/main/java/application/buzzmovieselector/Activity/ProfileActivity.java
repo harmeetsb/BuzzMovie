@@ -2,7 +2,9 @@ package application.buzzmovieselector.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +17,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,16 +39,43 @@ import application.buzzmovieselector.ui.TabListAdapter;
  * @version 1.0
  */
 public class ProfileActivity extends AppCompatActivity implements ActionBar.TabListener {
-    public static String userName;
-    TabListAdapter adapter;
-    ViewPager mViewPager;
-    ActionBar actionBar;
-    VolleySingleton volleyInstance;
+    private static String userName;
+    private TabListAdapter adapter;
+    private ViewPager mViewPager;
+    private ActionBar actionBar;
+    private VolleySingleton volleyInstance;
     private String apiKey = "yedukp76ffytfuy24zsqk7f5";
     private int moviePageLimit = 10;
     private String response;
     private RequestQueue queue;
     private ArrayList<Movie> searchMovies;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
+    public static void setUserName(String userName) {
+        ProfileActivity.userName = userName;
+    }
+
+    public TabListAdapter getAdapter() {
+        return adapter;
+    }
+
+
+    public ViewPager getmViewPager() {
+        return mViewPager;
+    }
+
+
+
+
+    public VolleySingleton getVolleyInstance() {
+        return volleyInstance;
+    }
+
+
 
     public static String getUserName() {
         return userName;
@@ -119,20 +151,23 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
                     }
                 });
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
-    public void onTabSelected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction ft) {
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
         mViewPager.setCurrentItem(tab.getPosition());
     }
 
     @Override
-    public void onTabUnselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction ft) {
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
     }
 
     @Override
-    public void onTabReselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction ft) {
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
     }
 
@@ -224,5 +259,45 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
                 });
         //this actually queues up the async response with Volley
         queue.add(jsObjRequest);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Profile Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://application.buzzmovieselector.Activity/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Profile Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://application.buzzmovieselector.Activity/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
     }
 }

@@ -23,9 +23,19 @@ public class MovieUserDB extends SQLiteOpenHelper {
     private static final String COMMENTS = "Comments";
     private static final String RATING = "Rating";
 
-    SQLiteDatabase db;
-    MovieDatabase helper;
+    private SQLiteDatabase db;
+    private MovieDatabase helper;
     private Context context;
+
+    public SQLiteDatabase getDb() {
+        return db;
+    }
+
+
+    public MovieDatabase getHelper() {
+        return helper;
+    }
+
 
     public MovieUserDB(Context context) {
         super(context, DB_NAME, null, DB_VERSION);   // Users.db is the name of the database and 1 is the version

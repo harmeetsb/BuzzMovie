@@ -16,7 +16,11 @@ import application.buzzmovieselector.data.DatabaseHelper;
  */
 public class UserManager implements AuthenticationFacade, UserManagementFacade {
     private static Map<String, User> users = new HashMap<>();
-    DatabaseHelper db;
+    private DatabaseHelper db;
+
+    public DatabaseHelper getDb() {
+        return db;
+    }
 
     /**
      * Makes a UserManager object
@@ -39,8 +43,7 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
         User user = new User(name, password, email, userName, major, isAdmin,
                 isBanned, isLocked, isActive);
         long id = db.insertUser(user);
-        if (id < 0) return false;
-        else return true;
+       return !(id < 0);
     }
 
     @Override

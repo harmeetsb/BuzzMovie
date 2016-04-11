@@ -18,11 +18,36 @@ import application.buzzmovieselector.Model.UserManager;
 import application.buzzmovieselector.R;
 
 public class AdminProfileActivity extends AppCompatActivity {
-    ListView userList;
-    Button logoutButton;
-    ArrayList<User> users;
-    UserManager userManager;
-    Context context;
+    private ListView userList;
+    private Button logoutButton;
+    private ArrayList<User> users;
+    private UserManager userManager;
+    private Context context;
+
+    public ListView getUserList() {
+        return userList;
+    }
+
+
+    public Button getLogoutButton() {
+        return logoutButton;
+    }
+
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+
+    public UserManager getUserManager() {
+        return userManager;
+    }
+
+
+    public Context getContext() {
+        return context;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

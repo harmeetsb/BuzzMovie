@@ -15,8 +15,18 @@ import application.buzzmovieselector.data.MovieUserDB;
  */
 public class MovieManager {
 
-    MovieDatabase db;
-    MovieUserDB movieUserDB;
+    private MovieDatabase db;
+    private MovieUserDB movieUserDB;
+
+    public MovieDatabase getDb() {
+        return db;
+    }
+
+
+    public MovieUserDB getMovieUserDB() {
+        return movieUserDB;
+    }
+
 
     /**
      * Makes a Movie manager object
@@ -83,8 +93,7 @@ public class MovieManager {
      */
     public boolean insertRatingComment(User user, Movie movie) {
         long id = movieUserDB.insertRatingComment(movie, user);
-        if (id < 0) return false;
-        else return true;
+        return !(id < 0);
     }
 
     /**

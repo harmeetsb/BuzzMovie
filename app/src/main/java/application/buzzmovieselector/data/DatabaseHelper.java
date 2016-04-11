@@ -20,9 +20,21 @@ import application.buzzmovieselector.Model.User;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "USERS";
     private static final int DB_VERSION = 1;
-    SQLiteDatabase db;
-    DatabaseHelper helper;
+    private SQLiteDatabase db;
+    private DatabaseHelper helper;
     private Context context;
+
+    public SQLiteDatabase getDb() {
+        return db;
+    }
+
+
+
+    public DatabaseHelper getHelper() {
+        return helper;
+    }
+
+
 
     /**
      * Makes a DataBase Helper object

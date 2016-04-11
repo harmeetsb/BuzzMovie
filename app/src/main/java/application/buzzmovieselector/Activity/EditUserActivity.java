@@ -16,15 +16,60 @@ import application.buzzmovieselector.Model.UserManager;
 import application.buzzmovieselector.R;
 
 public class EditUserActivity extends AppCompatActivity {
-    EditText n;
-    EditText em;
-    TextView un;
-    EditText p;
-    TextView error;
-    Spinner spinner;
-    User user;
-    UserManager userManager;
-    String major;
+    private EditText n;
+    private EditText em;
+    private TextView un;
+    private EditText p;
+    private TextView error;
+    private Spinner spinner;
+    private User user;
+    private UserManager userManager;
+    private String major;
+
+    public EditText getN() {
+        return n;
+    }
+
+
+    public EditText getEm() {
+        return em;
+    }
+
+
+    public TextView getUn() {
+        return un;
+    }
+
+
+    public EditText getP() {
+        return p;
+    }
+
+
+    public TextView getError() {
+        return error;
+    }
+
+
+    public Spinner getSpinner() {
+        return spinner;
+    }
+
+
+    public User getUser() {
+        return user;
+    }
+
+
+    public UserManager getUserManager() {
+        return userManager;
+    }
+
+
+    public String getMajor() {
+        return major;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

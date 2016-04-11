@@ -35,7 +35,7 @@ import application.buzzmovieselector.ui.RecentListAdapter;
  * @version 1.0
  */
 public class RecentMovieTab extends Fragment {
-    ArrayList<String> movies = new ArrayList<>();
+    private ArrayList<String> movies = new ArrayList<>();
     private String apiKey = "yedukp76ffytfuy24zsqk7f5";
     private int moviePageLimit = 10;
     private String response;
@@ -47,6 +47,10 @@ public class RecentMovieTab extends Fragment {
     private SwipeRefreshLayout mSwipeRefreshLayout;
     //the recyclerview containing showing all our movies
     private RecyclerView mRecyclerMovies;
+
+    public ArrayList<String> getMovies() {
+        return movies;
+    }
 
     public RecentMovieTab() {
 

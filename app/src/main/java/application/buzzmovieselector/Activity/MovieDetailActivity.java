@@ -27,9 +27,9 @@ import application.buzzmovieselector.R;
  */
 public class MovieDetailActivity extends AppCompatActivity {
     private static int submitCount;
-    RatingBar ratingBar;
-    User user;
-    ArrayList<Movie> moviesRated = new ArrayList<>();
+    private RatingBar ratingBar;
+    private User user;
+    private ArrayList<Movie> moviesRated = new ArrayList<>();
     private TextView movieName;
     private TextView mpaaRating;
     private TextView runTime;
@@ -42,6 +42,20 @@ public class MovieDetailActivity extends AppCompatActivity {
     private MovieManager manager;
     private float updatedRating;
     private UserManager userManager;
+
+    public RatingBar getRatingBar() {
+        return ratingBar;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+
+    public ArrayList<Movie> getMoviesRated() {
+        return moviesRated;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

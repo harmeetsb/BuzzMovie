@@ -25,9 +25,19 @@ public class MovieDatabase extends SQLiteOpenHelper {
     private static final String RUNTIME = "Runtime";
     private static final String USER_RATED = "User_Rated";
 
-    SQLiteDatabase db;
-    MovieDatabase helper;
+    private SQLiteDatabase db;
+    private MovieDatabase helper;
     private Context context;
+
+    public SQLiteDatabase getDb() {
+        return db;
+    }
+
+
+    public MovieDatabase getHelper() {
+        return helper;
+    }
+
 
     /**
      * Makes a Movie database object
@@ -130,8 +140,8 @@ public class MovieDatabase extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         db.delete(DB_NAME, " " + MOVIE_ID + " = '" + id + "'", null);
         long sucess = insertMovie(movie);
-        if (sucess < 0) return false;
-        else return true;
+
+        return !(sucess < 0);
     }
 
     public ArrayList<Movie> getMovieByMajor(String major) {

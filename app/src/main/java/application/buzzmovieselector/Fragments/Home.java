@@ -38,12 +38,12 @@ import application.buzzmovieselector.ui.RecentListAdapter;
 
 
 public class Home extends Fragment implements View.OnClickListener {
-    UserManager userManager;
-    User user;
-    Spinner spinner;
-    Button logoutButton;
-    MovieManager movieManager;
-    VolleySingleton volleyInstance;
+    private UserManager userManager;
+    private User user;
+    private Spinner spinner;
+    private Button logoutButton;
+    private MovieManager movieManager;
+    private VolleySingleton volleyInstance;
     private View rootView;
     private RecentListAdapter mAdapter;
     private String apiKey = "yedukp76ffytfuy24zsqk7f5";
@@ -51,6 +51,41 @@ public class Home extends Fragment implements View.OnClickListener {
     private String response;
     private RequestQueue queue;
     private RecyclerView mRecyclerMovies;
+
+    public UserManager getUserManager() {
+        return userManager;
+    }
+
+
+
+    public User getUser() {
+        return user;
+    }
+
+
+
+    public Spinner getSpinner() {
+        return spinner;
+    }
+
+
+
+    public Button getLogoutButton() {
+        return logoutButton;
+    }
+
+
+
+    public MovieManager getMovieManager() {
+        return movieManager;
+    }
+
+
+
+    public VolleySingleton getVolleyInstance() {
+        return volleyInstance;
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

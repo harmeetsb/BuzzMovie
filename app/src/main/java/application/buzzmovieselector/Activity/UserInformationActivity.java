@@ -17,17 +17,61 @@ import application.buzzmovieselector.Model.UserManager;
 import application.buzzmovieselector.R;
 
 public class UserInformationActivity extends AppCompatActivity {
-    TextView nameView;
-    TextView userNameView;
-    TextView statusView;
-    TextView searchView;
-    TextView ratedView;
-    TextView dateView;
-    Button banButton;
-    Button backButton;
-    Context context;
-    User user;
-    UserManager userManager;
+    private TextView nameView;
+    private TextView userNameView;
+    private TextView statusView;
+    private TextView searchView;
+    private TextView ratedView;
+    private TextView dateView;
+    private Button banButton;
+    private Button backButton;
+    private Context context;
+    private User user;
+    private UserManager userManager;
+
+    public TextView getNameView() {
+        return nameView;
+    }
+
+    public TextView getUserNameView() {
+        return userNameView;
+    }
+
+    public TextView getStatusView() {
+        return statusView;
+    }
+
+    public TextView getSearchView() {
+        return searchView;
+    }
+
+    public TextView getRatedView() {
+        return ratedView;
+    }
+
+    public TextView getDateView() {
+        return dateView;
+    }
+
+    public Button getBanButton() {
+        return banButton;
+    }
+
+    public Button getBackButton() {
+        return backButton;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public UserManager getUserManager() {
+        return userManager;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
