@@ -46,8 +46,8 @@ public class Home extends Fragment implements View.OnClickListener {
     VolleySingleton volleyInstance;
     private View rootView;
     private RecentListAdapter mAdapter;
-    private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
-    private int MOVIE_PAGE_LIMIT = 10;
+    private String apiKey = "yedukp76ffytfuy24zsqk7f5";
+    private int moviePageLimit = 10;
     private String response;
     private RequestQueue queue;
     private RecyclerView mRecyclerMovies;
@@ -111,7 +111,7 @@ public class Home extends Fragment implements View.OnClickListener {
                     String major = user.getMajor();
                     String[] splitMajor = major.split("\\s+");
                     major = splitMajor[0];
-                    String url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" + API_KEY + "&q=" + major + "&page_limit=" + MOVIE_PAGE_LIMIT;
+                    String url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" + apiKey + "&q=" + major + "&page_limit=" + moviePageLimit;
                     requestMovie(url);
                 }
             }

@@ -18,10 +18,10 @@ import application.buzzmovieselector.Model.User;
 public class MovieUserDB extends SQLiteOpenHelper {
     private static final String DB_NAME = "USERMOVIE";
     private static final int DB_VERSION = 1;
-    private static final String username = "UserName";
-    private static final String movieId = "MovieId";
-    private static final String comments = "Comments";
-    private static final String rating = "Rating";
+    private static final String USER_NAME = "UserName";
+    private static final String MOVIE_ID = "MovieId";
+    private static final String COMMENTS = "Comments";
+    private static final String RATING = "Rating";
 
     SQLiteDatabase db;
     MovieDatabase helper;
@@ -34,8 +34,8 @@ public class MovieUserDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE " + DB_NAME + "(" + username + " TEXT, " + movieId + " INTEGER, " + comments + " TEXT, " + rating + " TEXT" +
-                ", PRIMARY KEY (" + username + ", " + movieId + "));";
+        String query = "CREATE TABLE " + DB_NAME + "(" + USER_NAME + " TEXT, " + MOVIE_ID + " INTEGER, " + COMMENTS + " TEXT, " + RATING + " TEXT" +
+                ", PRIMARY KEY (" + USER_NAME + ", " + MOVIE_ID + "));";
         try {
             db.execSQL(query);
         } catch (SQLException e) {
@@ -57,10 +57,10 @@ public class MovieUserDB extends SQLiteOpenHelper {
     public long insertRatingComment(Movie movie, User user) {
         db = this.getWritableDatabase();
         ContentValues userValues = new ContentValues();
-        userValues.put(username, user.getUserName());
-        userValues.put(movieId, movie.getId());
-        userValues.put(rating, movie.getRating());
-        userValues.put(comments, movie.getComment());
+        userValues.put(USER_NAME, user.getUserName());
+        userValues.put(MOVIE_ID, movie.getId());
+        userValues.put(RATING, movie.getRating());
+        userValues.put(COMMENTS, movie.getComment());
         long id = db.insert(DB_NAME, null, userValues);
         db.close();
         return id;

@@ -36,8 +36,8 @@ import application.buzzmovieselector.ui.RecentListAdapter;
  */
 public class RecentMovieTab extends Fragment {
     ArrayList<String> movies = new ArrayList<>();
-    private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
-    private int MOVIE_PAGE_LIMIT = 10;
+    private String apiKey = "yedukp76ffytfuy24zsqk7f5";
+    private int moviePageLimit = 10;
     private String response;
     private RequestQueue queue;
     private ListView listView;
@@ -84,7 +84,7 @@ public class RecentMovieTab extends Fragment {
     }
 
     private void recentDvd() {
-        String url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=" + API_KEY + "&page_limit=" + MOVIE_PAGE_LIMIT;
+        String url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=" + apiKey + "&page_limit=" + moviePageLimit;
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, new Response.Listener<JSONObject>() {
                     @Override

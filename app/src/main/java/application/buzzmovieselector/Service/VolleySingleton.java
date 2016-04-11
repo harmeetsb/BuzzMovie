@@ -15,7 +15,7 @@ import application.buzzmovieselector.Activity.WelcomeScreen;
  * @author Harmeet S. Bindra
  * @version 1.0
  */
-public class VolleySingleton {
+public final class VolleySingleton {
 
     private static VolleySingleton sInstance = null;
     private RequestQueue mRequestQueue;

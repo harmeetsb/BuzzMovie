@@ -17,13 +17,13 @@ import application.buzzmovieselector.Model.Movie;
 public class MovieDatabase extends SQLiteOpenHelper {
     private static final String DB_NAME = "MOVIES";
     private static final int DB_VERSION = 1;
-    private static final String movieId = "Movie_Id";
-    private static final String movieName = "Movie_Name";
-    private static final String movieUrl = "URL";
-    private static final String date = "Date";
-    private static final String mppaRating = "Mpaa_Rating";
-    private static final String runtime = "Runtime";
-    private static final String userRated = "User_Rated";
+    private static final String MOVIE_ID = "Movie_Id";
+    private static final String MOVIE_NAME = "Movie_Name";
+    private static final String MOVIE_URL = "URL";
+    private static final String DATE = "Date";
+    private static final String MPAA_RATING = "Mpaa_Rating";
+    private static final String RUNTIME = "Runtime";
+    private static final String USER_RATED = "User_Rated";
 
     SQLiteDatabase db;
     MovieDatabase helper;
@@ -41,8 +41,8 @@ public class MovieDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE " + DB_NAME + "(" + movieId + " INTEGER PRIMARY KEY, " + movieName + " TEXT, "
-                + movieUrl + " TEXT, " + date + " TEXT, " + mppaRating + " TEXT," + runtime + " INTEGER);";
+        String query = "CREATE TABLE " + DB_NAME + "(" + MOVIE_ID + " INTEGER PRIMARY KEY, " + MOVIE_NAME + " TEXT, "
+                + MOVIE_URL + " TEXT, " + DATE + " TEXT, " + MPAA_RATING + " TEXT," + RUNTIME + " INTEGER);";
         try {
             db.execSQL(query);
         } catch (SQLException e) {
@@ -70,12 +70,12 @@ public class MovieDatabase extends SQLiteOpenHelper {
     public long insertMovie(Movie movie) {
         db = this.getWritableDatabase();
         ContentValues userValues = new ContentValues();
-        userValues.put(movieId, movie.getId());
-        userValues.put(movieName, movie.getName());
-        userValues.put(movieUrl, movie.getImageUrl());
-        userValues.put(date, movie.getReleaseDate().toString());
-        userValues.put(mppaRating, movie.getMpaaRating());
-        userValues.put(runtime, movie.getRunTime());
+        userValues.put(MOVIE_ID, movie.getId());
+        userValues.put(MOVIE_NAME, movie.getName());
+        userValues.put(MOVIE_URL, movie.getImageUrl());
+        userValues.put(DATE, movie.getReleaseDate().toString());
+        userValues.put(MPAA_RATING, movie.getMpaaRating());
+        userValues.put(RUNTIME, movie.getRunTime());
         long id = db.insert(DB_NAME, null, userValues);
         db.close();
         return id;
@@ -89,8 +89,8 @@ public class MovieDatabase extends SQLiteOpenHelper {
      */
     public Movie findMovie(int id) {
         db = this.getReadableDatabase();
-        //String query = "SELECT "+movieId+", "+movieName+", "+comments+", "+ratings+", "+
-        //        movieUrl+", "+date+", "+mppaRating+", "+runtime+" FROM "+DB_NAME;
+        //String query = "SELECT "+MOVIE_ID+", "+MOVIE_NAME+", "+comments+", "+ratings+", "+
+        //        MOVIE_URL+", "+DATE+", "+MPAA_RATING+", "+RUNTIME+" FROM "+DB_NAME;
         String query = "SELECT * FROM MOVIES";
         Cursor cursor = db.rawQuery(query, null);
         String name = null;
@@ -128,7 +128,7 @@ public class MovieDatabase extends SQLiteOpenHelper {
     public boolean update(Movie movie) {
         int id = movie.getId();
         db = this.getWritableDatabase();
-        db.delete(DB_NAME, " " + movieId + " = '" + id + "'", null);
+        db.delete(DB_NAME, " " + MOVIE_ID + " = '" + id + "'", null);
         long sucess = insertMovie(movie);
         if (sucess < 0) return false;
         else return true;

@@ -91,7 +91,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "Major, isAdmin, isBanned, isLocked, isActive FROM " + DB_NAME;
 
         Cursor cursor = db.rawQuery(query, null);
-        String name = null, email = null, username = null, password = null, Major = null;
+        String name = null, email = null, username = null, password = null, major = null;
         boolean isAdmin = false, isBanned = false, isLocked = false, isActive = false;
         String un = "";
         if (cursor.moveToFirst()) {
@@ -102,14 +102,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     email = cursor.getString(1);
                     username = cursor.getString(2);
                     password = cursor.getString(3);
-                    Major = cursor.getString(4);
+                    major = cursor.getString(4);
                     isAdmin = cursor.getInt(5) > 0;
                     isBanned = cursor.getInt(6) > 0;
                     isLocked = cursor.getInt(7) > 0;
                     isActive = cursor.getInt(8) > 0;
                     db.close();
                     cursor.close();
-                    return new User(name, password, email, username, Major, isAdmin,
+                    return new User(name, password, email, username, major, isAdmin,
                             isBanned, isLocked, isActive);
                 }
             } while (cursor.moveToNext());
@@ -134,7 +134,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = this.getReadableDatabase();
         String query = "SELECT * FROM " + DB_NAME;
         Cursor cursor = db.rawQuery(query, null);
-        String name = null, email = null, username = null, password = null, Major = null;
+        String name = null, email = null, username = null, password = null, major = null;
         boolean isAdmin = false, isBanned = false, isLocked = false, isActive = false;
         String un = "";
         cursor.moveToFirst();
@@ -143,10 +143,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             email = cursor.getString(1);
             username = cursor.getString(2);
             password = cursor.getString(3);
-            Major = cursor.getString(4);
+            major = cursor.getString(4);
             isAdmin = cursor.getInt(5) > 0;
             isBanned = cursor.getInt(6) > 0;
-            User user = new User(name, password, email, username, Major, isAdmin,
+            User user = new User(name, password, email, username, major, isAdmin,
                     isBanned, isLocked, isActive);
             users.add(user);
         } while (cursor.moveToNext());

@@ -20,7 +20,7 @@ import application.buzzmovieselector.Model.Movie;
 /**
  * Created by harmeetbindra on 3/3/16.
  */
-public class RottenTomatoService {
+public final class RottenTomatoService {
     private static final String API_KEY = "yedukp76ffytfuy24zsqk7f5";
     private static final int MOVIE_PAGE_LIMIT = 5;
     private static String response;

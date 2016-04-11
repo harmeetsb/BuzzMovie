@@ -39,8 +39,8 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
     ViewPager mViewPager;
     ActionBar actionBar;
     VolleySingleton volleyInstance;
-    private String API_KEY = "yedukp76ffytfuy24zsqk7f5";
-    private int MOVIE_PAGE_LIMIT = 10;
+    private String apiKey = "yedukp76ffytfuy24zsqk7f5";
+    private int moviePageLimit = 10;
     private String response;
     private RequestQueue queue;
     private ArrayList<Movie> searchMovies;
@@ -146,7 +146,7 @@ public class ProfileActivity extends AppCompatActivity implements ActionBar.TabL
         if (movieName.isEmpty() || movieName == null) {
             Toast.makeText(this, "invalid movie name", Toast.LENGTH_SHORT).show();
         } else {
-            String url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" + API_KEY + "&q=" + movieName + "&page_limit=" + MOVIE_PAGE_LIMIT;
+            String url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" + apiKey + "&q=" + movieName + "&page_limit=" + moviePageLimit;
             requestMovie(url);
             // changeView(searchMovies);
         }
